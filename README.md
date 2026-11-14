@@ -1,0 +1,53 @@
+# CircleTel × Zoho Workplace landing page
+
+The landing page for the Microsoft vs Zoho social campaign. Its one job is to collect formal quote requests: contact details plus company information.
+
+It's a single static page (`index.html` + `assets/`) with no build step. Host it anywhere that serves static files, or drop it into the main site.
+
+## Wire up the quote form
+
+The form runs in **preview mode** until you give it somewhere to send requests. In preview mode it validates, logs the payload to the browser console and shows the success screen, but sends nothing.
+
+Open `index.html` and set the endpoint near the top of the `<script>` block:
+
+```js
+const QUOTE_ENDPOINT = "https://…";
+```
+
+The page sends a JSON `POST` to that URL. Good targets:
+
+- a **Zoho Flow** or **Zoho CRM webhook** that creates a Lead (the natural fit, since CircleTel is a Zoho partner)
+- **Zoho Forms**, or your own API
+
+The endpoint must allow CORS from the page's domain.
+
+### Payload
+
+| field | notes |
+|---|---|
+| `first_name`, `last_name`, `email`, `phone`, `company`, `company_size` | required |
+| `job_title`, `users`, `current_platform`, `interest` | optional |
+| `consent` | always `true` (POPIA tick box is required) |
+| `utm_source`, `utm_medium`, `utm_campaign`, `utm_content` | read from the URL, for campaign attribution |
+| `page`, `submitted_at`, `lead_source` | added automatically |
+
+Tag the social ads' links with UTMs so each lead shows which post it came from, for example:
+`?utm_source=facebook&utm_medium=paid_social&utm_campaign=ms-vs-zoho&utm_content=email-down`
+
+## Swapping in the final artwork
+
+Photos are taken from the campaign PDF and can be replaced one for one:
+
+| file | used in |
+|---|---|
+| `assets/hero-outage.jpg` | hero (square works best, subject on the left) |
+| `assets/team.jpg` | "Here's how we fix it" (portrait, subjects centred) |
+| `assets/zoho-one-box.png` | "Meet Zoho Workplace" (transparent PNG) |
+| `assets/zoho-partner.jpg` | Zoho Authorized Partner badge |
+| `assets/circletel-logo-white.png`, `assets/circletel-logo.png` | logos from circletel.co.za |
+
+## Design notes
+
+- The look matches circletel.co.za: Manrope headings, Inter body text, navy `#1B2A4A`, orange `#E87A1E`, pill buttons and 16px cards.
+- The orange arc and the failure notifications ("Meeting failed to join", "Cannot connect to server") come from the campaign artwork, so the page reads as the continuation of the ad.
+- The page responds down to 320px, has visible keyboard focus and respects reduced-motion settings.
