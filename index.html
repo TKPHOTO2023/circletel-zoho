@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CircleTel × Zoho Workplace | Request a quote</title>
-<meta name="description" content="Don't run your whole business on one cloud. CircleTel, an authorised Zoho partner, sets up Zoho Workplace as your main suite or a ready backup. Request a formal quote.">
+<title>Zoho One via CircleTel | Microsoft vs Zoho | Request a quote</title>
+<meta name="description" content="Email, meetings, chat and files, plus CRM, accounting, HR and 45+ business apps on one licence. CircleTel, an authorised Zoho partner, sets up Zoho One and moves you over. Request a formal quote.">
 <meta property="og:title" content="Email down. Teams down. Business down?">
-<meta property="og:description" content="Get a smart Plan B with Zoho Workplace, set up and supported by CircleTel, an authorised Zoho partner.">
+<meta property="og:description" content="Move to Zoho One, set up and supported by CircleTel, an authorised Zoho partner. Request a formal quote.">
 <meta property="og:image" content="assets/hero-outage.jpg">
-<meta name="theme-color" content="#F5841F">
+<meta name="theme-color" content="#1B2A4A">
 <link rel="icon" href="assets/circletel-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,12 +20,13 @@
   --orange-soft:#FDEBDB;
   --navy:#1B2A4A;
   --navy-ink:#0F1427;
+  --navy-2:#24365C;
   --ink:#111827;
   --slate:#4B5563;
+  --muted:#8A93A3;
   --line:#E5E7EB;
   --card-line:#DDE8FF;
   --mist:#F3F7FF;
-  --grey:#F0F0F0;
   --white:#FFFFFF;
   --red:#E5484D;
   --green:#1F9D55;
@@ -37,164 +38,267 @@
   --gutter:clamp(16px,4vw,40px);
   --radius:16px;
   --shadow:0 18px 40px -18px rgba(15,20,39,.35);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.05);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
 body{margin:0;font-family:var(--body);font-size:16px;line-height:1.6;color:var(--ink);background:#F9FAFB;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--navy);outline-offset:3px;border-radius:6px}
-.on-dark :focus-visible,.hero :focus-visible{outline-color:var(--white)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:6px}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+[hidden]{display:none!important}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* type */
 .display{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:1.04;margin:0}
 .kicker{font-family:var(--display);font-weight:800;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin:0 0 .9rem}
-.lead{font-size:clamp(1rem,1.3vw,1.125rem);color:var(--slate);max-width:56ch}
+.lead{font-size:clamp(1rem,1.3vw,1.125rem);color:var(--slate);max-width:58ch;margin:0}
+.h2{font-size:clamp(2.1rem,4.2vw,3.3rem);color:var(--navy)}
+.sec-head{display:grid;grid-template-columns:1.1fr .9fr;gap:1.25rem 4rem;align-items:end;margin-bottom:clamp(36px,5vw,64px)}
+@media (max-width:960px){.sec-head{grid-template-columns:1fr}}
 
 /* buttons */
-.btn{--bg:var(--navy);--fg:var(--white);display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;padding:0 1.6rem;border-radius:999px;border:0;background:var(--bg);color:var(--fg);font:600 1rem/1 var(--body);text-decoration:none;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
-.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px -12px rgba(11,21,40,.55)}
-.btn:active{transform:translateY(0)}
+.btn{--bg:var(--navy);--fg:var(--white);display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;padding:0 1.6rem;border-radius:999px;border:0;background:var(--bg);color:var(--fg);font:600 1rem/1 var(--body);text-decoration:none;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px -12px rgba(15,20,39,.55)}
+.btn:active{transform:none}
 .btn--orange{--bg:var(--orange)}
 .btn--orange:hover{--bg:var(--orange-deep)}
 .btn--white{--bg:var(--white);--fg:var(--navy)}
-.btn--sm{min-height:42px;padding:0 1.1rem;font-size:.9rem}
+.btn--line{--bg:transparent;--fg:var(--navy);box-shadow:inset 0 0 0 1.5px #C7CCD6}
+.btn--line:hover{box-shadow:inset 0 0 0 1.5px var(--navy)}
+.btn--sm{min-height:42px;padding:0 1.15rem;font-size:.9rem}
+.btn--lg{min-height:58px;padding:0 2rem;font-size:1.05rem}
 .btn svg{flex:none}
+.arrow{transition:transform .18s}
+.btn:hover .arrow{transform:translateX(3px)}
+.wa{color:#25D366}
 
 /* ───────── header */
 .top{position:sticky;top:0;z-index:50;background:var(--navy);color:var(--white);border-bottom:1px solid rgba(255,255,255,.08);transition:box-shadow .2s}
 .top.is-stuck{box-shadow:0 10px 30px -12px rgba(15,20,39,.6)}
-.top :focus-visible{outline-color:var(--white)}
-.top__in{display:flex;align-items:center;gap:1rem;height:72px}
-.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;margin-right:auto}
-.brand img{width:52px;height:52px}
-.brand span{font-size:.72rem;line-height:1.25;color:rgba(255,255,255,.7);border-left:1px solid rgba(255,255,255,.18);padding-left:.7rem;max-width:12ch}
+.top__in{display:flex;align-items:center;gap:1.1rem;height:72px}
+.brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;margin-right:auto}
+.brand img{width:50px;height:50px}
+.brand span{font-size:.72rem;line-height:1.25;color:rgba(255,255,255,.7);border-left:1px solid rgba(255,255,255,.18);padding-left:.75rem;max-width:12ch}
 .top__partner{height:34px;width:auto;border-radius:6px}
-.top__phone{display:inline-flex;align-items:center;gap:.45rem;font-weight:500;font-size:.875rem;text-decoration:none;color:var(--white)}
-.top__phone svg{color:var(--white);opacity:.9}
-.top__phone:hover{color:var(--orange)}
-.btn--ghost{--bg:transparent;--fg:var(--white);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55)}
-.btn--ghost:hover{--bg:var(--white);--fg:var(--navy);box-shadow:none}
-@media (max-width:1040px){.top__mail{display:none}}
+.top__link{display:inline-flex;align-items:center;gap:.45rem;font-weight:500;font-size:.875rem;text-decoration:none;color:var(--white)}
+.top__link:hover{color:var(--orange)}
+@media (max-width:1060px){.top__mail{display:none}}
 @media (max-width:880px){.top__partner,.brand span{display:none}}
 @media (max-width:560px){.top__phone{display:none}.top__in{height:64px}.brand img{width:44px;height:44px}}
 
 /* ───────── hero */
 .hero{position:relative;background:var(--orange);color:var(--white);overflow:hidden;isolation:isolate}
-.hero__photo{position:absolute;inset:0 auto 0 0;width:56%;clip-path:ellipse(100% 125% at 0% 50%);z-index:-1}
+.hero__photo{position:absolute;inset:0 auto 0 0;width:52%;clip-path:ellipse(100% 125% at 0% 50%);z-index:-1}
 .hero__photo img{width:100%;height:100%;object-fit:cover;object-position:30% 30%}
-.hero__in{display:grid;grid-template-columns:1fr 1fr;min-height:min(820px,calc(100svh - 72px))}
-.hero__copy{grid-column:2;align-self:center;padding:clamp(48px,7vw,96px) 0 clamp(48px,7vw,96px) clamp(16px,3vw,48px)}
-.hero h1{font-size:clamp(2.5rem,5vw,4.6rem)}
+.hero__in{display:grid;grid-template-columns:1fr 1.02fr;min-height:min(860px,calc(100svh - 72px))}
+.hero__copy{grid-column:2;align-self:center;padding:clamp(44px,6vw,80px) 0 clamp(44px,6vw,80px) clamp(16px,3vw,40px)}
+.hero .kicker{color:var(--white);display:inline-flex;align-items:center;gap:.55rem;background:rgba(15,20,39,.16);padding:.45rem .8rem;border-radius:999px;margin-bottom:1.25rem}
+.hero .kicker i{width:8px;height:8px;border-radius:50%;background:var(--white);box-shadow:0 0 0 0 rgba(255,255,255,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+.hero h1{font-size:clamp(2.5rem,4.9vw,4.4rem)}
 .hero h1 span{display:block}
-.hero__stat{font-family:var(--display);font-weight:700;letter-spacing:-.015em;font-size:clamp(1.15rem,1.9vw,1.6rem);line-height:1.2;margin:1.6rem 0 0;max-width:20ch}
-.hero__stat b{font-weight:800}
-.hero__body{margin:1rem 0 2rem;max-width:44ch;color:rgba(255,255,255,.92)}
-.hero__ctas{display:flex;flex-wrap:wrap;gap:.75rem}
-.hero__proof{display:flex;align-items:center;flex-wrap:wrap;gap:.9rem 1.2rem;margin-top:2.25rem;font-size:.82rem;color:rgba(255,255,255,.9)}
-.hero__proof img{height:46px;width:auto;border-radius:8px;box-shadow:0 8px 20px -10px rgba(0,0,0,.4)}
+.hero__body{margin:1.1rem 0 1.6rem;max-width:46ch;font-size:clamp(1rem,1.25vw,1.1rem);color:rgba(255,255,255,.95)}
+.hero__body b{font-weight:600;color:var(--white)}
 
-/* failure toasts — the signature */
-.toasts{position:absolute;inset:0 auto 0 0;width:56%;pointer-events:none}
+.starter{background:var(--white);color:var(--navy);border-radius:20px;padding:1.15rem 1.15rem 1.2rem;box-shadow:0 30px 60px -30px rgba(15,20,39,.6);max-width:540px}
+.starter__top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.2rem}
+.starter__top b{font:800 1.1rem/1.25 var(--display);letter-spacing:-.01em}
+.starter__top small{font-size:.75rem;color:var(--slate);white-space:nowrap}
+.starter p{margin:0 0 .8rem;font-size:.9rem;color:var(--slate)}
+.starter__chips{display:grid;grid-template-columns:repeat(5,1fr);gap:.45rem}
+.starter__chips button{min-height:48px;border:1.5px solid var(--line);background:var(--white);border-radius:12px;font-weight:600;font-size:.92rem;cursor:pointer;transition:all .15s}
+.starter__chips button:hover{border-color:var(--orange);background:var(--orange-soft);color:var(--orange-deep)}
+.starter__alt{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem 1.1rem;margin-top:1rem;font-size:.85rem;color:rgba(255,255,255,.95)}
+.starter__alt a{font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
+.starter__alt a:hover{text-decoration:underline}
+.starter__alt span{display:inline-flex;align-items:center;gap:.35rem}
+@media (max-width:520px){.starter__chips{grid-template-columns:repeat(3,1fr)}}
+
+/* failure toasts */
+.toasts{position:absolute;inset:0 auto 0 0;width:52%;pointer-events:none}
 .toast{position:absolute;display:flex;align-items:center;gap:.6rem;font-weight:500;box-shadow:var(--shadow);opacity:0;transform:translateY(14px) scale(.97);animation:toast-in .55s cubic-bezier(.2,.8,.2,1) forwards}
-.toast--pill{background:var(--navy);color:var(--white);padding:.7rem 1.15rem;border-radius:999px;font-size:clamp(.8rem,1.1vw,.98rem)}
+.toast--pill{background:var(--navy);color:var(--white);padding:.7rem 1.15rem;border-radius:999px;font-size:clamp(.8rem,1.05vw,.95rem)}
 .toast--pill i{width:20px;height:20px;border:2px solid var(--orange);border-radius:50%;display:grid;place-items:center;font:700 12px/1 var(--body);color:var(--orange);font-style:normal;flex:none}
-.toast strong{font-family:var(--display);font-weight:700}
-.toast--card{background:var(--white);color:var(--navy);border-radius:14px;padding:1rem 1.15rem .95rem;width:min(300px,30vw);flex-wrap:wrap;align-items:flex-start}
+.toast--card{background:var(--white);color:var(--navy);border-radius:14px;padding:1rem 1.15rem .95rem;width:min(290px,28vw);flex-wrap:wrap;align-items:flex-start}
 .toast--card svg{flex:none;color:var(--orange);margin-top:2px}
-.toast--card strong{display:block;font-size:.95rem;line-height:1.3}
+.toast--card strong{display:block;font:700 .95rem/1.3 var(--display)}
 .toast--card small{display:block;font-variant-numeric:tabular-nums;font-size:.78rem;color:var(--slate);margin-top:.15rem}
 .toast__bar{flex-basis:100%;height:5px;border-radius:5px;background:var(--line);overflow:hidden;margin-top:.55rem}
 .toast__bar span{display:block;height:100%;width:30%;background:var(--orange);border-radius:5px;animation:retry 2.4s ease-in-out infinite}
-.t1{left:30%;top:50%;animation-delay:.5s}
-.t2{left:44%;top:66%;animation-delay:1.1s}
-.t3{left:10%;top:81%;animation-delay:1.7s}
+.t1{left:28%;top:47%;animation-delay:.5s}
+.t2{left:40%;top:63%;animation-delay:1.1s}
+.t3{left:8%;top:80%;animation-delay:1.7s}
 @keyframes toast-in{to{opacity:1;transform:none}}
 @keyframes retry{0%{width:4%}70%{width:38%}100%{width:38%}}
-
-@media (max-width:900px){
-  .hero__photo,.toasts{position:relative;width:100%;height:clamp(300px,72vw,460px);clip-path:ellipse(140% 100% at 50% 0%)}
-  .toasts{position:absolute;top:0;height:clamp(300px,72vw,460px)}
-  .hero__in{display:block;min-height:0}
-  .hero__copy{padding:28px 0 56px}
+@media (max-width:960px){
+  .hero__photo,.toasts{position:relative;width:100%;height:clamp(280px,68vw,440px);clip-path:ellipse(140% 100% at 50% 0%)}
   .hero__photo img{object-position:35% 22%}
+  .toasts{position:absolute;top:0}
+  .hero__in{display:block;min-height:0}
+  .hero__copy{padding:24px 0 48px}
   .t1{left:auto;right:5%;top:14%}
   .t2{left:auto;right:5%;top:auto;bottom:22%;width:min(260px,68vw)}
   .t3{display:none}
 }
 
+/* ───────── trust bar */
+.trust{background:var(--white);border-bottom:1px solid var(--line)}
+.trust__in{display:flex;align-items:center;justify-content:space-between;gap:1rem 2rem;padding:1.25rem 0;flex-wrap:wrap}
+.trust img{height:44px;width:auto;border-radius:8px}
+.trust ul{display:flex;flex-wrap:wrap;gap:.75rem 2.25rem;list-style:none;margin:0;padding:0}
+.trust li{display:flex;align-items:center;gap:.6rem;font-size:.9rem;color:var(--slate);line-height:1.3}
+.trust li b{display:block;font:800 1.05rem/1.2 var(--display);color:var(--navy);letter-spacing:-.01em}
+.trust li svg{color:var(--orange);flex:none}
+@media (max-width:720px){.trust ul{display:grid;grid-template-columns:1fr 1fr;gap:1rem}}
+
 /* ───────── outage board */
-.board{padding:clamp(72px,10vw,128px) 0;background:var(--white)}
-.board__head{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem 4rem;align-items:end;margin-bottom:clamp(40px,6vw,72px)}
-.board__head h2{font-size:clamp(2.1rem,4.2vw,3.3rem);color:var(--navy)}
-.board__head .lead{margin:0}
+.board{padding:clamp(72px,9vw,120px) 0;background:var(--white)}
 .services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;list-style:none;margin:0;padding:0}
-.svc{border:1px solid var(--card-line);border-radius:var(--radius);padding:1.25rem 1.25rem 1.4rem;background:var(--white);box-shadow:0 1px 2px rgba(0,0,0,.05);display:flex;flex-direction:column;gap:1.1rem}
-.svc__state{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;padding:.45rem .95rem .45rem .75rem;border-radius:999px;background:var(--orange);color:var(--white);font-weight:700;font-size:.95rem;transition:background .4s ease}
-.svc__state svg{transition:transform .4s ease}
-.svc__name{color:var(--slate)}
-.svc__zoho{font-family:var(--display);font-weight:700;font-size:1.2rem;line-height:1.25;margin:0;color:var(--navy)}
-.svc__zoho + p{margin:.25rem 0 0;font-size:.92rem;color:var(--slate);line-height:1.5}
-.svc__label{display:flex;justify-content:space-between;align-items:center;font-family:var(--display);font-weight:800;font-size:.7rem;color:var(--red);text-transform:uppercase;letter-spacing:.1em}
+.svc{border:1px solid var(--card-line);border-radius:var(--radius);padding:1.25rem 1.25rem 1.4rem;background:var(--white);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:1rem}
+.svc__label{display:flex;justify-content:space-between;align-items:center;font:800 .7rem/1 var(--display);color:var(--red);text-transform:uppercase;letter-spacing:.1em}
 .svc__label .ok{display:none;color:var(--green)}
+.svc__label em{font-style:normal;color:var(--muted)}
+.svc__state{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;padding:.45rem .95rem .45rem .75rem;border-radius:999px;background:var(--orange);color:var(--white);font-weight:700;font-size:.95rem;transition:background .4s ease}
+.svc__zoho{font:700 1.2rem/1.25 var(--display);margin:0;color:var(--navy)}
+.svc__zoho + p{margin:.25rem 0 0;font-size:.92rem;color:var(--slate);line-height:1.5}
 .services.is-live .svc__state{background:var(--navy)}
 .services.is-live .svc__label .down{display:none}
 .services.is-live .svc__label .ok{display:inline}
 .services.is-live .svc:nth-child(2) .svc__state{transition-delay:.15s}
 .services.is-live .svc:nth-child(3) .svc__state{transition-delay:.3s}
 .services.is-live .svc:nth-child(4) .svc__state{transition-delay:.45s}
-.board__note{margin:1.5rem 0 0;font-size:.85rem;color:var(--slate)}
-@media (max-width:960px){.board__head{grid-template-columns:1fr}.services{grid-template-columns:repeat(2,1fr)}}
+.bridge{display:flex;align-items:center;justify-content:space-between;gap:1rem 2rem;flex-wrap:wrap;margin-top:28px;padding:1.25rem 1.5rem;border-radius:var(--radius);background:var(--mist);border:1px dashed #BFD0F5}
+.bridge p{margin:0;font:700 1.1rem/1.4 var(--display);color:var(--navy);max-width:52ch}
+.bridge p span{color:var(--orange-deep)}
+@media (max-width:960px){.services{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.services{grid-template-columns:1fr}}
 
-/* ───────── plan B */
-.planb{background:var(--mist);padding:clamp(72px,10vw,128px) 0;overflow:hidden}
-.planb__in{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(32px,6vw,88px);align-items:center}
-.planb__art{position:relative;aspect-ratio:1;max-width:520px;width:100%;justify-self:center}
-.planb__art::before{content:"";position:absolute;inset:6%;border-radius:50%;background:var(--orange)}
-.planb__art::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--orange);opacity:.35}
-.planb__art img{position:relative;width:64%;margin:12% auto 0;filter:drop-shadow(0 30px 30px rgba(11,21,40,.35));transform:rotate(-4deg)}
-.planb h2{font-size:clamp(2.2rem,4.4vw,3.5rem);color:var(--navy)}
-.planb__tag{display:inline-block;margin:1.4rem 0 1.4rem;background:var(--navy);color:var(--white);border-radius:12px;padding:.55rem 1rem;font-size:.85rem}
-.planb__tag b{font-weight:700;letter-spacing:.04em}
-.ticks{list-style:none;margin:0 0 2rem;padding:0;display:grid;gap:.85rem}
-.ticks li{display:flex;gap:.8rem;align-items:flex-start;font-weight:600;font-size:1.05rem;line-height:1.4;color:var(--navy)}
-.ticks svg{flex:none;color:var(--orange);margin-top:2px}
-.modes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:2rem}
-.mode{background:var(--white);border-radius:var(--radius);padding:1.1rem 1.2rem;border:1px solid var(--card-line);box-shadow:0 1px 2px rgba(0,0,0,.05)}
-.mode h3{margin:0 0 .25rem;font:700 1.05rem/1.3 var(--display);color:var(--navy)}
-.mode p{margin:0;font-size:.9rem;color:var(--slate);line-height:1.5}
-@media (max-width:900px){.planb__in{grid-template-columns:1fr}.planb__art{max-width:360px}}
-@media (max-width:480px){.modes{grid-template-columns:1fr}}
+/* ───────── Zoho One suite */
+.suite{background:var(--navy-ink);color:var(--white);padding:clamp(72px,9vw,120px) 0;position:relative;overflow:hidden}
+.suite::before{content:"";position:absolute;width:1100px;height:1100px;border-radius:50%;border:2px solid rgba(232,122,30,.16);right:-560px;top:-420px;pointer-events:none}
+.suite > .wrap{position:relative;z-index:1}
+.suite .h2{color:var(--white)}
+.suite .lead{color:rgba(255,255,255,.72)}
+.suite__count{display:inline-flex;align-items:baseline;gap:.5rem;margin-top:1.25rem;color:rgba(255,255,255,.72);font-size:.95rem}
+.suite__count b{font:800 2.4rem/1 var(--display);color:var(--orange);letter-spacing:-.03em}
+
+.tabs{display:flex;gap:.4rem;overflow-x:auto;scrollbar-width:none;padding:4px;margin:0 calc(var(--gutter) * -1) 0;padding-left:var(--gutter);padding-right:var(--gutter);scroll-snap-type:x mandatory}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;display:inline-flex;align-items:center;gap:.55rem;min-height:46px;padding:0 1.1rem;border-radius:999px;border:1.5px solid rgba(255,255,255,.14);background:transparent;color:rgba(255,255,255,.8);font-weight:600;font-size:.92rem;cursor:pointer;scroll-snap-align:start;transition:all .18s}
+.tab:hover{border-color:rgba(255,255,255,.4);color:var(--white)}
+.tab[aria-selected="true"]{background:var(--orange);border-color:var(--orange);color:var(--white)}
+.tab span{font-size:.75rem;font-weight:700;background:rgba(255,255,255,.14);border-radius:999px;padding:.1rem .45rem}
+.tab[aria-selected="true"] span{background:rgba(15,20,39,.2)}
+@media (min-width:961px){.tabs{margin:0;padding:4px;flex-wrap:wrap}}
+
+.panel{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,4vw,56px);margin-top:28px;align-items:start}
+.panel[hidden]{display:none}
+.panel__intro h3{font:800 clamp(1.5rem,2.4vw,2rem)/1.15 var(--display);letter-spacing:-.025em;margin:0 0 .75rem}
+.panel__intro p{margin:0 0 1.25rem;color:rgba(255,255,255,.72)}
+.panel__intro .swap{display:block;font-size:.85rem;color:rgba(255,255,255,.55);border-left:2px solid var(--orange);padding-left:.8rem;margin-bottom:1.5rem}
+.apps{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;list-style:none;margin:0;padding:0}
+.app{display:grid;grid-template-columns:auto 1fr;gap:.85rem;align-items:start;padding:1rem;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:background .2s,border-color .2s,transform .2s}
+.app:hover{background:rgba(255,255,255,.07);border-color:rgba(232,122,30,.5);transform:translateY(-2px)}
+.app i{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font:800 .78rem/1 var(--display);font-style:normal;letter-spacing:-.02em;color:var(--white);background:var(--navy-2)}
+.app b{display:block;font:700 1rem/1.3 var(--display)}
+.app small{display:block;font-size:.85rem;color:rgba(255,255,255,.62);line-height:1.45;margin-top:.15rem}
+.panel.is-entering .app{animation:app-in .45s cubic-bezier(.2,.8,.2,1) both}
+.panel.is-entering .app:nth-child(2){animation-delay:.04s}.panel.is-entering .app:nth-child(3){animation-delay:.08s}.panel.is-entering .app:nth-child(4){animation-delay:.12s}.panel.is-entering .app:nth-child(5){animation-delay:.16s}.panel.is-entering .app:nth-child(6){animation-delay:.2s}.panel.is-entering .app:nth-child(n+7){animation-delay:.24s}
+@keyframes app-in{from{opacity:0;transform:translateY(10px)}}
+
+.wins{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(40px,6vw,64px);padding-top:clamp(32px,4vw,48px);border-top:1px solid rgba(255,255,255,.1)}
+.win h4{font:700 1.1rem/1.3 var(--display);margin:.75rem 0 .35rem}
+.win p{margin:0;font-size:.92rem;color:rgba(255,255,255,.66)}
+.win svg{color:var(--orange)}
+@media (max-width:960px){.panel{grid-template-columns:1fr}.wins{grid-template-columns:1fr}}
+@media (max-width:520px){.apps{grid-template-columns:1fr;gap:8px}.app{padding:.8rem .9rem}.app i{width:36px;height:36px}}
+
+/* ───────── Microsoft vs Zoho */
+.versus{background:var(--mist);padding:clamp(72px,9vw,120px) 0}
+.tally{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.tally__card{border-radius:var(--radius);padding:1.4rem 1.5rem;background:var(--white);border:1px solid var(--card-line);box-shadow:var(--shadow-sm)}
+.tally__card small{display:block;font:800 .72rem/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem}
+.tally__score{display:flex;align-items:baseline;gap:.5rem;font:800 clamp(2.4rem,5vw,3.6rem)/1 var(--display);letter-spacing:-.04em;color:var(--navy)}
+.tally__score span{font-size:.4em;letter-spacing:0;color:var(--slate);font-weight:700}
+.tally__meter{height:10px;border-radius:10px;background:#E8EDF7;margin:1rem 0 .7rem;overflow:hidden}
+.tally__meter i{display:block;height:100%;width:0;border-radius:10px;background:var(--muted);transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.tally__card p{margin:0;font-size:.9rem;color:var(--slate)}
+.tally__card--zoho{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.tally__card--zoho small{color:var(--orange)}
+.tally__card--zoho .tally__score{color:var(--white)}
+.tally__card--zoho .tally__score span,.tally__card--zoho p{color:rgba(255,255,255,.72)}
+.tally__card--zoho .tally__meter{background:rgba(255,255,255,.12)}
+.tally__card--zoho .tally__meter i{background:var(--orange)}
+.versus.is-in .tally__meter i{width:var(--w)}
+
+.vs{width:100%;border-collapse:separate;border-spacing:0;background:var(--white);border:1px solid var(--card-line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm)}
+.vs th,.vs td{padding:1rem 1.25rem;text-align:left;vertical-align:middle;border-bottom:1px solid #EDF1F8}
+.vs tbody tr:last-child th,.vs tbody tr:last-child td{border-bottom:0}
+.vs thead th{font:800 .78rem/1.3 var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--slate);background:#FAFBFE}
+.vs thead th.z{color:var(--orange-deep);background:#FFF7F0}
+.vs tbody th{font-weight:600;color:var(--navy);width:34%}
+.vs tbody th small{display:block;font-weight:400;color:var(--slate);font-size:.82rem;margin-top:.1rem}
+.vs td.z{background:#FFFBF7;border-left:2px solid var(--orange);border-right:0}
+.vs thead th.z{border-left:2px solid var(--orange)}
+.cell{display:flex;align-items:center;gap:.65rem;line-height:1.3}
+.cell svg{flex:none}
+.cell b{display:block;font-weight:600;font-size:.92rem;color:var(--navy)}
+.cell small{display:block;font-size:.8rem;color:var(--slate)}
+.is-yes svg{color:var(--slate)}
+.z .is-yes svg{color:var(--orange)}
+.is-extra svg,.is-no svg{color:#B4BBC8}
+.is-extra b,.is-no b{color:var(--slate);font-weight:500}
+.vs__foot{display:flex;justify-content:space-between;align-items:center;gap:1rem 2rem;flex-wrap:wrap;margin-top:24px}
+.vs__foot p{margin:0;font-size:.78rem;color:var(--slate);max-width:70ch}
+.keep{display:grid;grid-template-columns:auto 1fr auto;gap:1.25rem;align-items:center;margin-top:28px;background:var(--white);border:1px solid var(--card-line);border-radius:var(--radius);padding:1.25rem 1.5rem}
+.keep__icon{width:48px;height:48px;border-radius:50%;background:var(--orange-soft);color:var(--orange-deep);display:grid;place-items:center}
+.keep h3{margin:0;font:700 1.1rem/1.3 var(--display);color:var(--navy)}
+.keep p{margin:.2rem 0 0;font-size:.92rem;color:var(--slate)}
+@media (max-width:760px){
+  .tally{grid-template-columns:1fr}
+  .vs thead{display:none}
+  .vs,.vs tbody,.vs tr,.vs th,.vs td{display:block;width:100%}
+  .vs tbody tr{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #EDF1F8}
+  .vs tbody tr:last-child{border-bottom:0}
+  .vs tbody th{grid-column:1/-1;width:auto;border-bottom:0;padding-bottom:.25rem}
+  .vs td{border-bottom:0;padding-top:.5rem}
+  .vs td::before{content:attr(data-label);display:block;font:800 .65rem/1 var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.45rem}
+  .vs td.z::before{color:var(--orange-deep)}
+  .vs td.z{border-left:0;border-radius:10px;margin:0 .5rem .75rem 0;width:auto}
+  .keep{grid-template-columns:auto 1fr}
+  .keep .btn{grid-column:1/-1}
+}
 
 /* ───────── how */
 .how{position:relative;background:var(--orange);color:var(--white);overflow:hidden;isolation:isolate}
-.how__photo{position:absolute;inset:0 0 0 auto;width:48%;clip-path:ellipse(100% 120% at 100% 50%);z-index:-1}
+.how__photo{position:absolute;inset:0 0 0 auto;width:46%;clip-path:ellipse(100% 120% at 100% 50%);z-index:-1}
 .how__photo img{width:100%;height:100%;object-fit:cover;object-position:40% 30%}
-.how__in{padding:clamp(72px,10vw,120px) 0;max-width:640px}
-.how h2{font-size:clamp(2.4rem,5vw,4.2rem);margin-bottom:2rem}
-.steps{list-style:none;margin:0;padding:clamp(1.25rem,3vw,2rem);background:var(--white);color:var(--navy);border-radius:22px;display:grid;gap:1.5rem;box-shadow:var(--shadow);counter-reset:s}
+.how__in{padding:clamp(72px,9vw,120px) 0;max-width:640px}
+.how .kicker{color:var(--white)}
+.how h2{font-size:clamp(2.3rem,4.6vw,3.8rem);margin-bottom:1.75rem}
+.steps{list-style:none;margin:0;padding:clamp(1.25rem,3vw,2rem);background:var(--white);color:var(--navy);border-radius:22px;display:grid;gap:1.4rem;box-shadow:var(--shadow);counter-reset:s}
 .steps li{display:grid;grid-template-columns:auto 1fr;gap:1rem;counter-increment:s}
 .steps li::before{content:counter(s);width:40px;height:40px;border-radius:50%;background:var(--orange);color:var(--white);display:grid;place-items:center;font:800 1.05rem/1 var(--display)}
-.steps h3{margin:.2rem 0 .2rem;font:700 1.15rem/1.3 var(--display);color:var(--navy)}
+.steps h3{margin:.2rem 0 .2rem;font:700 1.15rem/1.3 var(--display)}
 .steps p{margin:0;color:var(--slate);font-size:.95rem;line-height:1.5}
-.how .kicker{color:var(--white)}
-.how__cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
-@media (max-width:900px){
-  .how__photo{position:relative;width:100%;height:clamp(260px,64vw,420px);clip-path:ellipse(140% 100% at 50% 100%)}
+.included{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 0;padding:0;list-style:none}
+.included li{display:inline-flex;align-items:center;gap:.45rem;padding:.45rem .85rem;border-radius:999px;background:rgba(15,20,39,.16);font-size:.88rem;font-weight:500}
+.how__cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+@media (max-width:960px){
   .how{display:flex;flex-direction:column-reverse}
+  .how__photo{position:relative;width:100%;height:clamp(240px,60vw,400px);clip-path:ellipse(140% 100% at 50% 100%)}
   .how__in{padding-bottom:40px}
 }
 
 /* ───────── quote */
-.quote{background:var(--navy);color:var(--white);padding:clamp(72px,10vw,128px) 0;position:relative;overflow:hidden}
-.quote::before{content:"";position:absolute;width:900px;height:900px;border-radius:50%;border:2px solid rgba(245,132,31,.22);left:-420px;top:-280px;pointer-events:none}
-.quote::after{content:"";position:absolute;width:640px;height:640px;border-radius:50%;border:2px solid rgba(245,132,31,.14);left:-300px;top:-150px;pointer-events:none}
+.quote{background:var(--navy);color:var(--white);padding:clamp(72px,9vw,120px) 0;position:relative;overflow:hidden}
+.quote::before{content:"";position:absolute;width:900px;height:900px;border-radius:50%;border:2px solid rgba(232,122,30,.22);left:-420px;top:-280px;pointer-events:none}
 .quote__in{position:relative;z-index:1;display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,6vw,80px);align-items:start}
-.quote .kicker{color:var(--orange)}
-.quote h2{font-size:clamp(2.3rem,4.6vw,3.8rem)}
+.quote h2{font-size:clamp(2.3rem,4.4vw,3.6rem)}
 .quote__intro{color:rgba(255,255,255,.78);margin:1.25rem 0 2rem;max-width:42ch}
 .why{list-style:none;margin:0 0 2rem;padding:0;display:grid;gap:1rem}
 .why li{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start}
@@ -202,51 +306,98 @@ a{color:inherit}
 .why b{display:block;font:700 1rem/1.4 var(--display)}
 .why span{color:rgba(255,255,255,.7);font-size:.92rem}
 .quote__badge{height:56px;width:auto;border-radius:10px}
-.quote__alt{margin-top:2rem;font-size:.92rem;color:rgba(255,255,255,.78)}
+.quote__alt{margin-top:1.5rem;font-size:.92rem;color:rgba(255,255,255,.78)}
 .quote__alt a{color:var(--white);font-weight:600}
 
-.form{background:var(--white);color:var(--navy);border-radius:24px;padding:clamp(1.25rem,3.5vw,2.5rem);box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
-.form__head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
-.form__head h3{margin:0;font:800 1.35rem/1.2 var(--display);letter-spacing:-.02em;color:var(--navy)}
-.form__head p{margin:0;font-size:.8rem;color:var(--slate)}
-fieldset{border:0;margin:0 0 1.5rem;padding:0;min-width:0}
-legend{font-family:var(--display);font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--orange-deep);padding:0;margin-bottom:.9rem}
+.form{background:var(--white);color:var(--navy);border-radius:24px;padding:clamp(1.25rem,3.5vw,2.25rem);box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
+.prog{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:.75rem}
+.prog i{height:6px;border-radius:6px;background:var(--line);overflow:hidden;position:relative}
+.prog i::after{content:"";position:absolute;inset:0;width:0;background:var(--orange);border-radius:6px;transition:width .4s ease}
+.prog i.done::after,.prog i.now::after{width:100%}
+.form__meta{display:flex;justify-content:space-between;gap:1rem;font-size:.8rem;color:var(--slate);margin-bottom:1.25rem}
+.form__meta b{color:var(--orange-deep);font-weight:600}
+.step[hidden]{display:none}
+.step h3{margin:0 0 1.25rem;font:800 1.45rem/1.2 var(--display);letter-spacing:-.02em}
+.step.is-entering{animation:step-in .35s ease both}
+@keyframes step-in{from{opacity:0;transform:translateX(12px)}}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .f{display:flex;flex-direction:column;gap:.35rem;min-width:0}
 .f--full{grid-column:1/-1}
-.f label{font-size:.85rem;font-weight:600}
-.f label .opt{font-weight:400;color:var(--slate)}
+.f > label,.f-label{font-size:.85rem;font-weight:600}
+.opt{font-weight:400;color:var(--slate)}
 .f input,.f select{appearance:none;width:100%;height:50px;padding:0 .95rem;border:1.5px solid var(--line);border-radius:12px;background:var(--white);font:500 1rem var(--body);color:var(--ink);transition:border-color .15s,box-shadow .15s}
-.f select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2312203A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .95rem center;padding-right:2.5rem}
+.f select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231B2A4A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .95rem center;padding-right:2.5rem}
 .f input::placeholder{color:#9AA2B1;font-weight:400}
 .f input:hover,.f select:hover{border-color:#C7CCD6}
-.f input:focus,.f select:focus{outline:0;border-color:var(--orange);box-shadow:0 0 0 4px rgba(245,132,31,.18)}
+.f input:focus,.f select:focus{outline:0;border-color:var(--orange);box-shadow:0 0 0 4px rgba(232,122,30,.18)}
 .f.has-error input,.f.has-error select{border-color:var(--red)}
 .err{display:none;font-size:.8rem;color:var(--red);font-weight:500}
-.f.has-error .err,.consent.has-error .err{display:block}
+.has-error > .err,.has-error .err{display:block}
+
+.choices{display:grid;gap:.6rem}
+.choice{position:relative;display:block;cursor:pointer}
+.choice input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.choice__box{display:grid;grid-template-columns:auto 1fr auto;gap:.85rem;align-items:center;padding:.9rem 1rem;border:1.5px solid var(--line);border-radius:14px;transition:all .15s}
+.choice__box::before{content:"";width:20px;height:20px;border-radius:50%;border:2px solid #C7CCD6;transition:all .15s}
+.choice b{display:block;font:700 1rem/1.3 var(--display)}
+.choice small{display:block;font-size:.84rem;color:var(--slate);line-height:1.4}
+.choice em{font-style:normal;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--orange-deep);background:var(--orange-soft);padding:.25rem .55rem;border-radius:999px;white-space:nowrap}
+.choice:hover .choice__box{border-color:#C7CCD6}
+.choice input:checked + .choice__box{border-color:var(--orange);background:#FFFAF5}
+.choice input:checked + .choice__box::before{border-color:var(--orange);background:radial-gradient(circle,var(--orange) 0 5px,transparent 6px)}
+.choice input:focus-visible + .choice__box{outline:3px solid var(--orange);outline-offset:2px}
+
 .chips{display:flex;flex-wrap:wrap;gap:.5rem}
 .chip{position:relative}
 .chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
-.chip span{display:inline-flex;align-items:center;min-height:42px;padding:0 1rem;border:1.5px solid var(--line);border-radius:999px;font-size:.9rem;font-weight:600;transition:all .15s}
+.chip span{display:inline-flex;align-items:center;min-height:44px;padding:0 1rem;border:1.5px solid var(--line);border-radius:999px;font-size:.92rem;font-weight:600;transition:all .15s}
+.chip:hover span{border-color:#C7CCD6}
 .chip input:checked + span{background:var(--navy);border-color:var(--navy);color:var(--white)}
 .chip input:focus-visible + span{outline:3px solid var(--orange);outline-offset:2px}
-.consent{display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start;font-size:.85rem;color:var(--slate);margin:.25rem 0 1.5rem}
+.chipset.has-error .chip span{border-color:var(--red)}
+
+.consent{display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start;font-size:.85rem;color:var(--slate);margin:1.1rem 0 0}
 .consent input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--orange)}
 .consent .err{grid-column:2}
-.form .btn{width:100%;min-height:58px;font-size:1.05rem}
-.form .btn[disabled]{opacity:.7;cursor:progress;transform:none}
+.nav{display:flex;gap:.75rem;margin-top:1.5rem}
+.nav .btn--next{flex:1;min-height:56px;font-size:1.02rem}
+.nav .btn--back{min-height:56px;padding:0 1.25rem}
+.nav .btn[disabled]{opacity:.7;cursor:progress;transform:none}
 .form__status{margin:.9rem 0 0;font-size:.85rem;color:var(--red);font-weight:500;display:none}
 .form__status.show{display:block}
-.form__fine{margin:.9rem 0 0;font-size:.78rem;color:var(--slate);text-align:center}
-
-.done{display:none;text-align:left}
+.form__fine{display:flex;justify-content:center;flex-wrap:wrap;gap:.3rem 1rem;margin:1rem 0 0;font-size:.78rem;color:var(--slate)}
+.form__fine span{display:inline-flex;align-items:center;gap:.3rem}
+.form__fine svg{color:var(--green)}
+.done{display:none}
 .form.is-done form{display:none}
 .form.is-done .done{display:block}
 .done__icon{width:64px;height:64px;border-radius:50%;background:var(--orange-soft);color:var(--orange-deep);display:grid;place-items:center;margin-bottom:1.25rem}
-.done h3{font:800 1.7rem/1.2 var(--display);letter-spacing:-.02em;margin:0 0 .5rem;color:var(--navy)}
-.done p{color:var(--slate);margin:0 0 1.5rem}
-@media (max-width:960px){.quote__in{grid-template-columns:1fr}}
-@media (max-width:520px){.grid{grid-template-columns:1fr}}
+.done h3{font:800 1.7rem/1.2 var(--display);letter-spacing:-.02em;margin:0 0 .5rem}
+.done p{color:var(--slate);margin:0 0 1.25rem}
+.done ol{margin:0 0 1.5rem;padding-left:1.2rem;color:var(--slate);font-size:.92rem;display:grid;gap:.35rem}
+@media (max-width:960px){.quote__in{grid-template-columns:1fr}.quote__aside{order:2}}
+@media (max-width:520px){.grid{grid-template-columns:1fr}.choice em{display:none}}
+
+/* ───────── FAQ */
+.faq{background:var(--white);padding:clamp(72px,9vw,120px) 0}
+.faq__in{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,80px);align-items:start}
+.faq__in .lead{margin:1rem 0 1.5rem}
+.qa{border:1px solid var(--card-line);border-radius:14px;background:var(--white);margin-bottom:10px;box-shadow:var(--shadow-sm)}
+.qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.05rem 1.25rem;font:700 1.02rem/1.4 var(--display);color:var(--navy)}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary svg{flex:none;color:var(--orange);transition:transform .2s}
+.qa[open] summary svg{transform:rotate(45deg)}
+.qa div{padding:0 1.25rem 1.15rem;color:var(--slate);font-size:.95rem}
+.qa div p{margin:0}
+@media (max-width:960px){.faq__in{grid-template-columns:1fr}}
+
+/* ───────── final band */
+.band{background:var(--orange);color:var(--white);padding:clamp(48px,6vw,72px) 0}
+.band__in{display:flex;justify-content:space-between;align-items:center;gap:1.5rem 3rem;flex-wrap:wrap}
+.band h2{font-size:clamp(1.9rem,3.6vw,2.9rem);max-width:20ch}
+.band p{margin:.6rem 0 0;color:rgba(255,255,255,.92);max-width:48ch}
+.band__ctas{display:flex;flex-direction:column;align-items:flex-start;gap:.75rem}
+.band__ctas a:not(.btn){font-size:.9rem;font-weight:600;text-decoration:underline;text-underline-offset:3px;display:inline-flex;align-items:center;gap:.4rem}
 
 /* ───────── footer */
 .foot{background:var(--navy);color:rgba(255,255,255,.75);padding:40px 0 calc(32px + env(safe-area-inset-bottom));font-size:.88rem}
@@ -266,9 +417,9 @@ legend{font-family:var(--display);font-weight:800;font-size:.72rem;text-transfor
 @media (max-width:560px){.foot__strip .btn{margin-left:0;width:100%}}
 
 /* ───────── mobile action bar */
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:.5rem;padding:.6rem var(--gutter) calc(.6rem + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(0);transition:transform .25s ease}
-.bar .btn{flex:1;min-height:48px}
-.bar .btn--wa{flex:0 0 48px;padding:0;--bg:#25D366}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:.5rem;padding:.6rem var(--gutter) calc(.6rem + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);transition:transform .25s ease}
+.bar .btn{flex:1;min-height:50px}
+.bar .btn--wa{flex:0 0 50px;padding:0;--bg:#25D366}
 .bar.is-hidden{transform:translateY(110%)}
 @media (max-width:720px){.bar{display:flex}.foot{padding-bottom:calc(96px + env(safe-area-inset-bottom))}}
 
@@ -280,35 +431,39 @@ legend{font-family:var(--display);font-weight:800;font-size:.72rem;text-transfor
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
-  .toast{opacity:1;transform:none}
-  .rv{opacity:1;transform:none}
+  .toast,.rv{opacity:1;transform:none}
 }
 </style>
 </head>
 <body class="no-js">
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3ZM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".14"/><path d="m7.5 12.5 3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-dash" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 7 9 6 9-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+</svg>
+
 <header class="top" id="top">
   <div class="wrap top__in">
     <a class="brand" href="https://www.circletel.co.za" aria-label="CircleTel home">
-      <img src="assets/circletel-logo-white.png" alt="CircleTel" width="52" height="52">
+      <img src="assets/circletel-logo-white.png" alt="CircleTel" width="50" height="50">
       <span>A Member of the New Generation Group</span>
     </a>
     <img class="top__partner" src="assets/zoho-partner.jpg" alt="Zoho Authorized Partner" width="121" height="34">
-    <a class="top__phone" href="https://wa.me/27847739467" aria-label="WhatsApp CircleTel on 084 773 9467">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3ZM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
-      084 773 9467
-    </a>
-    <a class="top__phone top__mail" href="mailto:sales@circletel.co.za">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-      sales@circletel.co.za
-    </a>
-    <a class="btn btn--orange btn--sm" href="#quote">Request Quote</a>
+    <a class="top__link top__phone" href="https://wa.me/27847739467" data-track="whatsapp_header"><svg width="17" height="17"><use href="#i-wa"/></svg>084 773 9467</a>
+    <a class="top__link top__mail" href="mailto:sales@circletel.co.za"><svg width="16" height="16"><use href="#i-mail"/></svg>sales@circletel.co.za</a>
+    <a class="btn btn--orange btn--sm" href="#quote" data-track="cta_header">Get a quote</a>
   </div>
 </header>
 
 <main>
 
-<!-- HERO -->
+<!-- ══════════ HERO ══════════ -->
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero__photo"><img src="assets/hero-outage.jpg" alt="A business owner holding her head in frustration at her laptop during an email outage" width="1080" height="1080" fetchpriority="high"></div>
   <div class="toasts" aria-hidden="true">
@@ -323,82 +478,316 @@ legend{font-family:var(--display);font-weight:800;font-size:.72rem;text-transfor
 
   <div class="wrap hero__in">
     <div class="hero__copy">
+      <p class="kicker"><i aria-hidden="true"></i>Microsoft outage hit users in 74 countries</p>
       <h1 class="display" id="hero-title"><span>Email down.</span><span>Teams down.</span><span>Business down?</span></h1>
-      <p class="hero__stat">A Microsoft outage hit users in <b>74 countries.</b></p>
-      <p class="hero__body">When one provider runs your email, meetings, chat and files, one outage stops all of it. CircleTel sets up Zoho Workplace so your business keeps working, either as your main suite or as a backup that's ready when you need it.</p>
-      <div class="hero__ctas">
-        <a class="btn" href="#quote">Request a formal quote
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn--white" href="https://wa.me/27847739467">WhatsApp 084 773 9467</a>
+      <p class="hero__body">Move to <b>Zoho One</b>: email, meetings, chat and files, plus <b>CRM, accounting, HR and 45+ business apps</b> on one licence, on a cloud that's separate from Microsoft. Set up and supported by CircleTel, an authorised Zoho partner.</p>
+
+      <div class="starter" role="group" aria-labelledby="starter-title">
+        <div class="starter__top"><b id="starter-title">Get your formal Zoho One quote</b><small>Takes about 60 seconds</small></div>
+        <p>How many people work at your company?</p>
+        <div class="starter__chips">
+          <button type="button" data-size="1–10">1–10</button>
+          <button type="button" data-size="11–50">11–50</button>
+          <button type="button" data-size="51–200">51–200</button>
+          <button type="button" data-size="201–500">201–500</button>
+          <button type="button" data-size="500+">500+</button>
+        </div>
       </div>
-      <div class="hero__proof">
-        <img src="assets/zoho-partner.jpg" alt="Zoho Authorized Partner" width="164" height="46">
-        <span>CircleTel is an authorised Zoho partner<br>and a member of the New Generation Group.</span>
+      <div class="starter__alt">
+        <a href="https://wa.me/27847739467" data-track="whatsapp_hero"><svg width="18" height="18"><use href="#i-wa"/></svg>Rather chat? WhatsApp 084 773 9467</a>
+        <span><svg width="16" height="16"><use href="#i-check"/></svg>No obligation</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- OUTAGE BOARD -->
-<section class="board" aria-labelledby="board-title">
-  <div class="wrap">
-    <div class="board__head rv">
-      <div>
-        <p class="kicker">One provider. One outage.</p>
-        <h2 class="display" id="board-title">Don't run your whole business on one cloud.</h2>
-      </div>
-      <p class="lead">When it goes down, your email, meetings, chat and files go with it. Zoho Workplace covers each one, on infrastructure that's separate from Microsoft's.</p>
-    </div>
-
-    <ul class="services" data-board>
-      <li class="svc rv">
-        <div class="svc__label"><span class="down">Down</span><span class="ok">Running</span><span class="svc__name">01 of 04</span></div>
-        <span class="svc__state"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>Email</span>
-        <div><p class="svc__zoho">Zoho Mail</p><p>Business email on your own domain, with calendar and contacts.</p></div>
-      </li>
-      <li class="svc rv">
-        <div class="svc__label"><span class="down">Down</span><span class="ok">Running</span><span class="svc__name">02 of 04</span></div>
-        <span class="svc__state"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>Meetings</span>
-        <div><p class="svc__zoho">Zoho Meeting</p><p>Video calls and webinars your team and clients join from a browser.</p></div>
-      </li>
-      <li class="svc rv">
-        <div class="svc__label"><span class="down">Down</span><span class="ok">Running</span><span class="svc__name">03 of 04</span></div>
-        <span class="svc__state"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>Chat</span>
-        <div><p class="svc__zoho">Zoho Cliq</p><p>Team chat, channels and calls for day-to-day conversations.</p></div>
-      </li>
-      <li class="svc rv">
-        <div class="svc__label"><span class="down">Down</span><span class="ok">Running</span><span class="svc__name">04 of 04</span></div>
-        <span class="svc__state"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>Files</span>
-        <div><p class="svc__zoho">Zoho WorkDrive</p><p>Shared team folders, documents and spreadsheets.</p></div>
-      </li>
+<!-- ══════════ TRUST BAR ══════════ -->
+<section class="trust" aria-label="Why businesses choose CircleTel">
+  <div class="wrap trust__in">
+    <img src="assets/zoho-partner.jpg" alt="Zoho Authorized Partner" width="157" height="44">
+    <ul>
+      <li><svg width="22" height="22"><use href="#i-check"/></svg><div><b>45+ apps</b>on one Zoho One licence</div></li>
+      <li><svg width="22" height="22"><use href="#i-check"/></svg><div><b>100M+ users</b>run on Zoho worldwide</div></li>
+      <li><svg width="22" height="22"><use href="#i-check"/></svg><div><b>Local support</b>from a South African team</div></li>
+      <li><svg width="22" height="22"><use href="#i-check"/></svg><div><b>New Generation Group</b>member company</div></li>
     </ul>
   </div>
 </section>
 
-<!-- PLAN B -->
-<section class="planb" aria-labelledby="planb-title">
-  <div class="wrap planb__in">
-    <div class="planb__art rv"><img src="assets/zoho-one-box.png" alt="Zoho One product box" width="412" height="576" loading="lazy"></div>
-    <div class="rv">
-      <p class="kicker">Your smart Plan B</p>
-      <h2 class="display" id="planb-title">Meet Zoho Workplace.</h2>
-      <span class="planb__tag"><b>ZOHO WORKPLACE &amp; ZOHO ONE</b> · via CircleTel</span>
-      <ul class="ticks">
-        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Business email on your own domain</li>
-        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>100% ad-free, privacy first</li>
-        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Set up and supported by CircleTel</li>
-      </ul>
-      <div class="modes">
-        <div class="mode"><h3>As your main suite</h3><p>Move email, files and calendars across and run your business on Zoho.</p></div>
-        <div class="mode"><h3>As a standby backup</h3><p>Keep what you have, with Zoho set up and ready for the next outage.</p></div>
+<!-- ══════════ PROBLEM ══════════ -->
+<section class="board" aria-labelledby="board-title">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <p class="kicker">One provider. One outage.</p>
+        <h2 class="display h2" id="board-title">Don't run your whole business on one cloud.</h2>
       </div>
-      <a class="btn btn--orange" href="#quote">Get a quote</a>
+      <p class="lead">When it goes down, your email, meetings, chat and files go with it. Zoho runs on its own data centres, separate from Microsoft's, and covers each one.</p>
+    </div>
+
+    <ul class="services" data-board>
+      <li class="svc rv">
+        <div class="svc__label"><span class="down">Down</span><span class="ok">Running</span><em>Email</em></div>
+        <span class="svc__state"><svg width="14" height="14"><use href="#i-x"/></svg>Outlook</span>
+        <div><p class="svc__zoho">Zoho Mail</p><p>Business email on your own domain, with calendar and contacts.</p></div>
+      </li>
+      <li class="svc rv">
+        <div class="svc__label"><span class="down">Down</span><span class="ok">Running</span><em>Meetings</em></div>
+        <span class="svc__state"><svg width="14" height="14"><use href="#i-x"/></svg>Teams calls</span>
+        <div><p class="svc__zoho">Zoho Meeting</p><p>Video calls and webinars your team and clients join from a browser.</p></div>
+      </li>
+      <li class="svc rv">
+        <div class="svc__label"><span class="down">Down</span><span class="ok">Running</span><em>Chat</em></div>
+        <span class="svc__state"><svg width="14" height="14"><use href="#i-x"/></svg>Teams chat</span>
+        <div><p class="svc__zoho">Zoho Cliq</p><p>Team chat, channels and calls for day-to-day conversations.</p></div>
+      </li>
+      <li class="svc rv">
+        <div class="svc__label"><span class="down">Down</span><span class="ok">Running</span><em>Files</em></div>
+        <span class="svc__state"><svg width="14" height="14"><use href="#i-x"/></svg>OneDrive</span>
+        <div><p class="svc__zoho">Zoho WorkDrive</p><p>Shared team folders, with Writer, Sheet and Show for documents.</p></div>
+      </li>
+    </ul>
+
+    <div class="bridge rv">
+      <p>That's four apps. <span>Zoho One adds 40+ more</span> for sales, finance, HR and support, on the same licence.</p>
+      <a class="btn btn--line" href="#suite">See everything in Zoho One <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- HOW -->
+<!-- ══════════ ZOHO ONE SUITE ══════════ -->
+<section class="suite" id="suite" aria-labelledby="suite-title">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <p class="kicker">Zoho One · The full offering</p>
+        <h2 class="display h2" id="suite-title">One licence. Your whole business.</h2>
+      </div>
+      <div>
+        <p class="lead">Zoho One puts 45+ connected apps behind one login. Sales, finance, HR, support and your team's daily work share the same customer data, so nothing gets typed in twice.</p>
+      </div>
+    </div>
+
+    <div class="tabs rv" role="tablist" aria-label="Zoho One apps by department">
+      <button class="tab" role="tab" id="tab-collab" aria-controls="p-collab" aria-selected="true">Collaboration <span>10</span></button>
+      <button class="tab" role="tab" id="tab-sales" aria-controls="p-sales" aria-selected="false" tabindex="-1">Sales <span>6</span></button>
+      <button class="tab" role="tab" id="tab-marketing" aria-controls="p-marketing" aria-selected="false" tabindex="-1">Marketing <span>6</span></button>
+      <button class="tab" role="tab" id="tab-service" aria-controls="p-service" aria-selected="false" tabindex="-1">Service <span>4</span></button>
+      <button class="tab" role="tab" id="tab-finance" aria-controls="p-finance" aria-selected="false" tabindex="-1">Finance <span>6</span></button>
+      <button class="tab" role="tab" id="tab-hr" aria-controls="p-hr" aria-selected="false" tabindex="-1">HR <span>4</span></button>
+      <button class="tab" role="tab" id="tab-ops" aria-controls="p-ops" aria-selected="false" tabindex="-1">Analytics &amp; automation <span>6</span></button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-collab" aria-labelledby="tab-collab">
+      <div class="panel__intro">
+        <h3>Everything Microsoft 365 does for your team, ad-free.</h3>
+        <p>Email on your own domain, meetings, chat, files and office documents, with the familiar features your staff expect.</p>
+        <span class="swap">Covers what you use Outlook, Teams, OneDrive, Word, Excel and PowerPoint for.</span>
+        <a class="btn btn--orange" href="#quote" data-track="cta_suite">Quote me for Zoho One</a>
+      </div>
+      <ul class="apps">
+        <li class="app"><i>Ml</i><div><b>Zoho Mail</b><small>Business email, calendar and contacts on your domain.</small></div></li>
+        <li class="app"><i>Mt</i><div><b>Zoho Meeting</b><small>Video meetings and webinars in the browser.</small></div></li>
+        <li class="app"><i>Cq</i><div><b>Zoho Cliq</b><small>Team chat, channels and voice calls.</small></div></li>
+        <li class="app"><i>WD</i><div><b>Zoho WorkDrive</b><small>Shared team folders and file storage.</small></div></li>
+        <li class="app"><i>Wr</i><div><b>Writer, Sheet &amp; Show</b><small>Documents, spreadsheets and presentations that open Office files.</small></div></li>
+        <li class="app"><i>Pj</i><div><b>Zoho Projects</b><small>Tasks, timelines and Gantt charts for every project.</small></div></li>
+        <li class="app"><i>Cn</i><div><b>Zoho Connect</b><small>Company intranet for news, forums and team spaces.</small></div></li>
+        <li class="app"><i>TI</i><div><b>Zoho TeamInbox</b><small>Shared inboxes like sales@ and accounts@, managed as a team.</small></div></li>
+        <li class="app"><i>Nb</i><div><b>Zoho Notebook</b><small>Notes, checklists and clippings across devices.</small></div></li>
+        <li class="app"><i>Vt</i><div><b>Zoho Vault</b><small>Team password manager with access controls.</small></div></li>
+      </ul>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-sales" aria-labelledby="tab-sales" hidden>
+      <div class="panel__intro">
+        <h3>A CRM your sales team will actually use.</h3>
+        <p>Track every lead and deal from first enquiry to signed contract, with your email, calls and quotes in one place.</p>
+        <span class="swap">On Microsoft, this is Dynamics 365 Sales, bought and licensed separately.</span>
+        <a class="btn btn--orange" href="#quote" data-track="cta_suite">Quote me for Zoho One</a>
+      </div>
+      <ul class="apps">
+        <li class="app"><i>CRM</i><div><b>Zoho CRM</b><small>Leads, deals, pipelines, forecasts and sales automation.</small></div></li>
+        <li class="app"><i>Bg</i><div><b>Bigin</b><small>A simpler pipeline CRM for small teams.</small></div></li>
+        <li class="app"><i>SQ</i><div><b>Zoho SalesIQ</b><small>Live chat and visitor tracking on your website.</small></div></li>
+        <li class="app"><i>Bk</i><div><b>Zoho Bookings</b><small>Online appointment scheduling for clients.</small></div></li>
+        <li class="app"><i>Sg</i><div><b>Zoho Sign</b><small>Legally binding e-signatures on quotes and contracts.</small></div></li>
+        <li class="app"><i>Fm</i><div><b>Zoho Forms</b><small>Online forms that feed leads straight into CRM.</small></div></li>
+      </ul>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-marketing" aria-labelledby="tab-marketing" hidden>
+      <div class="panel__intro">
+        <h3>Campaigns, social and your website, connected to sales.</h3>
+        <p>See which campaign brought in which customer, because marketing and CRM share the same data.</p>
+        <span class="swap">On Microsoft, this is Dynamics 365 Customer Insights, a separate product.</span>
+        <a class="btn btn--orange" href="#quote" data-track="cta_suite">Quote me for Zoho One</a>
+      </div>
+      <ul class="apps">
+        <li class="app"><i>Cp</i><div><b>Zoho Campaigns</b><small>Email newsletters and campaigns.</small></div></li>
+        <li class="app"><i>MA</i><div><b>Marketing Automation</b><small>Lead nurturing journeys and scoring.</small></div></li>
+        <li class="app"><i>So</i><div><b>Zoho Social</b><small>Schedule and monitor posts across your social channels.</small></div></li>
+        <li class="app"><i>St</i><div><b>Zoho Sites</b><small>Drag-and-drop website builder.</small></div></li>
+        <li class="app"><i>Sv</i><div><b>Zoho Survey</b><small>Customer and staff surveys with reports.</small></div></li>
+        <li class="app"><i>PS</i><div><b>Zoho PageSense</b><small>Heatmaps and A/B tests for your web pages.</small></div></li>
+      </ul>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-service" aria-labelledby="tab-service" hidden>
+      <div class="panel__intro">
+        <h3>Answer customers faster, on every channel.</h3>
+        <p>Email, phone, chat and social enquiries land in one helpdesk, with the customer's full history beside each ticket.</p>
+        <span class="swap">On Microsoft, this is Dynamics 365 Customer Service, a separate product.</span>
+        <a class="btn btn--orange" href="#quote" data-track="cta_suite">Quote me for Zoho One</a>
+      </div>
+      <ul class="apps">
+        <li class="app"><i>Dk</i><div><b>Zoho Desk</b><small>Helpdesk ticketing, SLAs and a self-service help centre.</small></div></li>
+        <li class="app"><i>As</i><div><b>Zoho Assist</b><small>Remote support and unattended access to devices.</small></div></li>
+        <li class="app"><i>Ln</i><div><b>Zoho Lens</b><small>Live video support for help in the field.</small></div></li>
+        <li class="app"><i>SQ</i><div><b>Zoho SalesIQ</b><small>Website live chat and chatbots.</small></div></li>
+      </ul>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-finance" aria-labelledby="tab-finance" hidden>
+      <div class="panel__intro">
+        <h3>Accounting that's connected to your sales.</h3>
+        <p>A deal won in CRM becomes an invoice in Books. Track expenses, stock and subscriptions without exporting spreadsheets.</p>
+        <span class="swap">On Microsoft, this is Dynamics 365 Business Central, a separate product.</span>
+        <a class="btn btn--orange" href="#quote" data-track="cta_suite">Quote me for Zoho One</a>
+      </div>
+      <ul class="apps">
+        <li class="app"><i>Bo</i><div><b>Zoho Books</b><small>Accounting, VAT-ready invoicing and bank feeds.</small></div></li>
+        <li class="app"><i>In</i><div><b>Zoho Invoice</b><small>Quotes and invoices with online payment links.</small></div></li>
+        <li class="app"><i>Ex</i><div><b>Zoho Expense</b><small>Expense claims, receipts and travel approvals.</small></div></li>
+        <li class="app"><i>Iv</i><div><b>Zoho Inventory</b><small>Stock levels, orders and warehouses.</small></div></li>
+        <li class="app"><i>Bl</i><div><b>Zoho Billing</b><small>Recurring billing and subscriptions.</small></div></li>
+        <li class="app"><i>Co</i><div><b>Zoho Commerce</b><small>An online store linked to your stock and books.</small></div></li>
+      </ul>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-hr" aria-labelledby="tab-hr" hidden>
+      <div class="panel__intro">
+        <h3>Hire, onboard and manage your people.</h3>
+        <p>Leave, attendance, performance reviews and recruitment, in the same system your staff already log in to.</p>
+        <span class="swap">Microsoft 365 doesn't include HR or recruitment software.</span>
+        <a class="btn btn--orange" href="#quote" data-track="cta_suite">Quote me for Zoho One</a>
+      </div>
+      <ul class="apps">
+        <li class="app"><i>Pp</i><div><b>Zoho People</b><small>Employee records, leave, attendance and reviews.</small></div></li>
+        <li class="app"><i>Rc</i><div><b>Zoho Recruit</b><small>Job posts, applicant tracking and interviews.</small></div></li>
+        <li class="app"><i>Sh</i><div><b>Zoho Shifts</b><small>Shift scheduling for hourly teams.</small></div></li>
+        <li class="app"><i>Wk</i><div><b>Zoho Workerly</b><small>Manage temporary and contract staff.</small></div></li>
+      </ul>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-ops" aria-labelledby="tab-ops" hidden>
+      <div class="panel__intro">
+        <h3>See the whole business on one dashboard.</h3>
+        <p>Report across sales, finance and support data, then automate the busywork between apps.</p>
+        <span class="swap">On Microsoft, dashboards need Power BI Pro licences.</span>
+        <a class="btn btn--orange" href="#quote" data-track="cta_suite">Quote me for Zoho One</a>
+      </div>
+      <ul class="apps">
+        <li class="app"><i>An</i><div><b>Zoho Analytics</b><small>Dashboards and reports across all your Zoho data.</small></div></li>
+        <li class="app"><i>Cr</i><div><b>Zoho Creator</b><small>Build custom business apps with low code.</small></div></li>
+        <li class="app"><i>Fl</i><div><b>Zoho Flow</b><small>Connect apps and automate workflows.</small></div></li>
+        <li class="app"><i>DP</i><div><b>Zoho DataPrep</b><small>Clean and combine data for reporting.</small></div></li>
+        <li class="app"><i>Dr</i><div><b>Zoho Directory</b><small>Single sign-on and user management for every app.</small></div></li>
+        <li class="app"><i>Sg</i><div><b>Zoho Sign</b><small>Digital signatures with audit trails.</small></div></li>
+      </ul>
+    </div>
+
+    <div class="wins">
+      <div class="win rv"><svg width="28" height="28"><use href="#i-check"/></svg><h4>One login for every app</h4><p>Staff sign in once. You add and remove users in one admin console.</p></div>
+      <div class="win rv"><svg width="28" height="28"><use href="#i-check"/></svg><h4>Your data flows between apps</h4><p>A website enquiry becomes a CRM lead, a quote, a signed contract and an invoice.</p></div>
+      <div class="win rv"><svg width="28" height="28"><use href="#i-check"/></svg><h4>One per-employee licence</h4><p>Choose all-employee or flexible-user pricing. Your quote shows which costs less.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ MICROSOFT VS ZOHO ══════════ -->
+<section class="versus" id="compare" aria-labelledby="vs-title">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <p class="kicker">Microsoft vs Zoho</p>
+        <h2 class="display h2" id="vs-title">Microsoft 365 runs your office. Zoho One runs your business.</h2>
+      </div>
+      <p class="lead">Microsoft 365 is strong at email and documents. But CRM, accounting, helpdesk, HR and dashboards are separate Microsoft products with separate licences. Zoho One includes them.</p>
+    </div>
+
+    <div class="tally rv">
+      <div class="tally__card">
+        <small>Microsoft 365 Business Standard</small>
+        <div class="tally__score">4<span>of 12 included</span></div>
+        <div class="tally__meter"><i style="--w:33%"></i></div>
+        <p>Productivity apps are included. Most business software needs more products and licences.</p>
+      </div>
+      <div class="tally__card tally__card--zoho">
+        <small>Zoho One via CircleTel</small>
+        <div class="tally__score">12<span>of 12 included</span></div>
+        <div class="tally__meter"><i style="--w:100%"></i></div>
+        <p>Everything on this list sits under one licence, set up and supported by CircleTel.</p>
+      </div>
+    </div>
+
+    <table class="vs rv">
+      <caption class="sr">What's included in Microsoft 365 Business Standard compared with Zoho One</caption>
+      <thead><tr><th scope="col">What your business needs</th><th scope="col">Microsoft 365 Business Standard</th><th scope="col" class="z">Zoho One via CircleTel</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Business email on your domain</th>
+          <td data-label="Microsoft 365"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Outlook / Exchange</small></span></span></td>
+          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Zoho Mail</small></span></span></td></tr>
+        <tr><th scope="row">Video meetings and team chat</th>
+          <td data-label="Microsoft 365"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Teams</small></span></span></td>
+          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Meeting and Cliq</small></span></span></td></tr>
+        <tr><th scope="row">File storage and sharing</th>
+          <td data-label="Microsoft 365"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>OneDrive / SharePoint</small></span></span></td>
+          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>WorkDrive</small></span></span></td></tr>
+        <tr><th scope="row">Documents, spreadsheets, slides</th>
+          <td data-label="Microsoft 365"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Word, Excel, PowerPoint</small></span></span></td>
+          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Writer, Sheet, Show</small></span></span></td></tr>
+        <tr><th scope="row">CRM and sales pipeline</th>
+          <td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><span><b>Separate product</b><small>Dynamics 365 Sales</small></span></span></td>
+          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Zoho CRM</small></span></span></td></tr>
+        <tr><th scope="row">Accounting and invoicing</th>
+          <td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><span><b>Separate product</b><small>Dynamics 365 Business Central</small></span></span></td>
+          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Books, Invoice, Expense</small></span></span></td></tr>
+        <tr><th scope="row">Customer helpdesk</th>
+          <td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><span><b>Separate product</b><small>Dynamics 365 Customer Service</small></span></span></td>
+          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Zoho Desk</small></span></span></td></tr>
+        <tr><th scope="row">Email marketing and automation</th>
+          <td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><span><b>Separate product</b><small>Dynamics 365 Customer Insights</small></span></span></td>
+          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Campaigns, Marketing Automation</small></span></span></td></tr>
+        <tr><th scope="row">HR and recruitment</th>
+          <td data-label="Microsoft 365"><span class="cell is-no"><svg width="22" height="22"><use href="#i-dash"/></svg><span><b>Not offered</b><small>Third-party software</small></span></span></td>
+          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>People, Recruit</small></span></span></td></tr>
+        <tr><th scope="row">Business dashboards</th>
+          <td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><span><b>Separate licence</b><small>Power BI Pro</small></span></span></td>
+          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Zoho Analytics</small></span></span></td></tr>
+        <tr><th scope="row">E-signatures</th>
+          <td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><span><b>Pay-as-you-go add-on</b><small>or third-party software</small></span></span></td>
+          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Zoho Sign</small></span></span></td></tr>
+        <tr><th scope="row">Project management<small>Gantt charts, timesheets, dependencies</small></th>
+          <td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><span><b>Basic tasks only</b><small>Full Planner is a separate licence</small></span></span></td>
+          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Zoho Projects</small></span></span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="vs__foot rv">
+      <p>Based on what Microsoft and Zoho publish for Microsoft 365 Business Standard and Zoho One, November 2026. Plans and inclusions change; your CircleTel quote confirms what applies to you. Microsoft, Microsoft 365, Teams, Outlook, OneDrive and Dynamics 365 are trademarks of Microsoft Corporation.</p>
+      <a class="btn btn--orange btn--lg" href="#quote" data-track="cta_compare">Compare costs in my quote <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
+    </div>
+
+    <div class="keep rv">
+      <div class="keep__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+      <div><h3>Not ready to leave Microsoft? Keep both.</h3><p>We set up Zoho as a standby, so your email and meetings keep working during the next Microsoft outage.</p></div>
+      <a class="btn btn--line" href="#quote" data-interest="Zoho as a backup for Microsoft 365" data-track="cta_backup">Quote me for a backup</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ HOW ══════════ -->
 <section class="how" aria-labelledby="how-title">
   <div class="how__photo"><img src="assets/team.jpg" alt="A CircleTel client team laughing together at work" width="670" height="1500" loading="lazy"></div>
   <div class="wrap">
@@ -406,108 +795,164 @@ legend{font-family:var(--display);font-weight:800;font-size:.72rem;text-transfor
       <p class="kicker">Outages happen. Downtime doesn't have to.</p>
       <h2 class="display" id="how-title">Here's how we fix it.</h2>
       <ol class="steps">
-        <li><div><h3>We check your setup</h3><p>A quick look at how your email, files and meetings run today.</p></div></li>
-        <li><div><h3>We set up Zoho Workplace</h3><p>As your main suite, or a backup that's ready when you need it.</p></div></li>
-        <li><div><h3>We move you over</h3><p>Email, files and calendars moved across, with local CircleTel support.</p></div></li>
+        <li><div><h3>We check your setup</h3><p>A quick look at how your email, files, meetings and business apps run today.</p></div></li>
+        <li><div><h3>We set up Zoho One</h3><p>As your main suite, or a backup that's ready when you need it. Your domain, users and apps configured for you.</p></div></li>
+        <li><div><h3>We move you over</h3><p>Email, files and calendars moved across, with local CircleTel support after you go live.</p></div></li>
       </ol>
+      <ul class="included" aria-label="Included with CircleTel">
+        <li><svg width="16" height="16"><use href="#i-check"/></svg>Licensing through an authorised partner</li>
+        <li><svg width="16" height="16"><use href="#i-check"/></svg>Domain and email setup</li>
+        <li><svg width="16" height="16"><use href="#i-check"/></svg>Data migration</li>
+        <li><svg width="16" height="16"><use href="#i-check"/></svg>Local support</li>
+      </ul>
       <div class="how__cta">
-        <a class="btn" href="#quote">Start with a quote</a>
+        <a class="btn" href="#quote" data-track="cta_how">Start my quote <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--white" href="https://wa.me/27847739467" data-track="whatsapp_how"><svg width="18" height="18" class="wa"><use href="#i-wa"/></svg>WhatsApp us</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- QUOTE -->
-<section class="quote on-dark" id="quote" aria-labelledby="quote-title">
+<!-- ══════════ QUOTE ══════════ -->
+<section class="quote" id="quote" aria-labelledby="quote-title">
   <div class="wrap quote__in">
-    <div class="rv">
-      <p class="kicker">No obligation</p>
-      <h2 class="display" id="quote-title">Request a formal quote.</h2>
-      <p class="quote__intro">Send us your contact and company details. A CircleTel consultant will contact you to confirm your requirements, then send a formal written quote.</p>
+    <div class="quote__aside rv">
+      <p class="kicker">Free, no-obligation quote</p>
+      <h2 class="display" id="quote-title">Get your formal Zoho One quote.</h2>
+      <p class="quote__intro">Answer three short steps. A CircleTel consultant will call to confirm your requirements, then send a formal written quote.</p>
       <ul class="why">
         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Authorised Zoho partner</b><span>Licensing, setup and migration through an official Zoho partner.</span></div></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg><div><b>A side-by-side cost comparison</b><span>See Zoho One against what you pay Microsoft and other software today.</span></div></li>
         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><b>Local support</b><span>A South African team you can phone or WhatsApp.</span></div></li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/></svg><div><b>Part of the New Generation Group</b><span>Backed by a wider group of technology businesses.</span></div></li>
       </ul>
       <img class="quote__badge" src="assets/zoho-partner.jpg" alt="Zoho Authorized Partner" width="200" height="56" loading="lazy">
-      <p class="quote__alt">Prefer to talk? WhatsApp us on <a href="https://wa.me/27847739467">084 773 9467</a>.</p>
+      <p class="quote__alt">Prefer to talk? WhatsApp us on <a href="https://wa.me/27847739467" data-track="whatsapp_quote">084 773 9467</a>.</p>
     </div>
 
-    <div class="form rv" data-form-wrap>
+    <div class="form" data-form-wrap>
       <form id="quote-form" novalidate>
-        <div class="form__head"><h3>Your details</h3><p>* Required</p></div>
+        <div class="prog" aria-hidden="true"><i class="now"></i><i></i><i></i></div>
+        <div class="form__meta"><span data-step-label>Step 1 of 3</span><b data-step-hint>About 60 seconds</b></div>
 
-        <fieldset>
-          <legend>Contact</legend>
-          <div class="grid">
-            <div class="f"><label for="first_name">First name *</label><input id="first_name" name="first_name" autocomplete="given-name" required><span class="err" id="first_name-err">Enter your first name.</span></div>
-            <div class="f"><label for="last_name">Last name *</label><input id="last_name" name="last_name" autocomplete="family-name" required><span class="err" id="last_name-err">Enter your last name.</span></div>
-            <div class="f"><label for="email">Work email *</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="name@company.co.za" required><span class="err" id="email-err">Enter a valid email, like name@company.co.za.</span></div>
-            <div class="f"><label for="phone">Mobile number *</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="082 123 4567" required pattern="^[+\d][\d\s()-]{8,}$"><span class="err" id="phone-err">Enter a phone number we can call, like 082 123 4567.</span></div>
+        <!-- step 1 -->
+        <fieldset class="step" data-step="1">
+          <legend class="sr">Step 1 of 3: What you need</legend>
+          <h3>What can we quote you for?</h3>
+          <div class="choices" role="radiogroup" aria-label="Solution">
+            <label class="choice"><input type="radio" name="interest" value="Zoho One (full suite)" checked><span class="choice__box"><span><b>Zoho One</b><small>The full suite: email, CRM, finance, HR and 45+ apps</small></span><em>Most popular</em></span></label>
+            <label class="choice"><input type="radio" name="interest" value="Zoho Workplace (email and collaboration)"><span class="choice__box"><span><b>Zoho Workplace</b><small>Email, meetings, chat and files only</small></span></span></label>
+            <label class="choice"><input type="radio" name="interest" value="Zoho as a backup for Microsoft 365"><span class="choice__box"><span><b>A backup for Microsoft 365</b><small>Keep Microsoft, with Zoho ready for outages</small></span></span></label>
+            <label class="choice"><input type="radio" name="interest" value="Not sure, advise me"><span class="choice__box"><span><b>Not sure yet</b><small>Advise me on the best fit</small></span></span></label>
           </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Company</legend>
-          <div class="grid">
-            <div class="f"><label for="company">Company name *</label><input id="company" name="company" autocomplete="organization" required><span class="err" id="company-err">Enter your company name.</span></div>
-            <div class="f"><label for="job_title">Job title <span class="opt">(optional)</span></label><input id="job_title" name="job_title" autocomplete="organization-title"></div>
-            <div class="f"><label for="company_size">Company size *</label>
-              <select id="company_size" name="company_size" required>
-                <option value="">Select employees</option>
-                <option>1–10</option><option>11–50</option><option>51–200</option><option>201–500</option><option>500+</option>
-              </select><span class="err" id="company_size-err">Choose your company size.</span></div>
-            <div class="f"><label for="users">Users who need email <span class="opt">(optional)</span></label><input id="users" name="users" type="number" min="1" inputmode="numeric" placeholder="e.g. 25"></div>
-            <div class="f f--full"><label for="current_platform">Current email platform <span class="opt">(optional)</span></label>
-              <select id="current_platform" name="current_platform">
-                <option value="">Select one</option>
-                <option>Microsoft 365</option><option>Google Workspace</option><option>Hosted / cPanel email</option><option>Other</option><option>Not sure</option>
-              </select></div>
-            <div class="f f--full" role="group" aria-labelledby="interest-label">
-              <span class="f-label" id="interest-label" style="font-size:.85rem;font-weight:600">I'm interested in <span class="opt" style="font-weight:400;color:var(--slate)">(optional)</span></span>
-              <div class="chips">
-                <label class="chip"><input type="radio" name="interest" value="Zoho Workplace (main suite)"><span>Zoho as main suite</span></label>
-                <label class="chip"><input type="radio" name="interest" value="Zoho Workplace (backup)"><span>Zoho as a backup</span></label>
-                <label class="chip"><input type="radio" name="interest" value="Zoho One"><span>Zoho One</span></label>
-                <label class="chip"><input type="radio" name="interest" value="Not sure yet"><span>Not sure yet</span></label>
-              </div>
+          <div class="f f--full chipset" style="margin-top:1.25rem" data-chipset="company_size">
+            <span class="f-label" id="size-label">Company size *</span>
+            <div class="chips" role="radiogroup" aria-labelledby="size-label">
+              <label class="chip"><input type="radio" name="company_size" value="1–10"><span>1–10</span></label>
+              <label class="chip"><input type="radio" name="company_size" value="11–50"><span>11–50</span></label>
+              <label class="chip"><input type="radio" name="company_size" value="51–200"><span>51–200</span></label>
+              <label class="chip"><input type="radio" name="company_size" value="201–500"><span>201–500</span></label>
+              <label class="chip"><input type="radio" name="company_size" value="500+"><span>500+</span></label>
             </div>
+            <span class="err" id="company_size-err">Choose how many people work at your company.</span>
           </div>
         </fieldset>
 
-        <label class="consent" id="consent-wrap">
-          <input type="checkbox" name="consent" id="consent" required>
-          <span>I agree that CircleTel may contact me about this quote and process my details in line with POPIA. *</span>
-          <span class="err" id="consent-err">Tick this box so we can contact you.</span>
-        </label>
+        <!-- step 2 -->
+        <fieldset class="step" data-step="2" hidden>
+          <legend class="sr">Step 2 of 3: Your company</legend>
+          <h3>Tell us about your company.</h3>
+          <div class="grid">
+            <div class="f f--full"><label for="company">Company name *</label><input id="company" name="company" autocomplete="organization" data-req><span class="err" id="company-err">Enter your company name.</span></div>
+            <div class="f"><label for="industry">Industry <span class="opt">(optional)</span></label>
+              <select id="industry" name="industry"><option value="">Select one</option><option>Professional services</option><option>Retail and e-commerce</option><option>Manufacturing</option><option>Construction and property</option><option>Logistics and transport</option><option>Healthcare</option><option>Education</option><option>Financial services</option><option>Hospitality</option><option>Non-profit</option><option>Other</option></select></div>
+            <div class="f"><label for="users">Users who need accounts <span class="opt">(optional)</span></label><input id="users" name="users" type="number" min="1" inputmode="numeric" placeholder="e.g. 25"></div>
+            <div class="f f--full"><label for="current_platform">What do you use for email today? <span class="opt">(optional)</span></label>
+              <select id="current_platform" name="current_platform"><option value="">Select one</option><option>Microsoft 365</option><option>Google Workspace</option><option>Hosted / cPanel email</option><option>Other</option><option>Not sure</option></select></div>
+          </div>
+        </fieldset>
 
-        <!-- campaign attribution, filled from the URL -->
+        <!-- step 3 -->
+        <fieldset class="step" data-step="3" hidden>
+          <legend class="sr">Step 3 of 3: Your contact details</legend>
+          <h3>Where should we send your quote?</h3>
+          <div class="grid">
+            <div class="f"><label for="first_name">First name *</label><input id="first_name" name="first_name" autocomplete="given-name" data-req><span class="err" id="first_name-err">Enter your first name.</span></div>
+            <div class="f"><label for="last_name">Last name *</label><input id="last_name" name="last_name" autocomplete="family-name" data-req><span class="err" id="last_name-err">Enter your last name.</span></div>
+            <div class="f"><label for="email">Work email *</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="name@company.co.za" data-req><span class="err" id="email-err">Enter a valid email, like name@company.co.za.</span></div>
+            <div class="f"><label for="phone">Mobile number *</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="082 123 4567" data-req><span class="err" id="phone-err">Enter a number we can call, like 082 123 4567.</span></div>
+            <div class="f f--full"><label for="job_title">Job title <span class="opt">(optional)</span></label><input id="job_title" name="job_title" autocomplete="organization-title"></div>
+          </div>
+          <label class="consent" id="consent-wrap">
+            <input type="checkbox" name="consent" id="consent">
+            <span>I agree that CircleTel may contact me about this quote and process my details in line with POPIA. *</span>
+            <span class="err" id="consent-err">Tick this box so we can contact you about your quote.</span>
+          </label>
+        </fieldset>
+
         <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="page">
         <div class="sr" aria-hidden="true"><label>Leave empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
 
-        <button class="btn btn--orange" type="submit" data-submit>Request my quote</button>
+        <div class="nav">
+          <button class="btn btn--line btn--back" type="button" data-back hidden>Back</button>
+          <button class="btn btn--orange btn--next" type="submit" data-next>Next: your company <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></button>
+        </div>
         <p class="form__status" role="alert" data-status></p>
-        <p class="form__fine">We only use your details to prepare your quote.</p>
+        <p class="form__fine"><span><svg width="14" height="14"><use href="#i-lock"/></svg>Your details stay private</span><span>No obligation</span><span>No spam</span></p>
       </form>
 
       <div class="done" role="status" aria-live="polite" tabindex="-1" data-done>
         <div class="done__icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg></div>
         <h3>Quote request sent.</h3>
-        <p data-done-msg>A CircleTel consultant will contact you to confirm your requirements before sending your formal quote.</p>
-        <a class="btn" href="https://wa.me/27847739467">WhatsApp us on 084 773 9467</a>
+        <p data-done-msg>Thanks. A CircleTel consultant will contact you to confirm your requirements.</p>
+        <ol><li>We call to confirm your users and the apps you need.</li><li>You receive a formal written quote.</li><li>When you approve it, we set up Zoho One and move you over.</li></ol>
+        <a class="btn" href="https://wa.me/27847739467" data-track="whatsapp_done"><svg width="18" height="18" class="wa"><use href="#i-wa"/></svg>Can't wait? WhatsApp us</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section class="faq" aria-labelledby="faq-title">
+  <div class="wrap faq__in">
+    <div class="rv">
+      <p class="kicker">Questions</p>
+      <h2 class="display h2" id="faq-title">Before you switch.</h2>
+      <p class="lead">Can't see your question? WhatsApp us on 084 773 9467 and a consultant will answer.</p>
+      <a class="btn btn--orange" href="#quote" data-track="cta_faq">Get my quote</a>
+    </div>
+    <div class="rv">
+      <details class="qa" open><summary>Do we have to leave Microsoft 365?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>No. You can move completely to Zoho One, or keep Microsoft 365 and run Zoho as a standby that's ready during an outage. Your quote can cover either.</p></div></details>
+      <details class="qa"><summary>What's the difference between Zoho One and Zoho Workplace?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>Zoho Workplace covers email, meetings, chat, files and documents. Zoho One includes Workplace plus 45+ business apps, including CRM, accounting, helpdesk, HR, marketing and analytics.</p></div></details>
+      <details class="qa"><summary>How is Zoho One licensed?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>Per employee. Zoho offers all-employee pricing, where everyone is licensed, and flexible-user pricing, where you license only the people who need it. We'll recommend the one that costs you less.</p></div></details>
+      <details class="qa"><summary>Will we lose emails or files when we move?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>We move your email, files and calendars across for you and plan the cut-over with you, so your team knows exactly when to switch.</p></div></details>
+      <details class="qa"><summary>Is our data secure?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>Zoho runs its own data centres, doesn't show ads in its business apps and says it never sells customer data. Admins control access with single sign-on and multi-factor authentication.</p></div></details>
+      <details class="qa"><summary>Who supports us after we go live?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>CircleTel does. You get a local team you can phone or WhatsApp, backed by our status as an authorised Zoho partner.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FINAL BAND ══════════ -->
+<section class="band" aria-labelledby="band-title">
+  <div class="wrap band__in">
+    <div>
+      <h2 class="display" id="band-title">Be ready before the next outage.</h2>
+      <p>Get a formal Zoho One quote from an authorised Zoho partner. No obligation.</p>
+    </div>
+    <div class="band__ctas">
+      <a class="btn btn--lg" href="#quote" data-track="cta_band">Get my Zoho One quote <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
+      <a href="https://wa.me/27847739467" data-track="whatsapp_band"><svg width="16" height="16"><use href="#i-wa"/></svg>Rather chat? WhatsApp us</a>
     </div>
   </div>
 </section>
 
 </main>
 
-<footer class="foot on-dark">
+<footer class="foot">
   <div class="wrap">
     <div class="foot__strip">
-      <a href="https://wa.me/27847739467"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3ZM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>084 773 9467</a>
-      <a href="mailto:sales@circletel.co.za"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>sales@circletel.co.za</a>
-      <a class="btn btn--orange btn--sm" href="#quote">Request Quote</a>
+      <a href="https://wa.me/27847739467"><svg width="16" height="16"><use href="#i-wa"/></svg>084 773 9467</a>
+      <a href="mailto:sales@circletel.co.za"><svg width="16" height="16"><use href="#i-mail"/></svg>sales@circletel.co.za</a>
+      <a class="btn btn--orange btn--sm" href="#quote">Get a quote</a>
     </div>
     <div class="foot__in">
       <div class="foot__brand">
@@ -525,104 +970,151 @@ legend{font-family:var(--display);font-weight:800;font-size:.72rem;text-transfor
 </footer>
 
 <div class="bar" data-bar>
-  <a class="btn btn--orange" href="#quote">Request a quote</a>
-  <a class="btn btn--wa" href="https://wa.me/27847739467" aria-label="WhatsApp CircleTel">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3ZM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
-  </a>
+  <a class="btn btn--orange" href="#quote" data-track="cta_mobilebar">Get my Zoho One quote</a>
+  <a class="btn btn--wa" href="https://wa.me/27847739467" aria-label="WhatsApp CircleTel" data-track="whatsapp_mobilebar"><svg width="24" height="24" style="color:#fff"><use href="#i-wa"/></svg></a>
 </div>
 
 <script>
 /* ─────────────────────────────────────────────
    Where quote requests go.
    Set QUOTE_ENDPOINT to a URL that accepts a JSON POST
-   (e.g. a Zoho Flow webhook, Zoho Forms or your own API that
-   creates a Lead in Zoho CRM). While it's empty the form runs
-   in preview mode: it validates, logs the payload to the console
-   and shows the success screen without sending anything.
+   (e.g. a Zoho Flow / Zoho CRM webhook that creates a Lead).
+   While it's empty the form runs in preview mode: it validates,
+   logs the payload to the console and shows the success screen
+   without sending anything.
    ───────────────────────────────────────────── */
 const QUOTE_ENDPOINT = "";
 
 (() => {
 document.body.classList.remove("no-js");
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
-/* sticky header border */
-const header = document.getElementById("top");
-addEventListener("scroll", () => header.classList.toggle("is-stuck", scrollY > 8), {passive:true});
+/* analytics hook: pushes to GTM/GA dataLayer if present */
+window.dataLayer = window.dataLayer || [];
+const track = (event, extra = {}) => window.dataLayer.push({ event, ...extra });
+document.addEventListener("click", e => { const t = e.target.closest("[data-track]"); if (t) track("cta_click", { cta: t.dataset.track }); });
 
-/* retry counter in the hero toast */
-const retry = document.querySelector("[data-retry]");
+/* header shadow */
+const header = $("#top");
+addEventListener("scroll", () => header.classList.toggle("is-stuck", scrollY > 8), { passive: true });
+
+/* retry counter */
+const retry = $("[data-retry]");
 if (retry && !reduce) { let n = 47; setInterval(() => { retry.textContent = ++n; }, 2400); }
 
-/* reveal on scroll + outage board flips to "running" */
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    e.target.classList.add("in");
-    io.unobserve(e.target);
+/* reveals */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12, rootMargin: "0px 0px -40px 0px" });
+$$(".rv").forEach(el => { if (el.closest(".services")) el.style.transitionDelay = ([...el.parentNode.children].indexOf(el) * 80) + "ms"; io.observe(el); });
+
+const once = (el, fn, threshold = .35) => new IntersectionObserver(([e], o) => { if (e.isIntersecting) { fn(); o.disconnect(); } }, { threshold }).observe(el);
+const board = $("[data-board]");
+once(board, () => setTimeout(() => board.classList.add("is-live"), reduce ? 0 : 1000));
+once($("#compare"), () => $("#compare").classList.add("is-in"), .2);
+
+/* mobile bar hides over the form */
+const bar = $("[data-bar]");
+new IntersectionObserver(([e]) => bar.classList.toggle("is-hidden", e.isIntersecting), { threshold: .05 }).observe($("#quote"));
+
+/* ───────── tabs */
+const tabs = $$('[role="tab"]');
+function selectTab(tab, focus) {
+  tabs.forEach(t => {
+    const on = t === tab;
+    t.setAttribute("aria-selected", on);
+    t.tabIndex = on ? 0 : -1;
+    const p = document.getElementById(t.getAttribute("aria-controls"));
+    p.hidden = !on;
+    if (on) { p.classList.remove("is-entering"); void p.offsetWidth; p.classList.add("is-entering"); }
   });
-}, {threshold:.15, rootMargin:"0px 0px -40px 0px"});
-document.querySelectorAll(".rv").forEach((el, i) => { el.style.transitionDelay = (el.closest(".services") ? (i % 4) * 80 : 0) + "ms"; io.observe(el); });
+  if (focus) tab.focus();
+  tab.scrollIntoView({ block: "nearest", inline: "nearest", behavior: reduce ? "auto" : "smooth" });
+  track("suite_tab", { tab: tab.id });
+}
+tabs.forEach((t, i) => {
+  t.addEventListener("click", () => selectTab(t));
+  t.addEventListener("keydown", e => {
+    const k = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+    if (k) { e.preventDefault(); selectTab(tabs[(i + k + tabs.length) % tabs.length], true); }
+    if (e.key === "Home") { e.preventDefault(); selectTab(tabs[0], true); }
+    if (e.key === "End") { e.preventDefault(); selectTab(tabs[tabs.length - 1], true); }
+  });
+});
 
-const board = document.querySelector("[data-board]");
-new IntersectionObserver(([e], obs) => {
-  if (!e.isIntersecting) return;
-  setTimeout(() => board.classList.add("is-live"), reduce ? 0 : 1100);
-  obs.disconnect();
-}, {threshold:.35}).observe(board);
-
-/* hide mobile action bar while the form is on screen */
-const bar = document.querySelector("[data-bar]");
-new IntersectionObserver(([e]) => bar.classList.toggle("is-hidden", e.isIntersecting), {threshold:.05})
-  .observe(document.getElementById("quote"));
-
-/* ───────── quote form */
-const form = document.getElementById("quote-form");
-const wrap = document.querySelector("[data-form-wrap]");
-const submit = form.querySelector("[data-submit]");
-const status = form.querySelector("[data-status]");
+/* ───────── multi-step quote form */
+const form = $("#quote-form");
+const wrap = $("[data-form-wrap]");
+const steps = $$(".step", form);
+const next = $("[data-next]");
+const back = $("[data-back]");
+const status = $("[data-status]");
+const bars = $$(".prog i", form);
+const nextLabels = ["Next: your company", "Next: your details", "Send my quote request"];
+const hints = ["About 60 seconds", "Almost there", "Last step"];
+let step = 0;
 
 const params = new URLSearchParams(location.search);
-["utm_source","utm_medium","utm_campaign","utm_content"].forEach(k => form.elements[k].value = params.get(k) || "");
-form.elements.page.value = location.href;
+["utm_source", "utm_medium", "utm_campaign", "utm_content"].forEach(k => form.elements[k].value = params.get(k) || "");
+form.elements.page.value = location.href.split("#")[0];
 
-const required = ["first_name","last_name","email","phone","company","company_size"];
+function show(i, focus = true) {
+  step = i;
+  steps.forEach((s, n) => { s.hidden = n !== i; });
+  steps[i].classList.remove("is-entering"); void steps[i].offsetWidth; steps[i].classList.add("is-entering");
+  bars.forEach((b, n) => { b.className = n < i ? "done" : n === i ? "now" : ""; });
+  $("[data-step-label]").textContent = `Step ${i + 1} of 3`;
+  $("[data-step-hint]").textContent = hints[i];
+  next.firstChild.textContent = nextLabels[i] + " ";
+  back.hidden = i === 0;
+  status.classList.remove("show");
+  if (focus) { const first = steps[i].querySelector("input:not([type=hidden]),select"); first && first.focus({ preventScroll: true }); }
+  track("quote_step", { step: i + 1 });
+}
 
-function check(name){
-  const el = form.elements[name];
+function checkField(el) {
   const box = el.closest(".f");
   let ok = el.value.trim() !== "";
-  if (ok && name === "email") ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim());
-  if (ok && name === "phone") ok = el.value.replace(/\D/g,"").length >= 9;
+  if (ok && el.name === "email") ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim());
+  if (ok && el.name === "phone") ok = el.value.replace(/\D/g, "").length >= 9;
   box.classList.toggle("has-error", !ok);
   el.setAttribute("aria-invalid", String(!ok));
-  if (!ok) el.setAttribute("aria-describedby", name + "-err"); else el.removeAttribute("aria-describedby");
+  if (!ok) el.setAttribute("aria-describedby", el.name + "-err"); else el.removeAttribute("aria-describedby");
   return ok;
 }
-function checkConsent(){
-  const ok = form.elements.consent.checked;
-  document.getElementById("consent-wrap").classList.toggle("has-error", !ok);
-  return ok;
-}
-required.forEach(n => {
-  const el = form.elements[n];
-  el.addEventListener("blur", () => { if (el.value) check(n); });
-  el.addEventListener("input", () => { if (el.closest(".f").classList.contains("has-error")) check(n); });
-  el.addEventListener("change", () => { if (el.closest(".f").classList.contains("has-error")) check(n); });
-});
-form.elements.consent.addEventListener("change", checkConsent);
-
-form.addEventListener("submit", async (ev) => {
-  ev.preventDefault();
-  status.classList.remove("show");
-  const results = required.map(check);
-  const consentOk = checkConsent();
-  if (results.includes(false) || !consentOk) {
-    const first = form.querySelector(".has-error input, .has-error select");
-    (first || form.elements.consent).focus();
-    return;
+function checkStep(i) {
+  const s = steps[i];
+  let ok = true, first = null;
+  $$("[data-req]", s).forEach(el => { if (!checkField(el)) { ok = false; first = first || el; } });
+  if (i === 0) {
+    const set = $("[data-chipset=company_size]");
+    const has = !!form.querySelector("input[name=company_size]:checked");
+    set.classList.toggle("has-error", !has);
+    if (!has) { ok = false; first = first || set.querySelector("input"); }
   }
-  if (form.elements.website.value) return; // bot
+  if (i === 2) {
+    const c = form.elements.consent.checked;
+    $("#consent-wrap").classList.toggle("has-error", !c);
+    if (!c) { ok = false; first = first || form.elements.consent; }
+  }
+  if (first) first.focus();
+  return ok;
+}
+$$("[data-req]", form).forEach(el => {
+  el.addEventListener("blur", () => { if (el.value) checkField(el); });
+  el.addEventListener("input", () => { if (el.closest(".f").classList.contains("has-error")) checkField(el); });
+});
+form.addEventListener("change", e => {
+  if (e.target.name === "company_size") $("[data-chipset=company_size]").classList.remove("has-error");
+  if (e.target.name === "consent" && e.target.checked) $("#consent-wrap").classList.remove("has-error");
+});
+back.addEventListener("click", () => show(step - 1));
+
+form.addEventListener("submit", async ev => {
+  ev.preventDefault();
+  if (!checkStep(step)) return;
+  if (step < 2) { show(step + 1); return; }
+  if (form.elements.website.value) return;
 
   const data = Object.fromEntries(new FormData(form));
   delete data.website;
@@ -630,30 +1122,47 @@ form.addEventListener("submit", async (ev) => {
   data.submitted_at = new Date().toISOString();
   data.lead_source = "Microsoft vs Zoho campaign landing page";
 
-  submit.disabled = true;
-  submit.textContent = "Sending…";
+  next.disabled = true;
+  next.firstChild.textContent = "Sending… ";
   try {
     if (QUOTE_ENDPOINT) {
-      const res = await fetch(QUOTE_ENDPOINT, {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data)});
+      const res = await fetch(QUOTE_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
       if (!res.ok) throw new Error(res.status);
     } else {
       console.info("[preview] quote request payload", data);
       await new Promise(r => setTimeout(r, 700));
     }
-    document.querySelector("[data-done-msg]").textContent =
-      `Thanks, ${data.first_name}. A CircleTel consultant will contact you at ${data.email} to confirm your requirements before sending a formal quote for ${data.company}.`;
+    $("[data-done-msg]").textContent = `Thanks, ${data.first_name}. A CircleTel consultant will contact you on ${data.phone} or at ${data.email} to confirm the details for ${data.company}.`;
     wrap.classList.add("is-done");
-    document.querySelector("[data-done]").focus();
+    $("[data-done]").focus();
+    track("quote_submitted", { interest: data.interest, company_size: data.company_size });
   } catch (err) {
     status.textContent = "Your request didn't send. Check your connection and try again, or WhatsApp us on 084 773 9467.";
     status.classList.add("show");
   } finally {
-    submit.disabled = false;
-    submit.textContent = "Request my quote";
+    next.disabled = false;
+    next.firstChild.textContent = nextLabels[step] + " ";
   }
 });
 
-document.querySelector("[data-year]").textContent = new Date().getFullYear();
+/* hero starter → preselect size, jump into the form */
+function jumpToForm(fn) {
+  fn();
+  if (wrap.classList.contains("is-done")) return;
+  $("#quote").scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+  setTimeout(() => { const s = steps[step].querySelector("input:checked, input, select"); s && s.focus({ preventScroll: true }); }, reduce ? 0 : 650);
+}
+$$("[data-size]").forEach(b => b.addEventListener("click", () => jumpToForm(() => {
+  const r = form.querySelector(`input[name=company_size][value="${b.dataset.size}"]`);
+  if (r) { r.checked = true; $("[data-chipset=company_size]").classList.remove("has-error"); }
+  track("quote_start", { company_size: b.dataset.size });
+})));
+$$("a[data-interest]").forEach(a => a.addEventListener("click", e => {
+  e.preventDefault();
+  jumpToForm(() => { const r = form.querySelector(`input[name=interest][value="${a.dataset.interest}"]`); if (r) r.checked = true; show(0, false); });
+}));
+
+$("[data-year]").textContent = new Date().getFullYear();
 })();
 </script>
 </body>
