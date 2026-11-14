@@ -62,15 +62,17 @@ If Google Tag Manager or GA4 is on the page, these events are pushed to `dataLay
 
 Together they give you a funnel from first click to submitted lead.
 
-## Swapping in the final artwork
+## Images
 
-Photos are taken from the campaign PDF and can be replaced one for one:
+The people photos were generated with Magnific and show South Africans of different races. They're in your Magnific Personal project. Each one can be swapped one for one with final artwork:
 
 | file | used in |
 |---|---|
-| `assets/hero-outage.jpg` | hero (square works best, subject on the left) |
-| `assets/team.jpg` | "Here's how we fix it" (portrait, subjects centred) |
-| `assets/zoho-one-box.png` | "Meet Zoho Workplace" (transparent PNG) |
+| `assets/hero-outage.jpg` | hero: stressed business owner (square, subject left of centre) |
+| `assets/team.jpg` | "Here's how we fix it": mixed team (portrait, people centre-right) |
+| `assets/consultant.jpg` | quote form: consultant on a headset (landscape crop) |
+| `assets/business-owner.jpg` | FAQ: small business owner (portrait) |
+| `assets/zoho-one-box.png` | not currently used |
 | `assets/zoho-partner.jpg` | Zoho Authorized Partner badge |
 | `assets/circletel-logo-white.png`, `assets/circletel-logo.png` | logos from circletel.co.za |
 

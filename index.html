@@ -93,7 +93,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 /* ───────── hero */
 .hero{position:relative;background:var(--orange);color:var(--white);overflow:hidden;isolation:isolate}
 .hero__photo{position:absolute;inset:0 auto 0 0;width:52%;clip-path:ellipse(100% 125% at 0% 50%);z-index:-1}
-.hero__photo img{width:100%;height:100%;object-fit:cover;object-position:30% 30%}
+.hero__photo img{width:100%;height:100%;object-fit:cover;object-position:38% 35%}
 .hero__in{display:grid;grid-template-columns:1fr 1.02fr;min-height:min(860px,calc(100svh - 72px))}
 .hero__copy{grid-column:2;align-self:center;padding:clamp(44px,6vw,80px) 0 clamp(44px,6vw,80px) clamp(16px,3vw,40px)}
 .hero .kicker{color:var(--white);display:inline-flex;align-items:center;gap:.55rem;background:rgba(15,20,39,.16);padding:.45rem .8rem;border-radius:999px;margin-bottom:1.25rem}
@@ -140,9 +140,10 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
   .toasts{position:absolute;top:0}
   .hero__in{display:block;min-height:0}
   .hero__copy{padding:24px 0 48px}
-  .t1{left:auto;right:5%;top:14%}
-  .t2{left:auto;right:5%;top:auto;bottom:22%;width:min(260px,68vw)}
-  .t3{display:none}
+  .t1{left:auto;right:4%;top:7%}
+  .t2{display:none}
+  .t3{display:flex!important;left:auto;right:4%;top:auto;bottom:16%}
+  .hero .kicker{font-size:.66rem;letter-spacing:.08em}
 }
 
 /* ───────── trust bar */
@@ -276,7 +277,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 /* ───────── how */
 .how{position:relative;background:var(--orange);color:var(--white);overflow:hidden;isolation:isolate}
 .how__photo{position:absolute;inset:0 0 0 auto;width:46%;clip-path:ellipse(100% 120% at 100% 50%);z-index:-1}
-.how__photo img{width:100%;height:100%;object-fit:cover;object-position:40% 30%}
+.how__photo img{width:100%;height:100%;object-fit:cover;object-position:62% 40%}
 .how__in{padding:clamp(72px,9vw,120px) 0;max-width:640px}
 .how .kicker{color:var(--white)}
 .how h2{font-size:clamp(2.3rem,4.6vw,3.8rem);margin-bottom:1.75rem}
@@ -306,6 +307,11 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .why b{display:block;font:700 1rem/1.4 var(--display)}
 .why span{color:rgba(255,255,255,.7);font-size:.92rem}
 .quote__badge{height:56px;width:auto;border-radius:10px}
+.person{position:relative;margin:0 0 2rem;border-radius:20px;overflow:hidden;aspect-ratio:16/10;max-width:460px}
+.person img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.person figcaption{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(255,255,255,.96);color:var(--navy);border-radius:14px;padding:.7rem .9rem;box-shadow:var(--shadow);line-height:1.35}
+.person b{display:block;font:700 .98rem/1.3 var(--display)}
+.person span{font-size:.84rem;color:var(--slate)}
 .quote__alt{margin-top:1.5rem;font-size:.92rem;color:rgba(255,255,255,.78)}
 .quote__alt a{color:var(--white);font-weight:600}
 
@@ -383,6 +389,10 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .faq__in{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,80px);align-items:start}
 .faq__in .lead{margin:1rem 0 1.5rem}
 .qa{border:1px solid var(--card-line);border-radius:14px;background:var(--white);margin-bottom:10px;box-shadow:var(--shadow-sm)}
+.faq__photo{position:relative;margin:2rem 0 0;border-radius:20px;overflow:hidden;aspect-ratio:4/5;max-width:380px}
+.faq__photo img{width:100%;height:100%;object-fit:cover}
+.faq__photo figcaption{position:absolute;left:12px;bottom:12px;right:12px;background:var(--navy);color:var(--white);font:700 .95rem/1.35 var(--display);padding:.75rem .95rem;border-radius:12px;box-shadow:var(--shadow)}
+@media (max-width:960px){.faq__photo{aspect-ratio:16/10;max-width:none}.faq__photo img{object-position:50% 25%}}
 .qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.05rem 1.25rem;font:700 1.02rem/1.4 var(--display);color:var(--navy)}
 .qa summary::-webkit-details-marker{display:none}
 .qa summary svg{flex:none;color:var(--orange);transition:transform .2s}
@@ -465,7 +475,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 
 <!-- ══════════ HERO ══════════ -->
 <section class="hero" aria-labelledby="hero-title">
-  <div class="hero__photo"><img src="assets/hero-outage.jpg" alt="A business owner holding her head in frustration at her laptop during an email outage" width="1080" height="1080" fetchpriority="high"></div>
+  <div class="hero__photo"><img src="assets/hero-outage.jpg" alt="A business owner holds his head in frustration at his laptop during an email outage" width="1024" height="1024" fetchpriority="high"></div>
   <div class="toasts" aria-hidden="true">
     <div class="toast toast--pill t1"><i>!</i>Meeting failed to join</div>
     <div class="toast toast--card t2">
@@ -789,7 +799,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 
 <!-- ══════════ HOW ══════════ -->
 <section class="how" aria-labelledby="how-title">
-  <div class="how__photo"><img src="assets/team.jpg" alt="A CircleTel client team laughing together at work" width="670" height="1500" loading="lazy"></div>
+  <div class="how__photo"><img src="assets/team.jpg" alt="A diverse South African team laughing together around a laptop at work" width="832" height="1248" loading="lazy"></div>
   <div class="wrap">
     <div class="how__in rv">
       <p class="kicker">Outages happen. Downtime doesn't have to.</p>
@@ -820,6 +830,10 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
       <p class="kicker">Free, no-obligation quote</p>
       <h2 class="display" id="quote-title">Get your formal Zoho One quote.</h2>
       <p class="quote__intro">Answer three short steps. A CircleTel consultant will call to confirm your requirements, then send a formal written quote.</p>
+      <figure class="person">
+        <img src="assets/consultant.jpg" alt="A smiling CircleTel consultant wearing a headset at her desk" width="896" height="1120" loading="lazy">
+        <figcaption><b>A real person calls you back</b><span>Not a bot. A local consultant who knows Zoho.</span></figcaption>
+      </figure>
       <ul class="why">
         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Authorised Zoho partner</b><span>Licensing, setup and migration through an official Zoho partner.</span></div></li>
         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg><div><b>A side-by-side cost comparison</b><span>See Zoho One against what you pay Microsoft and other software today.</span></div></li>
@@ -919,6 +933,10 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
       <h2 class="display h2" id="faq-title">Before you switch.</h2>
       <p class="lead">Can't see your question? WhatsApp us on 084 773 9467 and a consultant will answer.</p>
       <a class="btn btn--orange" href="#quote" data-track="cta_faq">Get my quote</a>
+      <figure class="faq__photo">
+        <img src="assets/business-owner.jpg" alt="A small business owner smiling at her laptop in her woodworking studio" width="896" height="1120" loading="lazy">
+        <figcaption>Sales, invoicing, stock and staff. One login.</figcaption>
+      </figure>
     </div>
     <div class="rv">
       <details class="qa" open><summary>Do we have to leave Microsoft 365?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>No. You can move completely to Zoho One, or keep Microsoft 365 and run Zoho as a standby that's ready during an outage. Your quote can cover either.</p></div></details>
