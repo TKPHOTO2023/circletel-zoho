@@ -81,3 +81,7 @@ The people photos were generated with Magnific and show South Africans of differ
 - The look matches circletel.co.za: Manrope headings, Inter body text, navy `#1B2A4A`, orange `#E87A1E`, pill buttons and 16px cards.
 - The orange arc and the failure notifications ("Meeting failed to join", "Cannot connect to server") come from the campaign artwork, so the page reads as the continuation of the ad.
 - The page responds down to 320px, has visible keyboard focus and respects reduced-motion settings.
+
+## Header and footer
+
+The header and footer copy circletel.co.za: the same menus, dropdowns, mobile slide-out menu, footer columns and social links. Every link points to the live site. The only exception is **Request Quote**, which jumps to this page's quote form, so visitors stay in the funnel. If the main site's menus change, update them here as well.
