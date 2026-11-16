@@ -7,7 +7,7 @@
 <meta name="description" content="Email, meetings, chat and files, plus CRM, accounting, HR and 45+ business apps on one licence. CircleTel, an authorised Zoho partner, sets up Zoho One and moves you over. Request a formal quote.">
 <meta property="og:title" content="Email down. Teams down. Business down?">
 <meta property="og:description" content="Move to Zoho One, set up and supported by CircleTel, an authorised Zoho partner. Request a formal quote.">
-<meta property="og:image" content="assets/hero-outage.jpg">
+<meta property="og:image" content="assets/hero-wide.jpg">
 <meta name="theme-color" content="#1B2A4A">
 <link rel="icon" href="assets/circletel-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -146,36 +146,42 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
   .hd__mob{display:inline-grid}
 }
 
-/* ───────── hero */
-.hero{position:relative;background:var(--orange);color:var(--white);overflow:hidden;isolation:isolate}
-.hero__photo{position:absolute;inset:0 auto 0 0;width:52%;clip-path:ellipse(100% 125% at 0% 50%);z-index:-1}
-.hero__photo img{width:100%;height:100%;object-fit:cover;object-position:38% 35%}
-.hero__in{display:grid;grid-template-columns:1fr 1.02fr;min-height:min(860px,calc(100svh - 72px))}
-.hero__copy{grid-column:2;align-self:center;padding:clamp(44px,6vw,80px) 0 clamp(44px,6vw,80px) clamp(16px,3vw,40px)}
-.hero .kicker{color:var(--white);display:inline-flex;align-items:center;gap:.55rem;background:rgba(15,20,39,.16);padding:.45rem .8rem;border-radius:999px;margin-bottom:1.25rem}
-.hero .kicker i{width:8px;height:8px;border-radius:50%;background:var(--white);box-shadow:0 0 0 0 rgba(255,255,255,.7);animation:pulse 1.8s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
-.hero h1{font-size:clamp(2.5rem,4.9vw,4.4rem)}
+/* ───────── hero (full-bleed photo) */
+.hero{position:relative;color:var(--white);overflow:hidden;isolation:isolate;background:var(--navy-ink)}
+.hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 40%;z-index:-2;animation:hero-zoom 18s ease-out both}
+@keyframes hero-zoom{from{transform:scale(1.06)}to{transform:scale(1)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(90deg,rgba(15,20,39,.94) 0%,rgba(15,20,39,.86) 32%,rgba(15,20,39,.45) 58%,rgba(15,20,39,.08) 80%),
+  linear-gradient(0deg,rgba(15,20,39,.55) 0%,rgba(15,20,39,0) 30%)}
+.hero__in{display:flex;align-items:center;min-height:min(800px,calc(100svh - 140px));min-height:max(600px,min(800px,calc(100svh - 140px)))}
+.hero__copy{max-width:640px;padding:clamp(56px,7vw,96px) 0}
+.hero .kicker{color:var(--white);display:inline-flex;align-items:center;gap:.55rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px);padding:.45rem .85rem;border-radius:999px;margin-bottom:1.4rem}
+.hero .kicker i{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 0 rgba(232,122,30,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(232,122,30,0)}100%{box-shadow:0 0 0 0 rgba(232,122,30,0)}}
+.hero h1{font-size:clamp(2.6rem,5.4vw,4.9rem)}
 .hero h1 span{display:block}
-.hero__body{margin:1.1rem 0 1.6rem;max-width:46ch;font-size:clamp(1rem,1.25vw,1.1rem);color:rgba(255,255,255,.95)}
+.hero h1 .hl{color:var(--orange)}
+.hero__body{margin:1.25rem 0 2rem;max-width:50ch;font-size:clamp(1rem,1.3vw,1.15rem);color:rgba(255,255,255,.86)}
 .hero__body b{font-weight:600;color:var(--white)}
-
-.starter{background:var(--white);color:var(--navy);border-radius:20px;padding:1.15rem 1.15rem 1.2rem;box-shadow:0 30px 60px -30px rgba(15,20,39,.6);max-width:540px}
-.starter__top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.2rem}
-.starter__top b{font:800 1.1rem/1.25 var(--display);letter-spacing:-.01em}
-.starter__top small{font-size:.75rem;color:var(--slate);white-space:nowrap}
-.starter p{margin:0 0 .8rem;font-size:.9rem;color:var(--slate)}
-.starter__chips{display:grid;grid-template-columns:repeat(5,1fr);gap:.45rem}
-.starter__chips button{min-height:48px;border:1.5px solid var(--line);background:var(--white);border-radius:12px;font-weight:600;font-size:.92rem;cursor:pointer;transition:all .15s}
-.starter__chips button:hover{border-color:var(--orange);background:var(--orange-soft);color:var(--orange-deep)}
-.starter__alt{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem 1.1rem;margin-top:1rem;font-size:.85rem;color:rgba(255,255,255,.95)}
-.starter__alt a{font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
-.starter__alt a:hover{text-decoration:underline}
-.starter__alt span{display:inline-flex;align-items:center;gap:.35rem}
-@media (max-width:520px){.starter__chips{grid-template-columns:repeat(3,1fr)}}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn--glass{--bg:rgba(255,255,255,.1);--fg:var(--white);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6);backdrop-filter:blur(6px)}
+.btn--glass:hover{--bg:var(--white);--fg:var(--navy);box-shadow:0 12px 24px -12px rgba(0,0,0,.5)}
+.hero__proof{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;list-style:none;margin:2.25rem 0 0;padding:0;font-size:.88rem;color:rgba(255,255,255,.85)}
+.hero__proof li{display:inline-flex;align-items:center;gap:.45rem}
+.hero__proof svg{color:var(--orange)}
+.hero__proof img{height:36px;width:auto;border-radius:6px}
+@media (max-width:960px){
+  .hero__bg{object-position:80% 20%;height:52%;bottom:auto}
+  .hero::before{background:linear-gradient(180deg,rgba(15,20,39,.1) 0%,rgba(15,20,39,.3) 26%,rgba(15,20,39,.9) 44%,var(--navy-ink) 54%)}
+  .hero__in{min-height:0;display:block}
+  .hero__copy{padding:clamp(190px,46vw,380px) 0 40px}
+  .hero .kicker{font-size:.66rem;letter-spacing:.08em}
+  .hero__ctas .btn{flex:1 1 0;padding:0 1rem;min-height:54px;font-size:1rem}
+  .hero__proof{margin-top:1.5rem;font-size:.82rem}
+}
 
 /* failure toasts */
-.toasts{position:absolute;inset:0 auto 0 0;width:52%;pointer-events:none}
+.toasts{position:absolute;inset:0;pointer-events:none;z-index:0}
 .toast{position:absolute;display:flex;align-items:center;gap:.6rem;font-weight:500;box-shadow:var(--shadow);opacity:0;transform:translateY(14px) scale(.97);animation:toast-in .55s cubic-bezier(.2,.8,.2,1) forwards}
 .toast--pill{background:var(--navy);color:var(--white);padding:.7rem 1.15rem;border-radius:999px;font-size:clamp(.8rem,1.05vw,.95rem)}
 .toast--pill i{width:20px;height:20px;border:2px solid var(--orange);border-radius:50%;display:grid;place-items:center;font:700 12px/1 var(--body);color:var(--orange);font-style:normal;flex:none}
@@ -185,21 +191,18 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .toast--card small{display:block;font-variant-numeric:tabular-nums;font-size:.78rem;color:var(--slate);margin-top:.15rem}
 .toast__bar{flex-basis:100%;height:5px;border-radius:5px;background:var(--line);overflow:hidden;margin-top:.55rem}
 .toast__bar span{display:block;height:100%;width:30%;background:var(--orange);border-radius:5px;animation:retry 2.4s ease-in-out infinite}
-.t1{left:28%;top:47%;animation-delay:.5s}
-.t2{left:40%;top:63%;animation-delay:1.1s}
-.t3{left:8%;top:80%;animation-delay:1.7s}
+.t1{left:56%;top:24%;animation-delay:.6s}
+.t2{right:4%;bottom:16%;animation-delay:1.2s;width:min(290px,22vw)}
+.t3{left:52%;bottom:22%;animation-delay:1.8s}
 @keyframes toast-in{to{opacity:1;transform:none}}
 @keyframes retry{0%{width:4%}70%{width:38%}100%{width:38%}}
+@media (max-width:1180px){.t3{display:none}}
 @media (max-width:960px){
-  .hero__photo,.toasts{position:relative;width:100%;height:clamp(280px,68vw,440px);clip-path:ellipse(140% 100% at 50% 0%)}
-  .hero__photo img{object-position:35% 22%}
-  .toasts{position:absolute;top:0}
-  .hero__in{display:block;min-height:0}
-  .hero__copy{padding:24px 0 48px}
-  .t1{left:auto;right:4%;top:7%}
+  .toasts{height:52%}
+  .t1{left:auto;right:4%;top:6%}
   .t2{display:none}
-  .t3{display:flex!important;left:auto;right:4%;top:auto;bottom:16%}
-  .hero .kicker{font-size:.66rem;letter-spacing:.08em}
+  .t3{display:none!important}
+}
 }
 
 /* ───────── trust bar */
@@ -372,6 +375,11 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .quote__alt a{color:var(--white);font-weight:600}
 
 .form{background:var(--white);color:var(--navy);border-radius:24px;padding:clamp(1.25rem,3.5vw,2.25rem);box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
+.ftabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:#EEF2F8;border-radius:999px;margin-bottom:1.5rem}
+.ftab{min-height:44px;border:0;border-radius:999px;background:transparent;font-weight:600;font-size:.95rem;color:var(--slate);cursor:pointer;transition:all .18s}
+.ftab:hover{color:var(--navy)}
+.ftab[aria-selected="true"]{background:var(--white);color:var(--navy);box-shadow:0 2px 8px -2px rgba(15,20,39,.2)}
+.form.is-done .ftabs{display:none}
 .prog{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:.75rem}
 .prog i{height:6px;border-radius:6px;background:var(--line);overflow:hidden;position:relative}
 .prog i::after{content:"";position:absolute;inset:0;width:0;background:var(--orange);border-radius:6px;transition:width .4s ease}
@@ -586,7 +594,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 
 <!-- ══════════ HERO ══════════ -->
 <section class="hero" aria-labelledby="hero-title">
-  <div class="hero__photo"><img src="assets/hero-outage.jpg" alt="A business owner holds his head in frustration at his laptop during an email outage" width="1024" height="1024" fetchpriority="high"></div>
+  <img class="hero__bg" src="assets/hero-wide.jpg" alt="" width="1280" height="720" fetchpriority="high">
   <div class="toasts" aria-hidden="true">
     <div class="toast toast--pill t1"><i>!</i>Meeting failed to join</div>
     <div class="toast toast--card t2">
@@ -600,24 +608,17 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
   <div class="wrap hero__in">
     <div class="hero__copy">
       <p class="kicker"><i aria-hidden="true"></i>Microsoft outage hit users in 74 countries</p>
-      <h1 class="display" id="hero-title"><span>Email down.</span><span>Teams down.</span><span>Business down?</span></h1>
+      <h1 class="display" id="hero-title"><span>Email down.</span><span>Teams down.</span><span class="hl">Business down?</span></h1>
       <p class="hero__body">Move to <b>Zoho One</b>: email, meetings, chat and files, plus <b>CRM, accounting, HR and 45+ business apps</b> on one licence, on a cloud that's separate from Microsoft. Set up and supported by CircleTel, an authorised Zoho partner.</p>
-
-      <div class="starter" role="group" aria-labelledby="starter-title">
-        <div class="starter__top"><b id="starter-title">Get your formal Zoho One quote</b><small>Takes about 60 seconds</small></div>
-        <p>How many people work at your company?</p>
-        <div class="starter__chips">
-          <button type="button" data-size="1–10">1–10</button>
-          <button type="button" data-size="11–50">11–50</button>
-          <button type="button" data-size="51–200">51–200</button>
-          <button type="button" data-size="201–500">201–500</button>
-          <button type="button" data-size="500+">500+</button>
-        </div>
+      <div class="hero__ctas">
+        <a class="btn btn--orange btn--lg" href="#quote" data-mode="quote" data-track="hero_quote">Get a quote <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--glass btn--lg" href="#quote" data-mode="demo" data-track="hero_demo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>Book a demo</a>
       </div>
-      <div class="starter__alt">
-        <a href="https://wa.me/27847739467" data-track="whatsapp_hero"><svg width="18" height="18"><use href="#i-wa"/></svg>Rather chat? WhatsApp 084 773 9467</a>
-        <span><svg width="16" height="16"><use href="#i-check"/></svg>No obligation</span>
-      </div>
+      <ul class="hero__proof">
+        <li><img src="assets/zoho-partner.jpg" alt="Zoho Authorized Partner" width="128" height="36"></li>
+        <li><svg width="18" height="18"><use href="#i-check"/></svg>Free, no-obligation quote</li>
+        <li><svg width="18" height="18"><use href="#i-check"/></svg>Local South African support</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -938,9 +939,9 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 <section class="quote" id="quote" aria-labelledby="quote-title">
   <div class="wrap quote__in">
     <div class="quote__aside rv">
-      <p class="kicker">Free, no-obligation quote</p>
-      <h2 class="display" id="quote-title">Get your formal Zoho One quote.</h2>
-      <p class="quote__intro">Answer three short steps. A CircleTel consultant will call to confirm your requirements, then send a formal written quote.</p>
+      <p class="kicker" data-t="kicker">Free, no-obligation quote</p>
+      <h2 class="display" id="quote-title" data-t="title">Get your formal Zoho One quote.</h2>
+      <p class="quote__intro" data-t="intro">Answer three short steps. A CircleTel consultant will call to confirm your requirements, then send a formal written quote.</p>
       <figure class="person">
         <img src="assets/consultant.jpg" alt="A smiling CircleTel consultant wearing a headset at her desk" width="896" height="1120" loading="lazy">
         <figcaption><b>A real person calls you back</b><span>Not a bot. A local consultant who knows Zoho.</span></figcaption>
@@ -955,14 +956,19 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
     </div>
 
     <div class="form" data-form-wrap>
+      <div class="ftabs" role="tablist" aria-label="What would you like?">
+        <button type="button" role="tab" class="ftab" aria-selected="true" data-mode="quote">Get a quote</button>
+        <button type="button" role="tab" class="ftab" aria-selected="false" data-mode="demo">Book a demo</button>
+      </div>
       <form id="quote-form" novalidate>
+        <input type="hidden" name="request_type" value="quote">
         <div class="prog" aria-hidden="true"><i class="now"></i><i></i><i></i></div>
         <div class="form__meta"><span data-step-label>Step 1 of 3</span><b data-step-hint>About 60 seconds</b></div>
 
         <!-- step 1 -->
         <fieldset class="step" data-step="1">
           <legend class="sr">Step 1 of 3: What you need</legend>
-          <h3>What can we quote you for?</h3>
+          <h3 data-t="s1">What can we quote you for?</h3>
           <div class="choices" role="radiogroup" aria-label="Solution">
             <label class="choice"><input type="radio" name="interest" value="Zoho One (full suite)" checked><span class="choice__box"><span><b>Zoho One</b><small>The full suite: email, CRM, finance, HR and 45+ apps</small></span><em>Most popular</em></span></label>
             <label class="choice"><input type="radio" name="interest" value="Zoho Workplace (email and collaboration)"><span class="choice__box"><span><b>Zoho Workplace</b><small>Email, meetings, chat and files only</small></span></span></label>
@@ -999,7 +1005,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
         <!-- step 3 -->
         <fieldset class="step" data-step="3" hidden>
           <legend class="sr">Step 3 of 3: Your contact details</legend>
-          <h3>Where should we send your quote?</h3>
+          <h3 data-t="s3">Where should we send your quote?</h3>
           <div class="grid">
             <div class="f"><label for="first_name">First name *</label><input id="first_name" name="first_name" autocomplete="given-name" data-req><span class="err" id="first_name-err">Enter your first name.</span></div>
             <div class="f"><label for="last_name">Last name *</label><input id="last_name" name="last_name" autocomplete="family-name" data-req><span class="err" id="last_name-err">Enter your last name.</span></div>
@@ -1027,9 +1033,9 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 
       <div class="done" role="status" aria-live="polite" tabindex="-1" data-done>
         <div class="done__icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg></div>
-        <h3>Quote request sent.</h3>
+        <h3 data-t="doneTitle">Quote request sent.</h3>
         <p data-done-msg>Thanks. A CircleTel consultant will contact you to confirm your requirements.</p>
-        <ol><li>We call to confirm your users and the apps you need.</li><li>You receive a formal written quote.</li><li>When you approve it, we set up Zoho One and move you over.</li></ol>
+        <ol data-t="doneSteps"><li>We call to confirm your users and the apps you need.</li><li>You receive a formal written quote.</li><li>When you approve it, we set up Zoho One and move you over.</li></ol>
         <a class="btn" href="https://wa.me/27847739467" data-track="whatsapp_done"><svg width="18" height="18" class="wa"><use href="#i-wa"/></svg>Can't wait? WhatsApp us</a>
       </div>
     </div>
@@ -1174,7 +1180,11 @@ once($("#compare"), () => $("#compare").classList.add("is-in"), .2);
 
 /* mobile bar hides over the form */
 const bar = $("[data-bar]");
-new IntersectionObserver(([e]) => bar.classList.toggle("is-hidden", e.isIntersecting), { threshold: .05 }).observe($("#quote"));
+const vis = { hero: true, quote: false };
+const syncBar = () => bar.classList.toggle("is-hidden", vis.hero || vis.quote);
+new IntersectionObserver(([e]) => { vis.quote = e.isIntersecting; syncBar(); }, { threshold: .05 }).observe($("#quote"));
+new IntersectionObserver(([e]) => { vis.hero = e.isIntersecting; syncBar(); }, { threshold: .15 }).observe($(".hero__ctas"));
+syncBar();
 
 /* ───────── tabs */
 const tabs = $$('[role="tab"]');
@@ -1209,7 +1219,23 @@ const next = $("[data-next]");
 const back = $("[data-back]");
 const status = $("[data-status]");
 const bars = $$(".prog i", form);
-const nextLabels = ["Next: your company", "Next: your details", "Send my quote request"];
+let nextLabels = ["Next: your company", "Next: your details", "Send my quote request"];
+const COPY = {
+  quote: { kicker: "Free, no-obligation quote", title: "Get your formal Zoho One quote.", intro: "Answer three short steps. A CircleTel consultant will call to confirm your requirements, then send a formal written quote.", s1: "What can we quote you for?", s3: "Where should we send your quote?", send: "Send my quote request", doneTitle: "Quote request sent.", doneSteps: ["We call to confirm your users and the apps you need.", "You receive a formal written quote.", "When you approve it, we set up Zoho One and move you over."] },
+  demo:  { kicker: "Free, live walkthrough", title: "Book a Zoho One demo.", intro: "See Zoho One working for a business like yours. A CircleTel consultant will contact you to set a time that suits you.", s1: "What would you like to see?", s3: "Where should we send your demo invite?", send: "Book my demo", doneTitle: "Demo request sent.", doneSteps: ["We contact you to agree on a time.", "You get a live walkthrough of the apps you care about.", "If it's a fit, we send a formal quote."] }
+};
+let mode = "quote";
+function setMode(m) {
+  mode = m;
+  const c = COPY[m];
+  form.elements.request_type.value = m;
+  $$(".ftab").forEach(t => t.setAttribute("aria-selected", String(t.dataset.mode === m)));
+  ["kicker", "title", "intro", "s1", "s3", "doneTitle"].forEach(k => { const el = $(`[data-t="${k}"]`); if (el) el.textContent = c[k]; });
+  $('[data-t="doneSteps"]').innerHTML = c.doneSteps.map(x => `<li>${x}</li>`).join("");
+  nextLabels[2] = c.send;
+  if (step === 2) next.firstChild.textContent = c.send + " ";
+  track("form_mode", { mode: m });
+}
 const hints = ["About 60 seconds", "Almost there", "Last step"];
 let step = 0;
 
@@ -1291,10 +1317,12 @@ form.addEventListener("submit", async ev => {
       console.info("[preview] quote request payload", data);
       await new Promise(r => setTimeout(r, 700));
     }
-    $("[data-done-msg]").textContent = `Thanks, ${data.first_name}. A CircleTel consultant will contact you on ${data.phone} or at ${data.email} to confirm the details for ${data.company}.`;
+    $("[data-done-msg]").textContent = mode === "demo"
+      ? `Thanks, ${data.first_name}. A CircleTel consultant will contact you on ${data.phone} or at ${data.email} to book your Zoho One demo.`
+      : `Thanks, ${data.first_name}. A CircleTel consultant will contact you on ${data.phone} or at ${data.email} to confirm the details for ${data.company}.`;
     wrap.classList.add("is-done");
     $("[data-done]").focus();
-    track("quote_submitted", { interest: data.interest, company_size: data.company_size });
+    track(mode === "demo" ? "demo_submitted" : "quote_submitted", { interest: data.interest, company_size: data.company_size });
   } catch (err) {
     status.textContent = "Your request didn't send. Check your connection and try again, or WhatsApp us on 084 773 9467.";
     status.classList.add("show");
@@ -1303,6 +1331,16 @@ form.addEventListener("submit", async ev => {
     next.firstChild.textContent = nextLabels[step] + " ";
   }
 });
+
+/* quote / demo switch: form tabs and hero buttons */
+$$(".ftab").forEach(t => t.addEventListener("click", () => setMode(t.dataset.mode)));
+$$("a[data-mode]").forEach(a => a.addEventListener("click", e => {
+  e.preventDefault();
+  setMode(a.dataset.mode);
+  if (!wrap.classList.contains("is-done")) show(0, false);
+  $("#quote").scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+  setTimeout(() => { const f = steps[0].querySelector("input:checked"); f && f.focus({ preventScroll: true }); }, reduce ? 0 : 650);
+}));
 
 /* hero starter → preselect size, jump into the form */
 function jumpToForm(fn) {

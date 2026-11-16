@@ -4,13 +4,13 @@ The landing page for the Microsoft vs Zoho social campaign. Its one job is to co
 
 ## Page flow
 
-1. **Hero:** the campaign's outage message, plus a one-tap quote starter (company size) that jumps into the form with that answer filled in.
+1. **Hero:** a full-width photo with the campaign's outage message and two buttons, **Get a quote** and **Book a demo**. Each opens the form in the matching mode.
 2. **Trust bar:** Zoho Authorized Partner, 45+ apps, 100M+ Zoho users, local support.
 3. **Problem:** one provider, one outage. Email, meetings, chat and files flip from down to running on Zoho.
 4. **Zoho One suite:** apps by department (collaboration, sales, marketing, service, finance, HR, analytics), with what each replaces on Microsoft.
 5. **Microsoft vs Zoho:** a 12-row comparison against Microsoft 365 Business Standard, plus a "keep both" backup option.
 6. **How it works:** three steps and what CircleTel includes.
-7. **Quote form:** three steps, with the easy questions first and contact details last.
+7. **Quote form:** a Get a quote / Book a demo switch, then three steps, with the easy questions first and contact details last. Headings, button text and the thank-you message change with the mode.
 8. **FAQ:** answers to the usual objections to switching, then a final call to action.
 
 > **Before going live, check the comparison table** against current Microsoft and Zoho plan pages. Plan inclusions change, and comparative claims must be accurate.
@@ -38,6 +38,7 @@ The endpoint must allow CORS from the page's domain.
 
 | field | notes |
 |---|---|
+| `request_type` | `quote` or `demo` |
 | `interest`, `company_size` | step 1 (`interest` defaults to Zoho One) |
 | `company` | step 2, required |
 | `industry`, `users`, `current_platform` | step 2, optional |
@@ -57,7 +58,8 @@ If Google Tag Manager or GA4 is on the page, these events are pushed to `dataLay
 - `cta_click` (with `cta`, the button that was clicked)
 - `quote_start` (hero size chip)
 - `quote_step` (1–3)
-- `quote_submitted`
+- `quote_submitted` / `demo_submitted`
+- `form_mode` (quote or demo)
 - `suite_tab`
 
 Together they give you a funnel from first click to submitted lead.
@@ -68,7 +70,7 @@ The people photos were generated with Magnific and show South Africans of differ
 
 | file | used in |
 |---|---|
-| `assets/hero-outage.jpg` | hero: stressed business owner (square, subject left of centre) |
+| `assets/hero-wide.jpg` | hero background (16:9, subject on the right third, empty space on the left for copy). Replace with a 2560px-wide version when possible |
 | `assets/team.jpg` | "Here's how we fix it": mixed team (portrait, people centre-right) |
 | `assets/consultant.jpg` | quote form: consultant on a headset (landscape crop) |
 | `assets/business-owner.jpg` | FAQ: small business owner (portrait) |
