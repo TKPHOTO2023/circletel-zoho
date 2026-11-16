@@ -246,20 +246,36 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .suite__count{display:inline-flex;align-items:baseline;gap:.5rem;margin-top:1.25rem;color:rgba(255,255,255,.72);font-size:.95rem}
 .suite__count b{font:800 2.4rem/1 var(--display);color:var(--orange);letter-spacing:-.03em}
 
-.tabs{display:flex;gap:.4rem;overflow-x:auto;scrollbar-width:none;padding:4px;margin:0 calc(var(--gutter) * -1) 0;padding-left:var(--gutter);padding-right:var(--gutter);scroll-snap-type:x mandatory}
-.tabs::-webkit-scrollbar{display:none}
-.tab{flex:none;display:inline-flex;align-items:center;gap:.55rem;min-height:46px;padding:0 1.1rem;border-radius:999px;border:1.5px solid rgba(255,255,255,.14);background:transparent;color:rgba(255,255,255,.8);font-weight:600;font-size:.92rem;cursor:pointer;scroll-snap-align:start;transition:all .18s}
+.suite__body{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr);gap:clamp(32px,5vw,72px);align-items:start}
+.showcase{position:sticky;top:96px}
+.showcase__box{position:relative;margin:0 0 1.75rem;display:grid;place-items:center;padding:1.5rem 0 .5rem}
+.showcase__box::before{content:"";position:absolute;width:86%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(232,122,30,.55) 0%,rgba(232,122,30,.18) 45%,transparent 70%);filter:blur(10px);top:50%;left:50%;transform:translate(-50%,-50%)}
+.showcase__box::after{content:"";position:absolute;bottom:0;left:50%;width:60%;height:28px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(0,0,0,.55),transparent 70%)}
+.showcase__box img{position:relative;width:min(100%,400px);height:auto;filter:drop-shadow(0 40px 40px rgba(0,0,0,.5));animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-10px) rotate(-1deg)}}
+.intro[hidden]{display:none}
+.intro h3{font:800 clamp(1.5rem,2.4vw,2rem)/1.15 var(--display);letter-spacing:-.025em;margin:0 0 .75rem}
+.intro p{margin:0 0 1.1rem;color:rgba(255,255,255,.72)}
+.intro .swap{display:block;font-size:.88rem;color:rgba(255,255,255,.6);border-left:2px solid var(--orange);padding-left:.8rem}
+.intro.is-entering{animation:step-in .35s ease both}
+.catalog{min-width:0}
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:20px}
+.tab{flex:none;display:inline-flex;align-items:center;gap:.55rem;min-height:44px;padding:0 1rem;border-radius:999px;border:1.5px solid rgba(255,255,255,.14);background:transparent;color:rgba(255,255,255,.8);font-weight:600;font-size:.9rem;cursor:pointer;transition:all .18s}
 .tab:hover{border-color:rgba(255,255,255,.4);color:var(--white)}
 .tab[aria-selected="true"]{background:var(--orange);border-color:var(--orange);color:var(--white)}
 .tab span{font-size:.75rem;font-weight:700;background:rgba(255,255,255,.14);border-radius:999px;padding:.1rem .45rem}
 .tab[aria-selected="true"] span{background:rgba(15,20,39,.2)}
-@media (min-width:961px){.tabs{margin:0;padding:4px;flex-wrap:wrap}}
-
-.panel{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,4vw,56px);margin-top:28px;align-items:start}
 .panel[hidden]{display:none}
-.panel__intro h3{font:800 clamp(1.5rem,2.4vw,2rem)/1.15 var(--display);letter-spacing:-.025em;margin:0 0 .75rem}
-.panel__intro p{margin:0 0 1.25rem;color:rgba(255,255,255,.72)}
-.panel__intro .swap{display:block;font-size:.85rem;color:rgba(255,255,255,.55);border-left:2px solid var(--orange);padding-left:.8rem;margin-bottom:1.5rem}
+@media (max-width:960px){
+  .suite__body{grid-template-columns:1fr}
+  .showcase{position:static;display:grid;grid-template-columns:150px 1fr;gap:1.25rem;align-items:center}
+  .showcase__box{margin:0;padding:0}
+  .showcase__box img{width:150px}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 calc(var(--gutter)*-1) 16px;padding:4px var(--gutter);scroll-snap-type:x mandatory}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{scroll-snap-align:start}
+}
+@media (max-width:520px){.showcase{grid-template-columns:1fr;text-align:left}.showcase__box img{width:180px}.showcase__box{justify-items:center}}
 .apps{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;list-style:none;margin:0;padding:0}
 .app{display:grid;grid-template-columns:auto 1fr;gap:.85rem;align-items:start;padding:1rem;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:background .2s,border-color .2s,transform .2s}
 .app:hover{background:rgba(255,255,255,.07);border-color:rgba(232,122,30,.5);transform:translateY(-2px)}
@@ -274,7 +290,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .win h4{font:700 1.1rem/1.3 var(--display);margin:.75rem 0 .35rem}
 .win p{margin:0;font-size:.92rem;color:rgba(255,255,255,.66)}
 .win svg{color:var(--orange)}
-@media (max-width:960px){.panel{grid-template-columns:1fr}.wins{grid-template-columns:1fr}}
+@media (max-width:960px){.wins{grid-template-columns:1fr}}
 @media (max-width:520px){.apps{grid-template-columns:1fr;gap:8px}.app{padding:.8rem .9rem}.app i{width:36px;height:36px}}
 
 /* ───────── Microsoft vs Zoho */
@@ -690,24 +706,61 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
       </div>
     </div>
 
-    <div class="tabs rv" role="tablist" aria-label="Zoho One apps by department">
-      <button class="tab" role="tab" id="tab-collab" aria-controls="p-collab" aria-selected="true">Collaboration <span>10</span></button>
-      <button class="tab" role="tab" id="tab-sales" aria-controls="p-sales" aria-selected="false" tabindex="-1">Sales <span>6</span></button>
-      <button class="tab" role="tab" id="tab-marketing" aria-controls="p-marketing" aria-selected="false" tabindex="-1">Marketing <span>6</span></button>
-      <button class="tab" role="tab" id="tab-service" aria-controls="p-service" aria-selected="false" tabindex="-1">Service <span>4</span></button>
-      <button class="tab" role="tab" id="tab-finance" aria-controls="p-finance" aria-selected="false" tabindex="-1">Finance <span>6</span></button>
-      <button class="tab" role="tab" id="tab-hr" aria-controls="p-hr" aria-selected="false" tabindex="-1">HR <span>4</span></button>
-      <button class="tab" role="tab" id="tab-ops" aria-controls="p-ops" aria-selected="false" tabindex="-1">Analytics &amp; automation <span>6</span></button>
-    </div>
-
-    <div class="panel" role="tabpanel" id="p-collab" aria-labelledby="tab-collab">
-      <div class="panel__intro">
-        <h3>Everything Microsoft 365 does for your team, ad-free.</h3>
+    <div class="suite__body">
+      <aside class="showcase rv">
+        <figure class="showcase__box">
+          <img src="assets/zoho-one-box.webp" alt="Zoho One: the operating system for your business" width="760" height="1064" loading="lazy">
+        </figure>
+        <div class="showcase__copy" aria-live="polite">
+        <div class="intro" id="i-collab">
+          <h3>Everything Microsoft 365 does for your team, ad-free.</h3>
         <p>Email on your own domain, meetings, chat, files and office documents, with the familiar features your staff expect.</p>
         <span class="swap">Covers what you use Outlook, Teams, OneDrive, Word, Excel and PowerPoint for.</span>
-        <a class="btn btn--orange" href="#quote" data-track="cta_suite">Quote me for Zoho One</a>
-      </div>
-      <ul class="apps">
+        </div>
+        <div class="intro" id="i-sales" hidden>
+          <h3>A CRM your sales team will actually use.</h3>
+        <p>Track every lead and deal from first enquiry to signed contract, with your email, calls and quotes in one place.</p>
+        <span class="swap">On Microsoft, this is Dynamics 365 Sales, bought and licensed separately.</span>
+        </div>
+        <div class="intro" id="i-marketing" hidden>
+          <h3>Campaigns, social and your website, connected to sales.</h3>
+        <p>See which campaign brought in which customer, because marketing and CRM share the same data.</p>
+        <span class="swap">On Microsoft, this is Dynamics 365 Customer Insights, a separate product.</span>
+        </div>
+        <div class="intro" id="i-service" hidden>
+          <h3>Answer customers faster, on every channel.</h3>
+        <p>Email, phone, chat and social enquiries land in one helpdesk, with the customer's full history beside each ticket.</p>
+        <span class="swap">On Microsoft, this is Dynamics 365 Customer Service, a separate product.</span>
+        </div>
+        <div class="intro" id="i-finance" hidden>
+          <h3>Accounting that's connected to your sales.</h3>
+        <p>A deal won in CRM becomes an invoice in Books. Track expenses, stock and subscriptions without exporting spreadsheets.</p>
+        <span class="swap">On Microsoft, this is Dynamics 365 Business Central, a separate product.</span>
+        </div>
+        <div class="intro" id="i-hr" hidden>
+          <h3>Hire, onboard and manage your people.</h3>
+        <p>Leave, attendance, performance reviews and recruitment, in the same system your staff already log in to.</p>
+        <span class="swap">Microsoft 365 doesn't include HR or recruitment software.</span>
+        </div>
+        <div class="intro" id="i-ops" hidden>
+          <h3>See the whole business on one dashboard.</h3>
+        <p>Report across sales, finance and support data, then automate the busywork between apps.</p>
+        <span class="swap">On Microsoft, dashboards need Power BI Pro licences.</span>
+        </div>
+        </div>
+      </aside>
+      <div class="catalog rv">
+    <div class="tabs" role="tablist" aria-label="Zoho One apps by department">
+      <button class="tab" role="tab" id="tab-collab" aria-controls="p-collab" data-intro="i-collab" aria-selected="true">Collaboration <span>10</span></button>
+      <button class="tab" role="tab" id="tab-sales" aria-controls="p-sales" data-intro="i-sales" aria-selected="false" tabindex="-1">Sales <span>6</span></button>
+      <button class="tab" role="tab" id="tab-marketing" aria-controls="p-marketing" data-intro="i-marketing" aria-selected="false" tabindex="-1">Marketing <span>6</span></button>
+      <button class="tab" role="tab" id="tab-service" aria-controls="p-service" data-intro="i-service" aria-selected="false" tabindex="-1">Service <span>4</span></button>
+      <button class="tab" role="tab" id="tab-finance" aria-controls="p-finance" data-intro="i-finance" aria-selected="false" tabindex="-1">Finance <span>6</span></button>
+      <button class="tab" role="tab" id="tab-hr" aria-controls="p-hr" data-intro="i-hr" aria-selected="false" tabindex="-1">HR <span>4</span></button>
+      <button class="tab" role="tab" id="tab-ops" aria-controls="p-ops" data-intro="i-ops" aria-selected="false" tabindex="-1">Analytics &amp; automation <span>6</span></button>
+    </div>
+        <div class="panel" role="tabpanel" id="p-collab" aria-labelledby="tab-collab">
+          <ul class="apps">
         <li class="app"><i>Ml</i><div><b>Zoho Mail</b><small>Business email, calendar and contacts on your domain.</small></div></li>
         <li class="app"><i>Mt</i><div><b>Zoho Meeting</b><small>Video meetings and webinars in the browser.</small></div></li>
         <li class="app"><i>Cq</i><div><b>Zoho Cliq</b><small>Team chat, channels and voice calls.</small></div></li>
@@ -719,16 +772,9 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
         <li class="app"><i>Nb</i><div><b>Zoho Notebook</b><small>Notes, checklists and clippings across devices.</small></div></li>
         <li class="app"><i>Vt</i><div><b>Zoho Vault</b><small>Team password manager with access controls.</small></div></li>
       </ul>
-    </div>
-
-    <div class="panel" role="tabpanel" id="p-sales" aria-labelledby="tab-sales" hidden>
-      <div class="panel__intro">
-        <h3>A CRM your sales team will actually use.</h3>
-        <p>Track every lead and deal from first enquiry to signed contract, with your email, calls and quotes in one place.</p>
-        <span class="swap">On Microsoft, this is Dynamics 365 Sales, bought and licensed separately.</span>
-        <a class="btn btn--orange" href="#quote" data-track="cta_suite">Quote me for Zoho One</a>
-      </div>
-      <ul class="apps">
+        </div>
+        <div class="panel" role="tabpanel" id="p-sales" aria-labelledby="tab-sales" hidden>
+          <ul class="apps">
         <li class="app"><i>CRM</i><div><b>Zoho CRM</b><small>Leads, deals, pipelines, forecasts and sales automation.</small></div></li>
         <li class="app"><i>Bg</i><div><b>Bigin</b><small>A simpler pipeline CRM for small teams.</small></div></li>
         <li class="app"><i>SQ</i><div><b>Zoho SalesIQ</b><small>Live chat and visitor tracking on your website.</small></div></li>
@@ -736,16 +782,9 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
         <li class="app"><i>Sg</i><div><b>Zoho Sign</b><small>Legally binding e-signatures on quotes and contracts.</small></div></li>
         <li class="app"><i>Fm</i><div><b>Zoho Forms</b><small>Online forms that feed leads straight into CRM.</small></div></li>
       </ul>
-    </div>
-
-    <div class="panel" role="tabpanel" id="p-marketing" aria-labelledby="tab-marketing" hidden>
-      <div class="panel__intro">
-        <h3>Campaigns, social and your website, connected to sales.</h3>
-        <p>See which campaign brought in which customer, because marketing and CRM share the same data.</p>
-        <span class="swap">On Microsoft, this is Dynamics 365 Customer Insights, a separate product.</span>
-        <a class="btn btn--orange" href="#quote" data-track="cta_suite">Quote me for Zoho One</a>
-      </div>
-      <ul class="apps">
+        </div>
+        <div class="panel" role="tabpanel" id="p-marketing" aria-labelledby="tab-marketing" hidden>
+          <ul class="apps">
         <li class="app"><i>Cp</i><div><b>Zoho Campaigns</b><small>Email newsletters and campaigns.</small></div></li>
         <li class="app"><i>MA</i><div><b>Marketing Automation</b><small>Lead nurturing journeys and scoring.</small></div></li>
         <li class="app"><i>So</i><div><b>Zoho Social</b><small>Schedule and monitor posts across your social channels.</small></div></li>
@@ -753,31 +792,17 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
         <li class="app"><i>Sv</i><div><b>Zoho Survey</b><small>Customer and staff surveys with reports.</small></div></li>
         <li class="app"><i>PS</i><div><b>Zoho PageSense</b><small>Heatmaps and A/B tests for your web pages.</small></div></li>
       </ul>
-    </div>
-
-    <div class="panel" role="tabpanel" id="p-service" aria-labelledby="tab-service" hidden>
-      <div class="panel__intro">
-        <h3>Answer customers faster, on every channel.</h3>
-        <p>Email, phone, chat and social enquiries land in one helpdesk, with the customer's full history beside each ticket.</p>
-        <span class="swap">On Microsoft, this is Dynamics 365 Customer Service, a separate product.</span>
-        <a class="btn btn--orange" href="#quote" data-track="cta_suite">Quote me for Zoho One</a>
-      </div>
-      <ul class="apps">
+        </div>
+        <div class="panel" role="tabpanel" id="p-service" aria-labelledby="tab-service" hidden>
+          <ul class="apps">
         <li class="app"><i>Dk</i><div><b>Zoho Desk</b><small>Helpdesk ticketing, SLAs and a self-service help centre.</small></div></li>
         <li class="app"><i>As</i><div><b>Zoho Assist</b><small>Remote support and unattended access to devices.</small></div></li>
         <li class="app"><i>Ln</i><div><b>Zoho Lens</b><small>Live video support for help in the field.</small></div></li>
         <li class="app"><i>SQ</i><div><b>Zoho SalesIQ</b><small>Website live chat and chatbots.</small></div></li>
       </ul>
-    </div>
-
-    <div class="panel" role="tabpanel" id="p-finance" aria-labelledby="tab-finance" hidden>
-      <div class="panel__intro">
-        <h3>Accounting that's connected to your sales.</h3>
-        <p>A deal won in CRM becomes an invoice in Books. Track expenses, stock and subscriptions without exporting spreadsheets.</p>
-        <span class="swap">On Microsoft, this is Dynamics 365 Business Central, a separate product.</span>
-        <a class="btn btn--orange" href="#quote" data-track="cta_suite">Quote me for Zoho One</a>
-      </div>
-      <ul class="apps">
+        </div>
+        <div class="panel" role="tabpanel" id="p-finance" aria-labelledby="tab-finance" hidden>
+          <ul class="apps">
         <li class="app"><i>Bo</i><div><b>Zoho Books</b><small>Accounting, VAT-ready invoicing and bank feeds.</small></div></li>
         <li class="app"><i>In</i><div><b>Zoho Invoice</b><small>Quotes and invoices with online payment links.</small></div></li>
         <li class="app"><i>Ex</i><div><b>Zoho Expense</b><small>Expense claims, receipts and travel approvals.</small></div></li>
@@ -785,31 +810,17 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
         <li class="app"><i>Bl</i><div><b>Zoho Billing</b><small>Recurring billing and subscriptions.</small></div></li>
         <li class="app"><i>Co</i><div><b>Zoho Commerce</b><small>An online store linked to your stock and books.</small></div></li>
       </ul>
-    </div>
-
-    <div class="panel" role="tabpanel" id="p-hr" aria-labelledby="tab-hr" hidden>
-      <div class="panel__intro">
-        <h3>Hire, onboard and manage your people.</h3>
-        <p>Leave, attendance, performance reviews and recruitment, in the same system your staff already log in to.</p>
-        <span class="swap">Microsoft 365 doesn't include HR or recruitment software.</span>
-        <a class="btn btn--orange" href="#quote" data-track="cta_suite">Quote me for Zoho One</a>
-      </div>
-      <ul class="apps">
+        </div>
+        <div class="panel" role="tabpanel" id="p-hr" aria-labelledby="tab-hr" hidden>
+          <ul class="apps">
         <li class="app"><i>Pp</i><div><b>Zoho People</b><small>Employee records, leave, attendance and reviews.</small></div></li>
         <li class="app"><i>Rc</i><div><b>Zoho Recruit</b><small>Job posts, applicant tracking and interviews.</small></div></li>
         <li class="app"><i>Sh</i><div><b>Zoho Shifts</b><small>Shift scheduling for hourly teams.</small></div></li>
         <li class="app"><i>Wk</i><div><b>Zoho Workerly</b><small>Manage temporary and contract staff.</small></div></li>
       </ul>
-    </div>
-
-    <div class="panel" role="tabpanel" id="p-ops" aria-labelledby="tab-ops" hidden>
-      <div class="panel__intro">
-        <h3>See the whole business on one dashboard.</h3>
-        <p>Report across sales, finance and support data, then automate the busywork between apps.</p>
-        <span class="swap">On Microsoft, dashboards need Power BI Pro licences.</span>
-        <a class="btn btn--orange" href="#quote" data-track="cta_suite">Quote me for Zoho One</a>
-      </div>
-      <ul class="apps">
+        </div>
+        <div class="panel" role="tabpanel" id="p-ops" aria-labelledby="tab-ops" hidden>
+          <ul class="apps">
         <li class="app"><i>An</i><div><b>Zoho Analytics</b><small>Dashboards and reports across all your Zoho data.</small></div></li>
         <li class="app"><i>Cr</i><div><b>Zoho Creator</b><small>Build custom business apps with low code.</small></div></li>
         <li class="app"><i>Fl</i><div><b>Zoho Flow</b><small>Connect apps and automate workflows.</small></div></li>
@@ -817,6 +828,8 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
         <li class="app"><i>Dr</i><div><b>Zoho Directory</b><small>Single sign-on and user management for every app.</small></div></li>
         <li class="app"><i>Sg</i><div><b>Zoho Sign</b><small>Digital signatures with audit trails.</small></div></li>
       </ul>
+        </div>
+      </div>
     </div>
 
     <div class="wins">
@@ -1187,7 +1200,7 @@ new IntersectionObserver(([e]) => { vis.hero = e.isIntersecting; syncBar(); }, {
 syncBar();
 
 /* ───────── tabs */
-const tabs = $$('[role="tab"]');
+const tabs = $$('.tab[role="tab"]');
 function selectTab(tab, focus) {
   tabs.forEach(t => {
     const on = t === tab;
@@ -1195,10 +1208,15 @@ function selectTab(tab, focus) {
     t.tabIndex = on ? 0 : -1;
     const p = document.getElementById(t.getAttribute("aria-controls"));
     p.hidden = !on;
-    if (on) { p.classList.remove("is-entering"); void p.offsetWidth; p.classList.add("is-entering"); }
+    const intro = document.getElementById(t.dataset.intro);
+    if (intro) intro.hidden = !on;
+    if (on) {
+      p.classList.remove("is-entering"); void p.offsetWidth; p.classList.add("is-entering");
+      if (intro) { intro.classList.remove("is-entering"); void intro.offsetWidth; intro.classList.add("is-entering"); }
+    }
   });
   if (focus) tab.focus();
-  tab.scrollIntoView({ block: "nearest", inline: "nearest", behavior: reduce ? "auto" : "smooth" });
+  if (matchMedia("(max-width: 960px)").matches) tab.scrollIntoView({ block: "nearest", inline: "nearest", behavior: reduce ? "auto" : "smooth" });
   track("suite_tab", { tab: tab.id });
 }
 tabs.forEach((t, i) => {
