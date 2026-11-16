@@ -166,10 +166,11 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .hero__ctas{display:flex;flex-wrap:wrap;gap:.75rem}
 .btn--glass{--bg:rgba(255,255,255,.1);--fg:var(--white);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6);backdrop-filter:blur(6px)}
 .btn--glass:hover{--bg:var(--white);--fg:var(--navy);box-shadow:0 12px 24px -12px rgba(0,0,0,.5)}
-.hero__proof{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;list-style:none;margin:2.25rem 0 0;padding:0;font-size:.88rem;color:rgba(255,255,255,.85)}
-.hero__proof li{display:inline-flex;align-items:center;gap:.45rem}
-.hero__proof svg{color:var(--orange)}
-.hero__proof img{height:36px;width:auto;border-radius:6px}
+.hero__proof{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem 1.75rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.14)}
+.hero__badge{height:64px;width:auto;border-radius:10px;box-shadow:0 10px 24px -10px rgba(0,0,0,.6)}
+.hero__proof ul{list-style:none;margin:0;padding:0 0 0 1.75rem;border-left:1px solid rgba(255,255,255,.18);display:grid;gap:.5rem;font-size:.92rem;color:rgba(255,255,255,.88)}
+.hero__proof li{display:flex;align-items:center;gap:.5rem}
+.hero__proof svg{color:var(--orange);flex:none}
 @media (max-width:960px){
   .hero__bg{object-position:80% 20%;height:52%;bottom:auto}
   .hero::before{background:linear-gradient(180deg,rgba(15,20,39,.1) 0%,rgba(15,20,39,.3) 26%,rgba(15,20,39,.9) 44%,var(--navy-ink) 54%)}
@@ -177,7 +178,9 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
   .hero__copy{padding:clamp(190px,46vw,380px) 0 40px}
   .hero .kicker{font-size:.66rem;letter-spacing:.08em}
   .hero__ctas .btn{flex:1 1 0;padding:0 1rem;min-height:54px;font-size:1rem}
-  .hero__proof{margin-top:1.5rem;font-size:.82rem}
+  .hero__proof{margin-top:1.75rem;padding-top:1.5rem;gap:1rem 1.25rem}
+  .hero__badge{height:56px}
+  .hero__proof ul{padding-left:0;border-left:0;font-size:.86rem}
 }
 
 /* failure toasts */
@@ -207,13 +210,13 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 
 /* ───────── trust bar */
 .trust{background:var(--white);border-bottom:1px solid var(--line)}
-.trust__in{display:flex;align-items:center;justify-content:space-between;gap:1rem 2rem;padding:1.25rem 0;flex-wrap:wrap}
-.trust img{height:44px;width:auto;border-radius:8px}
-.trust ul{display:flex;flex-wrap:wrap;gap:.75rem 2.25rem;list-style:none;margin:0;padding:0}
-.trust li{display:flex;align-items:center;gap:.6rem;font-size:.9rem;color:var(--slate);line-height:1.3}
+.trust__in{padding:1.5rem 0}
+.trust ul{display:grid;grid-template-columns:repeat(4,1fr);list-style:none;margin:0;padding:0}
+.trust li{display:flex;align-items:center;justify-content:center;gap:.7rem;font-size:.9rem;color:var(--slate);line-height:1.3;padding:0 1rem}
+.trust li + li{border-left:1px solid var(--line)}
 .trust li b{display:block;font:800 1.05rem/1.2 var(--display);color:var(--navy);letter-spacing:-.01em}
 .trust li svg{color:var(--orange);flex:none}
-@media (max-width:720px){.trust ul{display:grid;grid-template-columns:1fr 1fr;gap:1rem}}
+@media (max-width:860px){.trust ul{grid-template-columns:1fr 1fr;row-gap:1.25rem}.trust li{justify-content:flex-start;padding:0 .75rem}.trust li:nth-child(3){border-left:0}}
 
 /* ───────── outage board */
 .board-unused{padding:clamp(72px,9vw,120px) 0;background:var(--white)}
@@ -598,11 +601,13 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
         <a class="btn btn--orange btn--lg" href="#quote" data-mode="quote" data-track="hero_quote">Get a quote <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
         <a class="btn btn--glass btn--lg" href="#quote" data-mode="demo" data-track="hero_demo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>Book a demo</a>
       </div>
-      <ul class="hero__proof">
-        <li><img src="assets/zoho-partner.jpg" alt="Zoho Authorized Partner" width="128" height="36"></li>
-        <li><svg width="18" height="18"><use href="#i-check"/></svg>Free, no-obligation quote</li>
-        <li><svg width="18" height="18"><use href="#i-check"/></svg>Local South African support</li>
-      </ul>
+      <div class="hero__proof">
+        <img class="hero__badge" src="assets/zoho-partner.jpg" alt="Zoho Authorized Partner" width="232" height="65">
+        <ul>
+          <li><svg width="18" height="18"><use href="#i-check"/></svg>Free, no-obligation quote</li>
+          <li><svg width="18" height="18"><use href="#i-check"/></svg>Local South African support</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -610,7 +615,6 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 <!-- ══════════ TRUST BAR ══════════ -->
 <section class="trust" aria-label="Why businesses choose CircleTel">
   <div class="wrap trust__in">
-    <img src="assets/zoho-partner.jpg" alt="Zoho Authorized Partner" width="157" height="44">
     <ul>
       <li><svg width="22" height="22"><use href="#i-check"/></svg><div><b>45+ apps</b>on one Zoho One licence</div></li>
       <li><svg width="22" height="22"><use href="#i-check"/></svg><div><b>100M+ users</b>run on Zoho worldwide</div></li>
