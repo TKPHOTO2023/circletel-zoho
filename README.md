@@ -7,7 +7,7 @@ The landing page for the Microsoft vs Zoho social campaign. Its one job is to co
 1. **Hero:** a full-width photo with the campaign's outage message and two buttons, **Get a quote** and **Book a demo**. Each opens the form in the matching mode.
 2. **Trust bar:** Zoho Authorized Partner, 45+ apps, 100M+ Zoho users, local support.
 3. **Problem:** one provider, one outage. Email, meetings, chat and files flip from down to running on Zoho.
-4. **Zoho One suite:** the Zoho One product box with copy that changes per department on the left; department tabs and the app list on the right.
+4. **Zoho One:** the product box beside six short benefit bullets, each naming a problem and how Zoho One solves it, with one Get a quote button.
 5. **Microsoft vs Zoho:** a 12-row comparison against Microsoft 365 Business Standard, plus a "keep both" backup option.
 6. **How it works:** three steps and what CircleTel includes.
 7. **Quote form:** a Get a quote / Book a demo switch, then three steps, with the easy questions first and contact details last. Headings, button text and the thank-you message change with the mode.
@@ -60,7 +60,6 @@ If Google Tag Manager or GA4 is on the page, these events are pushed to `dataLay
 - `quote_step` (1–3)
 - `quote_submitted` / `demo_submitted`
 - `form_mode` (quote or demo)
-- `suite_tab`
 
 Together they give you a funnel from first click to submitted lead.
 
