@@ -216,7 +216,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 @media (max-width:720px){.trust ul{display:grid;grid-template-columns:1fr 1fr;gap:1rem}}
 
 /* ───────── outage board */
-.board{padding:clamp(72px,9vw,120px) 0;background:var(--white)}
+.board-unused{padding:clamp(72px,9vw,120px) 0;background:var(--white)}
 .services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;list-style:none;margin:0;padding:0}
 .svc{border:1px solid var(--card-line);border-radius:var(--radius);padding:1.25rem 1.25rem 1.4rem;background:var(--white);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:1rem}
 .svc__label{display:flex;justify-content:space-between;align-items:center;font:800 .7rem/1 var(--display);color:var(--red);text-transform:uppercase;letter-spacing:.1em}
@@ -250,7 +250,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .showcase__box::after{content:"";position:absolute;bottom:0;left:50%;width:60%;height:28px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(0,0,0,.55),transparent 70%)}
 .showcase__box img{position:relative;width:min(100%,420px);height:auto;filter:drop-shadow(0 40px 40px rgba(0,0,0,.5));animation:float 6s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-10px) rotate(-1deg)}}
-.suite__copy .lead{margin:1rem 0 1.75rem}
+.suite__copy .h2{margin-bottom:1.75rem}
 .benefits{list-style:none;margin:0 0 2rem;padding:0;display:grid;gap:1.1rem}
 .benefits li{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start}
 .benefits svg{color:var(--orange);flex:none;margin-top:1px}
@@ -258,11 +258,11 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .benefits span{display:block;font-size:.95rem;color:rgba(255,255,255,.7);margin-top:.1rem}
 @media (max-width:960px){
   .suite__in{grid-template-columns:1fr}
-  .showcase__box img{width:min(64vw,300px)}
+  .showcase__box img{width:min(52vw,220px)}
 }
 
 /* ───────── Microsoft vs Zoho */
-.versus{background:var(--mist);padding:clamp(72px,9vw,120px) 0}
+.versus{background:var(--mist);padding:clamp(64px,8vw,104px) 0}
 .tally{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 .tally__card{border-radius:var(--radius);padding:1.4rem 1.5rem;background:var(--white);border:1px solid var(--card-line);box-shadow:var(--shadow-sm)}
 .tally__card small{display:block;font:800 .72rem/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem}
@@ -279,12 +279,13 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .tally__card--zoho .tally__meter i{background:var(--orange)}
 .versus.is-in .tally__meter i{width:var(--w)}
 
+.vs-wrap{max-width:860px}
 .vs{width:100%;border-collapse:separate;border-spacing:0;background:var(--white);border:1px solid var(--card-line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm)}
 .vs th,.vs td{padding:1rem 1.25rem;text-align:left;vertical-align:middle;border-bottom:1px solid #EDF1F8}
 .vs tbody tr:last-child th,.vs tbody tr:last-child td{border-bottom:0}
 .vs thead th{font:800 .78rem/1.3 var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--slate);background:#FAFBFE}
 .vs thead th.z{color:var(--orange-deep);background:#FFF7F0}
-.vs tbody th{font-weight:600;color:var(--navy);width:34%}
+.vs tbody th{font-weight:600;color:var(--navy);width:44%;font-size:1.02rem}
 .vs tbody th small{display:block;font-weight:400;color:var(--slate);font-size:.82rem;margin-top:.1rem}
 .vs td.z{background:#FFFBF7;border-left:2px solid var(--orange);border-right:0}
 .vs thead th.z{border-left:2px solid var(--orange)}
@@ -296,6 +297,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .z .is-yes svg{color:var(--orange)}
 .is-extra svg,.is-no svg{color:#B4BBC8}
 .is-extra b,.is-no b{color:var(--slate);font-weight:500}
+.vs__note{margin:16px 0 0;font-size:.78rem;color:var(--slate);max-width:860px}
 .vs__foot{display:flex;justify-content:space-between;align-items:center;gap:1rem 2rem;flex-wrap:wrap;margin-top:24px}
 .vs__foot p{margin:0;font-size:.78rem;color:var(--slate);max-width:70ch}
 .keep{display:grid;grid-template-columns:auto 1fr auto;gap:1.25rem;align-items:center;margin-top:28px;background:var(--white);border:1px solid var(--card-line);border-radius:var(--radius);padding:1.25rem 1.5rem}
@@ -303,18 +305,11 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .keep h3{margin:0;font:700 1.1rem/1.3 var(--display);color:var(--navy)}
 .keep p{margin:.2rem 0 0;font-size:.92rem;color:var(--slate)}
 @media (max-width:760px){
-  .tally{grid-template-columns:1fr}
-  .vs thead{display:none}
-  .vs,.vs tbody,.vs tr,.vs th,.vs td{display:block;width:100%}
-  .vs tbody tr{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #EDF1F8}
-  .vs tbody tr:last-child{border-bottom:0}
-  .vs tbody th{grid-column:1/-1;width:auto;border-bottom:0;padding-bottom:.25rem}
-  .vs td{border-bottom:0;padding-top:.5rem}
-  .vs td::before{content:attr(data-label);display:block;font:800 .65rem/1 var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.45rem}
-  .vs td.z::before{color:var(--orange-deep)}
-  .vs td.z{border-left:0;border-radius:10px;margin:0 .5rem .75rem 0;width:auto}
-  .keep{grid-template-columns:auto 1fr}
-  .keep .btn{grid-column:1/-1}
+  .vs th,.vs td{padding:.8rem .6rem}
+  .vs thead th{font-size:.66rem;letter-spacing:.04em}
+  .vs tbody th{width:46%;font-size:.9rem;line-height:1.3}
+  .cell{flex-direction:column;align-items:flex-start;gap:.3rem}
+  .cell b{font-size:.78rem}
 }
 
 /* ───────── how */
@@ -327,7 +322,8 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .steps{list-style:none;margin:0;padding:clamp(1.25rem,3vw,2rem);background:var(--white);color:var(--navy);border-radius:22px;display:grid;gap:1.4rem;box-shadow:var(--shadow);counter-reset:s}
 .steps li{display:grid;grid-template-columns:auto 1fr;gap:1rem;counter-increment:s}
 .steps li::before{content:counter(s);width:40px;height:40px;border-radius:50%;background:var(--orange);color:var(--white);display:grid;place-items:center;font:800 1.05rem/1 var(--display)}
-.steps h3{margin:.2rem 0 .2rem;font:700 1.15rem/1.3 var(--display)}
+.steps li{align-items:center}
+.steps h3{margin:0;font:700 1.15rem/1.3 var(--display)}
 .steps p{margin:0;color:var(--slate);font-size:.95rem;line-height:1.5}
 .included{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 0;padding:0;list-style:none}
 .included li{display:inline-flex;align-items:center;gap:.45rem;padding:.45rem .85rem;border-radius:999px;background:rgba(15,20,39,.16);font-size:.88rem;font-weight:500}
@@ -429,7 +425,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .done h3{font:800 1.7rem/1.2 var(--display);letter-spacing:-.02em;margin:0 0 .5rem}
 .done p{color:var(--slate);margin:0 0 1.25rem}
 .done ol{margin:0 0 1.5rem;padding-left:1.2rem;color:var(--slate);font-size:.92rem;display:grid;gap:.35rem}
-@media (max-width:960px){.quote__in{grid-template-columns:1fr}.quote__aside{order:2}}
+@media (max-width:960px){.quote__in{grid-template-columns:1fr;gap:28px}.quote__aside .person,.quote__aside .quote__badge,.quote__aside .why,.quote__aside .quote__alt{display:none}.quote__intro{margin-bottom:0}}
 @media (max-width:520px){.grid{grid-template-columns:1fr}.choice em{display:none}}
 
 /* ───────── FAQ */
@@ -593,7 +589,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
     <div class="hero__copy">
       <p class="kicker"><i aria-hidden="true"></i>Microsoft outage hit users in 74 countries</p>
       <h1 class="display" id="hero-title"><span>Email down.</span><span>Teams down.</span><span class="hl">Business down?</span></h1>
-      <p class="hero__body">Move to <b>Zoho One</b>: email, meetings, chat and files, plus <b>CRM, accounting, HR and 45+ business apps</b> on one licence, on a cloud that's separate from Microsoft. Set up and supported by CircleTel, an authorised Zoho partner.</p>
+      <p class="hero__body">Zoho One keeps your email, meetings and files running, and gives you the tools to manage sales, invoices and staff, all on one licence. <b>Set up and supported by CircleTel, an authorised Zoho partner.</b></p>
       <div class="hero__ctas">
         <a class="btn btn--orange btn--lg" href="#quote" data-mode="quote" data-track="hero_quote">Get a quote <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
         <a class="btn btn--glass btn--lg" href="#quote" data-mode="demo" data-track="hero_demo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>Book a demo</a>
@@ -620,64 +616,20 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
   </div>
 </section>
 
-<!-- ══════════ PROBLEM ══════════ -->
-<section class="board" aria-labelledby="board-title">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div>
-        <p class="kicker">One provider. One outage.</p>
-        <h2 class="display h2" id="board-title">Don't run your whole business on one cloud.</h2>
-      </div>
-      <p class="lead">When it goes down, your email, meetings, chat and files go with it. Zoho runs on its own data centres, separate from Microsoft's, and covers each one.</p>
-    </div>
-
-    <ul class="services" data-board>
-      <li class="svc rv">
-        <div class="svc__label"><span class="down">Down</span><span class="ok">Running</span><em>Email</em></div>
-        <span class="svc__state"><svg width="14" height="14"><use href="#i-x"/></svg>Outlook</span>
-        <div><p class="svc__zoho">Zoho Mail</p><p>Business email on your own domain, with calendar and contacts.</p></div>
-      </li>
-      <li class="svc rv">
-        <div class="svc__label"><span class="down">Down</span><span class="ok">Running</span><em>Meetings</em></div>
-        <span class="svc__state"><svg width="14" height="14"><use href="#i-x"/></svg>Teams calls</span>
-        <div><p class="svc__zoho">Zoho Meeting</p><p>Video calls and webinars your team and clients join from a browser.</p></div>
-      </li>
-      <li class="svc rv">
-        <div class="svc__label"><span class="down">Down</span><span class="ok">Running</span><em>Chat</em></div>
-        <span class="svc__state"><svg width="14" height="14"><use href="#i-x"/></svg>Teams chat</span>
-        <div><p class="svc__zoho">Zoho Cliq</p><p>Team chat, channels and calls for day-to-day conversations.</p></div>
-      </li>
-      <li class="svc rv">
-        <div class="svc__label"><span class="down">Down</span><span class="ok">Running</span><em>Files</em></div>
-        <span class="svc__state"><svg width="14" height="14"><use href="#i-x"/></svg>OneDrive</span>
-        <div><p class="svc__zoho">Zoho WorkDrive</p><p>Shared team folders, with Writer, Sheet and Show for documents.</p></div>
-      </li>
-    </ul>
-
-    <div class="bridge rv">
-      <p>That's four apps. <span>Zoho One adds 40+ more</span> for sales, finance, HR and support, on the same licence.</p>
-      <a class="btn btn--line" href="#suite">See everything in Zoho One <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ ZOHO ONE SUITE ══════════ -->
+<!-- ══════════ ZOHO ONE ══════════ -->
 <section class="suite" id="suite" aria-labelledby="suite-title">
   <div class="wrap suite__in">
     <figure class="showcase__box rv">
       <img src="assets/zoho-one-box.webp" alt="Zoho One: the operating system for your business" width="760" height="1064" loading="lazy">
     </figure>
     <div class="suite__copy rv">
-      <p class="kicker">Zoho One · The full offering</p>
+      <p class="kicker">Meet Zoho One</p>
       <h2 class="display h2" id="suite-title">One licence. Your whole business.</h2>
-      <p class="lead">Everything Microsoft 365 does for your team, plus the software you run the rest of the business on.</p>
       <ul class="benefits">
-          <li><svg width="26" height="26"><use href="#i-check"/></svg><div><b>Keep working when Microsoft goes down</b><span>Email, meetings, chat and files run on Zoho's own cloud, separate from Microsoft.</span></div></li>
-          <li><svg width="26" height="26"><use href="#i-check"/></svg><div><b>Stop paying for a pile of separate tools</b><span>CRM, accounting, HR, helpdesk and 45+ apps come on one licence.</span></div></li>
-          <li><svg width="26" height="26"><use href="#i-check"/></svg><div><b>Stop typing the same details twice</b><span>A website enquiry becomes a lead, a quote, an invoice and a support ticket automatically.</span></div></li>
-          <li><svg width="26" height="26"><use href="#i-check"/></svg><div><b>One login for your whole team</b><span>Add or remove staff in one place, with every app ready from day one.</span></div></li>
-          <li><svg width="26" height="26"><use href="#i-check"/></svg><div><b>See how the business is doing at a glance</b><span>Live dashboards across sales, finance and support, without exporting spreadsheets.</span></div></li>
-          <li><svg width="26" height="26"><use href="#i-check"/></svg><div><b>Get local help, not a call centre</b><span>CircleTel sets it up, moves your data across and supports your team after you go live.</span></div></li>
+          <li><svg width="26" height="26"><use href="#i-check"/></svg><div><b>Keep working when Microsoft goes down</b><span>Your email, meetings and files run on a separate cloud.</span></div></li>
+          <li><svg width="26" height="26"><use href="#i-check"/></svg><div><b>Replace a pile of apps with one</b><span>Email, sales, invoicing, HR and support on one licence.</span></div></li>
+          <li><svg width="26" height="26"><use href="#i-check"/></svg><div><b>Spend less time on admin</b><span>Enter details once. Quotes, invoices and follow-ups happen automatically.</span></div></li>
+          <li><svg width="26" height="26"><use href="#i-check"/></svg><div><b>We do the setup for you</b><span>CircleTel moves your email and files across and supports your team.</span></div></li>
       </ul>
       <a class="btn btn--orange btn--lg" href="#quote" data-mode="quote" data-track="cta_suite">Get a quote <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
     </div>
@@ -690,79 +642,25 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
     <div class="sec-head rv">
       <div>
         <p class="kicker">Microsoft vs Zoho</p>
-        <h2 class="display h2" id="vs-title">Microsoft 365 runs your office. Zoho One runs your business.</h2>
+        <h2 class="display h2" id="vs-title">Microsoft 365 runs your email. Zoho One runs your whole business.</h2>
       </div>
-      <p class="lead">Microsoft 365 is strong at email and documents. But CRM, accounting, helpdesk, HR and dashboards are separate Microsoft products with separate licences. Zoho One includes them.</p>
+      <p class="lead">With Microsoft, the tools that run the rest of your business cost extra. With Zoho One, they're included.</p>
     </div>
-
-    <div class="tally rv">
-      <div class="tally__card">
-        <small>Microsoft 365 Business Standard</small>
-        <div class="tally__score">4<span>of 12 included</span></div>
-        <div class="tally__meter"><i style="--w:33%"></i></div>
-        <p>Productivity apps are included. Most business software needs more products and licences.</p>
-      </div>
-      <div class="tally__card tally__card--zoho">
-        <small>Zoho One via CircleTel</small>
-        <div class="tally__score">12<span>of 12 included</span></div>
-        <div class="tally__meter"><i style="--w:100%"></i></div>
-        <p>Everything on this list sits under one licence, set up and supported by CircleTel.</p>
-      </div>
+    <div class="vs-wrap rv">
+      <table class="vs">
+        <caption class="sr">What's included in Microsoft 365 Business Standard compared with Zoho One</caption>
+        <thead><tr><th scope="col">What you need</th><th scope="col">Microsoft 365</th><th scope="col" class="z">Zoho One</th></tr></thead>
+        <tbody>
+        <tr><th scope="row">Email, meetings and files</th><td data-label="Microsoft 365"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><b>Included</b></span></td><td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><b>Included</b></span></td></tr>
+        <tr><th scope="row">Track customers and sales</th><td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><b>Costs extra</b></span></td><td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><b>Included</b></span></td></tr>
+        <tr><th scope="row">Quotes, invoices and accounting</th><td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><b>Costs extra</b></span></td><td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><b>Included</b></span></td></tr>
+        <tr><th scope="row">Customer support desk</th><td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><b>Costs extra</b></span></td><td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><b>Included</b></span></td></tr>
+        <tr><th scope="row">Staff leave and HR</th><td data-label="Microsoft 365"><span class="cell is-no"><svg width="22" height="22"><use href="#i-dash"/></svg><b>Not included</b></span></td><td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><b>Included</b></span></td></tr>
+        <tr><th scope="row">Business dashboards</th><td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><b>Costs extra</b></span></td><td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><b>Included</b></span></td></tr>
+        </tbody>
+      </table>
     </div>
-
-    <table class="vs rv">
-      <caption class="sr">What's included in Microsoft 365 Business Standard compared with Zoho One</caption>
-      <thead><tr><th scope="col">What your business needs</th><th scope="col">Microsoft 365 Business Standard</th><th scope="col" class="z">Zoho One via CircleTel</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">Business email on your domain</th>
-          <td data-label="Microsoft 365"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Outlook / Exchange</small></span></span></td>
-          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Zoho Mail</small></span></span></td></tr>
-        <tr><th scope="row">Video meetings and team chat</th>
-          <td data-label="Microsoft 365"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Teams</small></span></span></td>
-          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Meeting and Cliq</small></span></span></td></tr>
-        <tr><th scope="row">File storage and sharing</th>
-          <td data-label="Microsoft 365"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>OneDrive / SharePoint</small></span></span></td>
-          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>WorkDrive</small></span></span></td></tr>
-        <tr><th scope="row">Documents, spreadsheets, slides</th>
-          <td data-label="Microsoft 365"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Word, Excel, PowerPoint</small></span></span></td>
-          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Writer, Sheet, Show</small></span></span></td></tr>
-        <tr><th scope="row">CRM and sales pipeline</th>
-          <td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><span><b>Separate product</b><small>Dynamics 365 Sales</small></span></span></td>
-          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Zoho CRM</small></span></span></td></tr>
-        <tr><th scope="row">Accounting and invoicing</th>
-          <td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><span><b>Separate product</b><small>Dynamics 365 Business Central</small></span></span></td>
-          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Books, Invoice, Expense</small></span></span></td></tr>
-        <tr><th scope="row">Customer helpdesk</th>
-          <td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><span><b>Separate product</b><small>Dynamics 365 Customer Service</small></span></span></td>
-          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Zoho Desk</small></span></span></td></tr>
-        <tr><th scope="row">Email marketing and automation</th>
-          <td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><span><b>Separate product</b><small>Dynamics 365 Customer Insights</small></span></span></td>
-          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Campaigns, Marketing Automation</small></span></span></td></tr>
-        <tr><th scope="row">HR and recruitment</th>
-          <td data-label="Microsoft 365"><span class="cell is-no"><svg width="22" height="22"><use href="#i-dash"/></svg><span><b>Not offered</b><small>Third-party software</small></span></span></td>
-          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>People, Recruit</small></span></span></td></tr>
-        <tr><th scope="row">Business dashboards</th>
-          <td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><span><b>Separate licence</b><small>Power BI Pro</small></span></span></td>
-          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Zoho Analytics</small></span></span></td></tr>
-        <tr><th scope="row">E-signatures</th>
-          <td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><span><b>Pay-as-you-go add-on</b><small>or third-party software</small></span></span></td>
-          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Zoho Sign</small></span></span></td></tr>
-        <tr><th scope="row">Project management<small>Gantt charts, timesheets, dependencies</small></th>
-          <td data-label="Microsoft 365"><span class="cell is-extra"><svg width="22" height="22"><use href="#i-plus"/></svg><span><b>Basic tasks only</b><small>Full Planner is a separate licence</small></span></span></td>
-          <td class="z" data-label="Zoho One"><span class="cell is-yes"><svg width="22" height="22"><use href="#i-check"/></svg><span><b>Included</b><small>Zoho Projects</small></span></span></td></tr>
-      </tbody>
-    </table>
-
-    <div class="vs__foot rv">
-      <p>Based on what Microsoft and Zoho publish for Microsoft 365 Business Standard and Zoho One, November 2026. Plans and inclusions change; your CircleTel quote confirms what applies to you. Microsoft, Microsoft 365, Teams, Outlook, OneDrive and Dynamics 365 are trademarks of Microsoft Corporation. Zoho, Zoho One and Zoho Workplace are trademarks of Zoho Corporation.</p>
-      <a class="btn btn--orange btn--lg" href="#quote" data-track="cta_compare">Compare costs in my quote <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
-    </div>
-
-    <div class="keep rv">
-      <div class="keep__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
-      <div><h3>Not ready to leave Microsoft? Keep both.</h3><p>We set up Zoho as a standby, so your email and meetings keep working during the next Microsoft outage.</p></div>
-      <a class="btn btn--line" href="#quote" data-interest="Zoho as a backup for Microsoft 365" data-track="cta_backup">Quote me for a backup</a>
-    </div>
+    <p class="vs__note rv">Compared with Microsoft 365 Business Standard, November 2026. Your quote confirms what applies to you. Microsoft 365 is a trademark of Microsoft Corporation. Zoho and Zoho One are trademarks of Zoho Corporation.</p>
   </div>
 </section>
 
@@ -771,23 +669,33 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
   <div class="how__photo"><img src="assets/team.jpg" alt="A diverse South African team laughing together around a laptop at work" width="832" height="1248" loading="lazy"></div>
   <div class="wrap">
     <div class="how__in rv">
-      <p class="kicker">Outages happen. Downtime doesn't have to.</p>
-      <h2 class="display" id="how-title">Here's how we fix it.</h2>
+      <p class="kicker">Switching is simple</p>
+      <h2 class="display" id="how-title">We do the work for you.</h2>
       <ol class="steps">
-        <li><div><h3>We check your setup</h3><p>A quick look at how your email, files, meetings and business apps run today.</p></div></li>
-        <li><div><h3>We set up Zoho One</h3><p>As your main suite, or a backup that's ready when you need it. Your domain, users and apps configured for you.</p></div></li>
-        <li><div><h3>We move you over</h3><p>Email, files and calendars moved across, with local CircleTel support after you go live.</p></div></li>
+        <li><div><h3>We look at what you use today</h3></div></li>
+        <li><div><h3>We set up Zoho One for your business</h3></div></li>
+        <li><div><h3>We move your email and files across</h3></div></li>
       </ol>
-      <ul class="included" aria-label="Included with CircleTel">
-        <li><svg width="16" height="16"><use href="#i-check"/></svg>Licensing through an authorised partner</li>
-        <li><svg width="16" height="16"><use href="#i-check"/></svg>Domain and email setup</li>
-        <li><svg width="16" height="16"><use href="#i-check"/></svg>Data migration</li>
-        <li><svg width="16" height="16"><use href="#i-check"/></svg>Local support</li>
-      </ul>
       <div class="how__cta">
-        <a class="btn" href="#quote" data-track="cta_how">Start my quote <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn--white" href="https://wa.me/27847739467" data-track="whatsapp_how"><svg width="18" height="18" class="wa"><use href="#i-wa"/></svg>WhatsApp us</a>
+        <a class="btn" href="#quote" data-mode="quote" data-track="cta_how">Get a quote <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section class="faq" aria-labelledby="faq-title">
+  <div class="wrap faq__in">
+    <div class="rv">
+      <p class="kicker">Questions</p>
+      <h2 class="display h2" id="faq-title">Before you switch.</h2>
+      <p class="lead">Still unsure? WhatsApp us on <a href="https://wa.me/27847739467">084 773 9467</a>.</p>
+    </div>
+    <div class="rv">
+      <details class="qa" open><summary>Do we have to stop using Microsoft?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>No. You can move to Zoho One completely, or keep Microsoft and use Zoho as a backup for when it goes down.</p></div></details>
+      <details class="qa"><summary>Will we lose any emails or files?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>No. We move your email, files and calendars across for you and agree on the switch-over date with you.</p></div></details>
+      <details class="qa"><summary>How much does it cost?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>Zoho One is priced per employee. Your free quote shows exactly what you'll pay, with no obligation.</p></div></details>
+      <details class="qa"><summary>Who helps us after we switch?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>CircleTel does. You get a local team you can phone or WhatsApp.</p></div></details>
     </div>
   </div>
 </section>
@@ -798,15 +706,15 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
     <div class="quote__aside rv">
       <p class="kicker" data-t="kicker">Free, no-obligation quote</p>
       <h2 class="display" id="quote-title" data-t="title">Get your formal Zoho One quote.</h2>
-      <p class="quote__intro" data-t="intro">Answer three short steps. A CircleTel consultant will call to confirm your requirements, then send a formal written quote.</p>
+      <p class="quote__intro" data-t="intro">Three quick steps. A CircleTel consultant will call you, then send a written quote.</p>
       <figure class="person">
         <img src="assets/consultant.jpg" alt="A smiling CircleTel consultant wearing a headset at her desk" width="896" height="1120" loading="lazy">
         <figcaption><b>A real person calls you back</b><span>Not a bot. A local consultant who knows Zoho.</span></figcaption>
       </figure>
       <ul class="why">
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Authorised Zoho partner</b><span>Licensing, setup and migration through an official Zoho partner.</span></div></li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg><div><b>A side-by-side cost comparison</b><span>See Zoho One against what you pay Microsoft and other software today.</span></div></li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><b>Local support</b><span>A South African team you can phone or WhatsApp.</span></div></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>Authorised Zoho partner</b></div></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>Free, no-obligation quote</b></div></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>Local South African support</b></div></li>
       </ul>
       <img class="quote__badge" src="assets/zoho-partner.jpg" alt="Zoho Authorized Partner" width="200" height="56" loading="lazy">
       <p class="quote__alt">Prefer to talk? WhatsApp us on <a href="https://wa.me/27847739467" data-track="whatsapp_quote">084 773 9467</a>.</p>
@@ -895,44 +803,6 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
         <ol data-t="doneSteps"><li>We call to confirm your users and the apps you need.</li><li>You receive a formal written quote.</li><li>When you approve it, we set up Zoho One and move you over.</li></ol>
         <a class="btn" href="https://wa.me/27847739467" data-track="whatsapp_done"><svg width="18" height="18" class="wa"><use href="#i-wa"/></svg>Can't wait? WhatsApp us</a>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ FAQ ══════════ -->
-<section class="faq" aria-labelledby="faq-title">
-  <div class="wrap faq__in">
-    <div class="rv">
-      <p class="kicker">Questions</p>
-      <h2 class="display h2" id="faq-title">Before you switch.</h2>
-      <p class="lead">Can't see your question? WhatsApp us on 084 773 9467 and a consultant will answer.</p>
-      <a class="btn btn--orange" href="#quote" data-track="cta_faq">Get my quote</a>
-      <figure class="faq__photo">
-        <img src="assets/business-owner.jpg" alt="A small business owner smiling at her laptop in her woodworking studio" width="896" height="1120" loading="lazy">
-        <figcaption>Sales, invoicing, stock and staff. One login.</figcaption>
-      </figure>
-    </div>
-    <div class="rv">
-      <details class="qa" open><summary>Do we have to leave Microsoft 365?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>No. You can move completely to Zoho One, or keep Microsoft 365 and run Zoho as a standby that's ready during an outage. Your quote can cover either.</p></div></details>
-      <details class="qa"><summary>What's the difference between Zoho One and Zoho Workplace?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>Zoho Workplace covers email, meetings, chat, files and documents. Zoho One includes Workplace plus 45+ business apps, including CRM, accounting, helpdesk, HR, marketing and analytics.</p></div></details>
-      <details class="qa"><summary>How is Zoho One licensed?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>Per employee. Zoho offers all-employee pricing, where everyone is licensed, and flexible-user pricing, where you license only the people who need it. We'll recommend the one that costs you less.</p></div></details>
-      <details class="qa"><summary>Will we lose emails or files when we move?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>We move your email, files and calendars across for you and plan the cut-over with you, so your team knows exactly when to switch.</p></div></details>
-      <details class="qa"><summary>Is our data secure?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>Zoho runs its own data centres, doesn't show ads in its business apps and says it never sells customer data. Admins control access with single sign-on and multi-factor authentication.</p></div></details>
-      <details class="qa"><summary>Who supports us after we go live?<svg width="20" height="20"><use href="#i-plus"/></svg></summary><div><p>CircleTel does. You get a local team you can phone or WhatsApp, backed by our status as an authorised Zoho partner.</p></div></details>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ FINAL BAND ══════════ -->
-<section class="band" aria-labelledby="band-title">
-  <div class="wrap band__in">
-    <div>
-      <h2 class="display" id="band-title">Be ready before the next outage.</h2>
-      <p>Get a formal Zoho One quote from an authorised Zoho partner. No obligation.</p>
-    </div>
-    <div class="band__ctas">
-      <a class="btn btn--lg" href="#quote" data-track="cta_band">Get my Zoho One quote <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
-      <a href="https://wa.me/27847739467" data-track="whatsapp_band"><svg width="16" height="16"><use href="#i-wa"/></svg>Rather chat? WhatsApp us</a>
     </div>
   </div>
 </section>
@@ -1032,8 +902,8 @@ $$(".rv").forEach(el => { if (el.closest(".services")) el.style.transitionDelay 
 
 const once = (el, fn, threshold = .35) => new IntersectionObserver(([e], o) => { if (e.isIntersecting) { fn(); o.disconnect(); } }, { threshold }).observe(el);
 const board = $("[data-board]");
-once(board, () => setTimeout(() => board.classList.add("is-live"), reduce ? 0 : 1000));
-once($("#compare"), () => $("#compare").classList.add("is-in"), .2);
+if (board) once(board, () => setTimeout(() => board.classList.add("is-live"), reduce ? 0 : 1000));
+if ($("#compare")) once($("#compare"), () => $("#compare").classList.add("is-in"), .2);
 
 /* mobile bar hides over the form */
 const bar = $("[data-bar]");
@@ -1053,8 +923,8 @@ const status = $("[data-status]");
 const bars = $$(".prog i", form);
 let nextLabels = ["Next: your company", "Next: your details", "Send my quote request"];
 const COPY = {
-  quote: { kicker: "Free, no-obligation quote", title: "Get your formal Zoho One quote.", intro: "Answer three short steps. A CircleTel consultant will call to confirm your requirements, then send a formal written quote.", s1: "What can we quote you for?", s3: "Where should we send your quote?", send: "Send my quote request", doneTitle: "Quote request sent.", doneSteps: ["We call to confirm your users and the apps you need.", "You receive a formal written quote.", "When you approve it, we set up Zoho One and move you over."] },
-  demo:  { kicker: "Free, live walkthrough", title: "Book a Zoho One demo.", intro: "See Zoho One working for a business like yours. A CircleTel consultant will contact you to set a time that suits you.", s1: "What would you like to see?", s3: "Where should we send your demo invite?", send: "Book my demo", doneTitle: "Demo request sent.", doneSteps: ["We contact you to agree on a time.", "You get a live walkthrough of the apps you care about.", "If it's a fit, we send a formal quote."] }
+  quote: { kicker: "Free, no-obligation quote", title: "Get your formal Zoho One quote.", intro: "Three quick steps. A CircleTel consultant will call you, then send a written quote.", s1: "What can we quote you for?", s3: "Where should we send your quote?", send: "Send my quote request", doneTitle: "Quote request sent.", doneSteps: ["We call to confirm your users and the apps you need.", "You receive a formal written quote.", "When you approve it, we set up Zoho One and move you over."] },
+  demo:  { kicker: "Free, live walkthrough", title: "Book a Zoho One demo.", intro: "See Zoho One in action. A CircleTel consultant will call you to set a time.", s1: "What would you like to see?", s3: "Where should we send your demo invite?", send: "Book my demo", doneTitle: "Demo request sent.", doneSteps: ["We contact you to agree on a time.", "You get a live walkthrough of the apps you care about.", "If it's a fit, we send a formal quote."] }
 };
 let mode = "quote";
 function setMode(m) {

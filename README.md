@@ -4,14 +4,15 @@ The landing page for the Microsoft vs Zoho social campaign. Its one job is to co
 
 ## Page flow
 
-1. **Hero:** a full-width photo with the campaign's outage message and two buttons, **Get a quote** and **Book a demo**. Each opens the form in the matching mode.
+Kept short and in plain language for non-technical business owners.
+
+1. **Hero:** a full-width photo with the outage message and two buttons, **Get a quote** and **Book a demo**.
 2. **Trust bar:** Zoho Authorized Partner, 45+ apps, 100M+ Zoho users, local support.
-3. **Problem:** one provider, one outage. Email, meetings, chat and files flip from down to running on Zoho.
-4. **Zoho One:** the product box beside six short benefit bullets, each naming a problem and how Zoho One solves it, with one Get a quote button.
-5. **Microsoft vs Zoho:** a 12-row comparison against Microsoft 365 Business Standard, plus a "keep both" backup option.
-6. **How it works:** three steps and what CircleTel includes.
-7. **Quote form:** a Get a quote / Book a demo switch, then three steps, with the easy questions first and contact details last. Headings, button text and the thank-you message change with the mode.
-8. **FAQ:** answers to the usual objections to switching, then a final call to action.
+3. **Meet Zoho One:** the product box beside four plain-language benefits and one Get a quote button.
+4. **Microsoft vs Zoho:** six rows in everyday terms (Included / Costs extra / Not included).
+5. **How it works:** three steps, all done by CircleTel.
+6. **FAQ:** four common questions.
+7. **Quote form:** a Get a quote / Book a demo switch, then three short steps with contact details last.
 
 > **Before going live, check the comparison table** against current Microsoft and Zoho plan pages. Plan inclusions change, and comparative claims must be accurate.
 
