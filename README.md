@@ -12,7 +12,7 @@ Kept short and in plain language for non-technical business owners.
 4. **Microsoft vs Zoho:** six rows in everyday terms (Included / Costs extra / Not included).
 5. **How it works:** three steps, all done by CircleTel.
 6. **FAQ:** four common questions.
-7. **Quote form:** a Get a quote / Book a demo switch, then three short steps with contact details last.
+7. **Quote form:** a Get a quote / Book a demo switch, then three short steps: (1) what happened during the outage and how many users, (2) company, industry and current email, (3) contact details.
 
 > **Before going live, check the comparison table** against current Microsoft and Zoho plan pages. Plan inclusions change, and comparative claims must be accurate.
 
@@ -37,17 +37,23 @@ The endpoint must allow CORS from the page's domain.
 
 ### Payload
 
-| field | notes |
-|---|---|
-| `request_type` | `quote` or `demo` |
-| `interest`, `company_size` | step 1 (`interest` defaults to Zoho One) |
-| `company` | step 2, required |
-| `industry`, `users`, `current_platform` | step 2, optional |
-| `first_name`, `last_name`, `email`, `phone` | step 3, required |
-| `job_title` | step 3, optional |
-| `consent` | always `true` (POPIA tick box is required) |
-| `utm_source`, `utm_medium`, `utm_campaign`, `utm_content` | read from the URL, for campaign attribution |
-| `page`, `submitted_at`, `lead_source` | added automatically |
+| field | step | notes |
+|---|---|---|
+| `request_type` | | `quote` or `demo` |
+| `outage_response` | 1 | what the business did when Microsoft went down: `Work stopped`, `Moved to WhatsApp or personal email`, `Waited for it to come back` or `Not affected` |
+| `licences` | 1 | licences or users today: `1–5`, `6–20`, `21–50`, `51–200`, `200+` or `Not sure` |
+| `company` | 2 | company name |
+| `industry` | 2 | from a dropdown |
+| `current_platform` | 2 | email used today, from a dropdown |
+| `full_name` | 3 | full name and surname |
+| `email` | 3 | work email |
+| `phone` | 3 | phone number |
+| `job_title` | 3 | job title |
+| `consent` | 3 | always `true` (the POPIA tick box is required) |
+| `utm_source`, `utm_medium`, `utm_campaign`, `utm_content` | | read from the URL, for campaign attribution |
+| `page`, `submitted_at`, `lead_source` | | added automatically |
+
+Every question is required.
 
 Tag the social ads' links with UTMs so each lead shows which post it came from, for example:
 `?utm_source=facebook&utm_medium=paid_social&utm_campaign=ms-vs-zoho&utm_content=email-down`

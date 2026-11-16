@@ -404,7 +404,11 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .chip:hover span{border-color:#C7CCD6}
 .chip input:checked + span{background:var(--navy);border-color:var(--navy);color:var(--white)}
 .chip input:focus-visible + span{outline:3px solid var(--orange);outline-offset:2px}
-.chipset.has-error .chip span{border-color:var(--red)}
+.chipset.has-error .chip span,.chipset.has-error .choice__box{border-color:var(--red)}
+.chipset .f-label{margin-bottom:.35rem}
+.choices--compact{gap:.5rem}
+.choices--compact .choice__box{padding:.75rem .95rem;grid-template-columns:auto 1fr}
+.choices--compact .choice b{font:600 .95rem/1.35 var(--body)}
 
 .consent{display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start;font-size:.85rem;color:var(--slate);margin:1.1rem 0 0}
 .consent input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--orange)}
@@ -732,56 +736,57 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 
         <!-- step 1 -->
         <fieldset class="step" data-step="1">
-          <legend class="sr">Step 1 of 3: What you need</legend>
-          <h3 data-t="s1">What can we quote you for?</h3>
-          <div class="choices" role="radiogroup" aria-label="Solution">
-            <label class="choice"><input type="radio" name="interest" value="Zoho One (full suite)" checked><span class="choice__box"><span><b>Zoho One</b><small>The full suite: email, CRM, finance, HR and 45+ apps</small></span><em>Most popular</em></span></label>
-            <label class="choice"><input type="radio" name="interest" value="Zoho Workplace (email and collaboration)"><span class="choice__box"><span><b>Zoho Workplace</b><small>Email, meetings, chat and files only</small></span></span></label>
-            <label class="choice"><input type="radio" name="interest" value="Zoho as a backup for Microsoft 365"><span class="choice__box"><span><b>A backup for Microsoft 365</b><small>Keep Microsoft, with Zoho ready for outages</small></span></span></label>
-            <label class="choice"><input type="radio" name="interest" value="Not sure, advise me"><span class="choice__box"><span><b>Not sure yet</b><small>Advise me on the best fit</small></span></span></label>
-          </div>
-          <div class="f f--full chipset" style="margin-top:1.25rem" data-chipset="company_size">
-            <span class="f-label" id="size-label">Company size *</span>
-            <div class="chips" role="radiogroup" aria-labelledby="size-label">
-              <label class="chip"><input type="radio" name="company_size" value="1–10"><span>1–10</span></label>
-              <label class="chip"><input type="radio" name="company_size" value="11–50"><span>11–50</span></label>
-              <label class="chip"><input type="radio" name="company_size" value="51–200"><span>51–200</span></label>
-              <label class="chip"><input type="radio" name="company_size" value="201–500"><span>201–500</span></label>
-              <label class="chip"><input type="radio" name="company_size" value="500+"><span>500+</span></label>
+          <legend class="sr">Step 1 of 3: Your business</legend>
+          <h3 data-t="s1">Tell us about your business.</h3>
+          <div class="f f--full chipset" data-group="outage_response">
+            <span class="f-label" id="outage-label">What did your business do when Microsoft went down? *</span>
+            <div class="choices choices--compact" role="radiogroup" aria-labelledby="outage-label">
+              <label class="choice"><input type="radio" name="outage_response" value="Work stopped"><span class="choice__box"><span><b>Work stopped. We couldn't email or meet.</b></span></span></label>
+              <label class="choice"><input type="radio" name="outage_response" value="Moved to WhatsApp or personal email"><span class="choice__box"><span><b>We moved to WhatsApp or personal email.</b></span></span></label>
+              <label class="choice"><input type="radio" name="outage_response" value="Waited for it to come back"><span class="choice__box"><span><b>We waited for it to come back.</b></span></span></label>
+              <label class="choice"><input type="radio" name="outage_response" value="Not affected"><span class="choice__box"><span><b>We weren't affected.</b></span></span></label>
             </div>
-            <span class="err" id="company_size-err">Choose how many people work at your company.</span>
+            <span class="err" id="outage_response-err">Choose the answer closest to what happened.</span>
+          </div>
+          <div class="f f--full chipset" style="margin-top:1.25rem" data-group="licences">
+            <span class="f-label" id="lic-label">How many licences or users do you have today? *</span>
+            <div class="chips" role="radiogroup" aria-labelledby="lic-label">
+              <label class="chip"><input type="radio" name="licences" value="1–5"><span>1–5</span></label>
+              <label class="chip"><input type="radio" name="licences" value="6–20"><span>6–20</span></label>
+              <label class="chip"><input type="radio" name="licences" value="21–50"><span>21–50</span></label>
+              <label class="chip"><input type="radio" name="licences" value="51–200"><span>51–200</span></label>
+              <label class="chip"><input type="radio" name="licences" value="200+"><span>200+</span></label>
+              <label class="chip"><input type="radio" name="licences" value="Not sure"><span>Not sure</span></label>
+            </div>
+            <span class="err" id="licences-err">Choose how many users you have.</span>
           </div>
         </fieldset>
 
-        <!-- step 2 -->
         <fieldset class="step" data-step="2" hidden>
           <legend class="sr">Step 2 of 3: Your company</legend>
-          <h3>Tell us about your company.</h3>
+          <h3>About your company.</h3>
           <div class="grid">
             <div class="f f--full"><label for="company">Company name *</label><input id="company" name="company" autocomplete="organization" data-req><span class="err" id="company-err">Enter your company name.</span></div>
-            <div class="f"><label for="industry">Industry <span class="opt">(optional)</span></label>
-              <select id="industry" name="industry"><option value="">Select one</option><option>Professional services</option><option>Retail and e-commerce</option><option>Manufacturing</option><option>Construction and property</option><option>Logistics and transport</option><option>Healthcare</option><option>Education</option><option>Financial services</option><option>Hospitality</option><option>Non-profit</option><option>Other</option></select></div>
-            <div class="f"><label for="users">Users who need accounts <span class="opt">(optional)</span></label><input id="users" name="users" type="number" min="1" inputmode="numeric" placeholder="e.g. 25"></div>
-            <div class="f f--full"><label for="current_platform">What do you use for email today? <span class="opt">(optional)</span></label>
-              <select id="current_platform" name="current_platform"><option value="">Select one</option><option>Microsoft 365</option><option>Google Workspace</option><option>Hosted / cPanel email</option><option>Other</option><option>Not sure</option></select></div>
+            <div class="f f--full"><label for="industry">Industry *</label>
+              <select id="industry" name="industry" data-req><option value="">Select your industry</option><option>Professional services</option><option>Retail and e-commerce</option><option>Manufacturing</option><option>Construction and property</option><option>Logistics and transport</option><option>Healthcare</option><option>Education</option><option>Financial services</option><option>Hospitality</option><option>Non-profit</option><option>Other</option></select><span class="err" id="industry-err">Choose your industry.</span></div>
+            <div class="f f--full"><label for="current_platform">What do you use for email today? *</label>
+              <select id="current_platform" name="current_platform" data-req><option value="">Select one</option><option>Microsoft 365</option><option>Google Workspace</option><option>Hosted / cPanel email</option><option>Other</option><option>Not sure</option></select><span class="err" id="current_platform-err">Choose what you use for email.</span></div>
           </div>
         </fieldset>
 
-        <!-- step 3 -->
         <fieldset class="step" data-step="3" hidden>
           <legend class="sr">Step 3 of 3: Your contact details</legend>
           <h3 data-t="s3">Where should we send your quote?</h3>
           <div class="grid">
-            <div class="f"><label for="first_name">First name *</label><input id="first_name" name="first_name" autocomplete="given-name" data-req><span class="err" id="first_name-err">Enter your first name.</span></div>
-            <div class="f"><label for="last_name">Last name *</label><input id="last_name" name="last_name" autocomplete="family-name" data-req><span class="err" id="last_name-err">Enter your last name.</span></div>
+            <div class="f f--full"><label for="full_name">Full name and surname *</label><input id="full_name" name="full_name" autocomplete="name" data-req><span class="err" id="full_name-err">Enter your full name and surname.</span></div>
             <div class="f"><label for="email">Work email *</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="name@company.co.za" data-req><span class="err" id="email-err">Enter a valid email, like name@company.co.za.</span></div>
-            <div class="f"><label for="phone">Mobile number *</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="082 123 4567" data-req><span class="err" id="phone-err">Enter a number we can call, like 082 123 4567.</span></div>
-            <div class="f f--full"><label for="job_title">Job title <span class="opt">(optional)</span></label><input id="job_title" name="job_title" autocomplete="organization-title"></div>
+            <div class="f"><label for="phone">Phone number *</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="082 123 4567" data-req><span class="err" id="phone-err">Enter a number we can call, like 082 123 4567.</span></div>
+            <div class="f f--full"><label for="job_title">Job title *</label><input id="job_title" name="job_title" autocomplete="organization-title" data-req><span class="err" id="job_title-err">Enter your job title.</span></div>
           </div>
           <label class="consent" id="consent-wrap">
             <input type="checkbox" name="consent" id="consent">
-            <span>I agree that CircleTel may contact me about this quote and process my details in line with POPIA. *</span>
-            <span class="err" id="consent-err">Tick this box so we can contact you about your quote.</span>
+            <span>I agree that CircleTel may contact me about this request and process my details in line with POPIA. *</span>
+            <span class="err" id="consent-err">Tick this box so we can contact you.</span>
           </label>
         </fieldset>
 
@@ -923,8 +928,8 @@ const status = $("[data-status]");
 const bars = $$(".prog i", form);
 let nextLabels = ["Next: your company", "Next: your details", "Send my quote request"];
 const COPY = {
-  quote: { kicker: "Free, no-obligation quote", title: "Get your formal Zoho One quote.", intro: "Three quick steps. A CircleTel consultant will call you, then send a written quote.", s1: "What can we quote you for?", s3: "Where should we send your quote?", send: "Send my quote request", doneTitle: "Quote request sent.", doneSteps: ["We call to confirm your users and the apps you need.", "You receive a formal written quote.", "When you approve it, we set up Zoho One and move you over."] },
-  demo:  { kicker: "Free, live walkthrough", title: "Book a Zoho One demo.", intro: "See Zoho One in action. A CircleTel consultant will call you to set a time.", s1: "What would you like to see?", s3: "Where should we send your demo invite?", send: "Book my demo", doneTitle: "Demo request sent.", doneSteps: ["We contact you to agree on a time.", "You get a live walkthrough of the apps you care about.", "If it's a fit, we send a formal quote."] }
+  quote: { kicker: "Free, no-obligation quote", title: "Get your formal Zoho One quote.", intro: "Three quick steps. A CircleTel consultant will call you, then send a written quote.", s1: "Tell us about your business.", s3: "Where should we send your quote?", send: "Send my quote request", doneTitle: "Quote request sent.", doneSteps: ["We call to confirm your users and the apps you need.", "You receive a formal written quote.", "When you approve it, we set up Zoho One and move you over."] },
+  demo:  { kicker: "Free, live walkthrough", title: "Book a Zoho One demo.", intro: "See Zoho One in action. A CircleTel consultant will call you to set a time.", s1: "Tell us about your business.", s3: "Where should we send your demo invite?", send: "Book my demo", doneTitle: "Demo request sent.", doneSteps: ["We contact you to agree on a time.", "You get a live walkthrough of the apps you care about.", "If it's a fit, we send a formal quote."] }
 };
 let mode = "quote";
 function setMode(m) {
@@ -973,12 +978,11 @@ function checkStep(i) {
   const s = steps[i];
   let ok = true, first = null;
   $$("[data-req]", s).forEach(el => { if (!checkField(el)) { ok = false; first = first || el; } });
-  if (i === 0) {
-    const set = $("[data-chipset=company_size]");
-    const has = !!form.querySelector("input[name=company_size]:checked");
+  $$("[data-group]", s).forEach(set => {
+    const has = !!set.querySelector("input:checked");
     set.classList.toggle("has-error", !has);
     if (!has) { ok = false; first = first || set.querySelector("input"); }
-  }
+  });
   if (i === 2) {
     const c = form.elements.consent.checked;
     $("#consent-wrap").classList.toggle("has-error", !c);
@@ -990,9 +994,10 @@ function checkStep(i) {
 $$("[data-req]", form).forEach(el => {
   el.addEventListener("blur", () => { if (el.value) checkField(el); });
   el.addEventListener("input", () => { if (el.closest(".f").classList.contains("has-error")) checkField(el); });
+  el.addEventListener("change", () => { if (el.closest(".f").classList.contains("has-error")) checkField(el); });
 });
 form.addEventListener("change", e => {
-  if (e.target.name === "company_size") $("[data-chipset=company_size]").classList.remove("has-error");
+  const grp = e.target.closest("[data-group]"); if (grp) grp.classList.remove("has-error");
   if (e.target.name === "consent" && e.target.checked) $("#consent-wrap").classList.remove("has-error");
 });
 back.addEventListener("click", () => show(step - 1));
@@ -1019,12 +1024,13 @@ form.addEventListener("submit", async ev => {
       console.info("[preview] quote request payload", data);
       await new Promise(r => setTimeout(r, 700));
     }
+    const firstName = (data.full_name || "").trim().split(/\s+/)[0];
     $("[data-done-msg]").textContent = mode === "demo"
-      ? `Thanks, ${data.first_name}. A CircleTel consultant will contact you on ${data.phone} or at ${data.email} to book your Zoho One demo.`
-      : `Thanks, ${data.first_name}. A CircleTel consultant will contact you on ${data.phone} or at ${data.email} to confirm the details for ${data.company}.`;
+      ? `Thanks, ${firstName}. A CircleTel consultant will contact you on ${data.phone} or at ${data.email} to book your Zoho One demo.`
+      : `Thanks, ${firstName}. A CircleTel consultant will contact you on ${data.phone} or at ${data.email} to confirm the details for ${data.company}.`;
     wrap.classList.add("is-done");
     $("[data-done]").focus();
-    track(mode === "demo" ? "demo_submitted" : "quote_submitted", { interest: data.interest, company_size: data.company_size });
+    track(mode === "demo" ? "demo_submitted" : "quote_submitted", { licences: data.licences, outage_response: data.outage_response, current_platform: data.current_platform });
   } catch (err) {
     status.textContent = "Your request didn't send. Check your connection and try again, or WhatsApp us on 084 773 9467.";
     status.classList.add("show");
@@ -1041,24 +1047,7 @@ $$("a[data-mode]").forEach(a => a.addEventListener("click", e => {
   setMode(a.dataset.mode);
   if (!wrap.classList.contains("is-done")) show(0, false);
   $("#quote").scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
-  setTimeout(() => { const f = steps[0].querySelector("input:checked"); f && f.focus({ preventScroll: true }); }, reduce ? 0 : 650);
-}));
-
-/* hero starter → preselect size, jump into the form */
-function jumpToForm(fn) {
-  fn();
-  if (wrap.classList.contains("is-done")) return;
-  $("#quote").scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
-  setTimeout(() => { const s = steps[step].querySelector("input:checked, input, select"); s && s.focus({ preventScroll: true }); }, reduce ? 0 : 650);
-}
-$$("[data-size]").forEach(b => b.addEventListener("click", () => jumpToForm(() => {
-  const r = form.querySelector(`input[name=company_size][value="${b.dataset.size}"]`);
-  if (r) { r.checked = true; $("[data-chipset=company_size]").classList.remove("has-error"); }
-  track("quote_start", { company_size: b.dataset.size });
-})));
-$$("a[data-interest]").forEach(a => a.addEventListener("click", e => {
-  e.preventDefault();
-  jumpToForm(() => { const r = form.querySelector(`input[name=interest][value="${a.dataset.interest}"]`); if (r) r.checked = true; show(0, false); });
+  setTimeout(() => { const f = steps[0].querySelector("input"); f && f.focus({ preventScroll: true }); }, reduce ? 0 : 650);
 }));
 
 $("[data-year]").textContent = new Date().getFullYear();
